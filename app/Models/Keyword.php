@@ -8,4 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Keyword extends Model
 {
     use HasFactory;
+
+    protected $guarded = [''];
+    protected $table = 'keywords';
 }
