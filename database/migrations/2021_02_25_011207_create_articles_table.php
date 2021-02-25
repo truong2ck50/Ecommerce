@@ -15,7 +15,7 @@ class CreateArticlesTable extends Migration
     {
         Schema::create('articles', function (Blueprint $table) {
             $table->id();
-            $table->string('a_name');
+            $table->string('a_name')->unique();
             $table->string('a_slug')->index();
             $table->tinyInteger('a_hot')->default(0)->index();
             $table->tinyInteger('a_active')->default(1)->index();
