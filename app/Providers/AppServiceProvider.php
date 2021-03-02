@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use App\Models\Category;
+use App\Models\Menu;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\View;
 
@@ -27,10 +28,12 @@ class AppServiceProvider extends ServiceProvider
     {
         try{
             $categoriesGlobal = Category::all();
+            $menusGlobal = Menu::all();
         } catch(\Exception $exception)
         {
 
         }
         View::share('categoriesGlobal', $categoriesGlobal ?? []);
+        View::share('menusGlobal', $menusGlobal ?? []);
     }
 }
