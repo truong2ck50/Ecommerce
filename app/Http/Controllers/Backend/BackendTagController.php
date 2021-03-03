@@ -8,6 +8,7 @@ use Carbon\Carbon;
 use App\Http\Requests\BackendTagRequest;
 use App\Models\Tag;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class BackendTagController extends Controller
 {
@@ -28,21 +29,34 @@ class BackendTagController extends Controller
     public function store(BackendTagRequest $request) {
         $data = $request->except('_token');
         $data['t_slug'] = Str::slug($request->t_name);
-        $data['create_at'] = Carbon::now();
-        $tag = Tag::create($data);
+        $data['created_at'] = Carbon::now();
+        Tag::create($data);
 
         return redirect()->back();
     }
 
     public function edit($id) {
-        return view($this->folder.'update');
+        $tag = Tag::find($id);
+        $tags = Tag::orderByDesc('id')->get();
+        $viewData = [
+            'tags' => $tags,
+            'tag'  => $tag
+        ];
+
+        return view($this->folder.'update', $viewData);
     }
 
-    public function update($id) {
+    public function update(BackendTagRequest $request, $id) {
+        $data = $request->except('_token');
+        $data['t_slug'] = Str::slug($request->t_name);
+        $data['updated_at'] = Carbon::now();
+        Tag::find($id)->update($data);
 
+        return redirect()->back();
     }
 
     public function delete($id) {
-        
+       DB::table('tags')->where('id', $id)->delete();
+       return redirect()->back();
     }
 }
