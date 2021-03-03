@@ -77,7 +77,7 @@ Route::group(['namespace' => 'Backend', 'prefix' => 'admin'], function () {
         Route::get('', 'BackendTagController@index')->name('get_backend.tag.index');
 
         Route::get('create', 'BackendTagController@create')->name('get_backend.tag.create');
-        Route::post('create', 'BackendTagController@store');
+        Route::post('create', 'BackendTagController@store')->name('get_backend.tag.store');
 
         Route::get('update/{id}', 'BackendTagController@edit')->name('get_backend.tag.update');
         Route::post('update/{id}', 'BackendTagController@update');

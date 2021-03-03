@@ -4,9 +4,9 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class BakendArticleRequest extends FormRequest
+class BackendArticleRequest extends FormRequest
 {
-    /**
+   /**
      * Determine if the user is authorized to make this request.
      *
      * @return bool
@@ -24,10 +24,10 @@ class BakendArticleRequest extends FormRequest
     public function rules()
     {
         return [
-            'a_name'        => 'required|unique:articles,a_name'.$this->id,
+            'a_name'        => 'required|unique:articles,a_name,'.$this->id,
             'a_menu_id'     => 'required',
             'a_description' => 'required',
-            'a_content'     => 'required'
+            'a_content'     => 'required',
         ];
     }
 
@@ -39,5 +39,5 @@ class BakendArticleRequest extends FormRequest
             'a_description.required' => 'Dữ liệu không được để trống',
             'a_content.required'     => 'Dữ liệu không được để trống'
         ];
-    }
+    } 
 }

@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class BakendKeywordRequest extends FormRequest
+class BackendMenuRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,14 +24,14 @@ class BakendKeywordRequest extends FormRequest
     public function rules()
     {
         return [
-            'k_name' => 'required|unique:keywords,k_name'.$this->id
+            'mn_name' => 'required|unique:menus,mn_name,'.$this->id
         ];
     }
 
     public function messages() {
         return [
-            'k_name.required' => 'Dữ liệu không được để trống',
-            'k_name.unique'   => 'Dữ liệu đã tồn tại'
+            'mn_name.required' => 'Dữ liệu không được để trống',
+            'mn_name.unique'   => 'Dữ liệu đã tồn tại'
         ];
     }
 }
