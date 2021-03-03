@@ -22,10 +22,6 @@ class BackendTagController extends Controller
         return view($this->folder.'index', $viewData);
     }
 
-    public function create() {
-        return view($this->folder.'create');
-    }
-
     public function store(BackendTagRequest $request) {
         $data = $request->except('_token');
         $data['t_slug'] = Str::slug($request->t_name);
