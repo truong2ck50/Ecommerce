@@ -25,7 +25,7 @@ Route::group(['namespace' => 'Backend', 'prefix' => 'admin'], function () {
         Route::get('', 'BackendCategoryController@index')->name('get_backend.category.index');
 
         Route::get('create', 'BackendCategoryController@create')->name('get_backend.category.create');
-        Route::post('create', 'BackendCategoryController@store');
+        Route::post('create', 'BackendCategoryController@store')->name('get_backend.category.store');
 
         Route::get('update/{id}', 'BackendCategoryController@edit')->name('get_backend.category.update');
         Route::post('update/{id}', 'BackendCategoryController@update');
