@@ -38,7 +38,7 @@ Route::group(['namespace' => 'Backend', 'prefix' => 'admin'], function () {
         Route::get('', 'BackendKeywordController@index')->name('get_backend.keyword.index');
 
         Route::get('create', 'BackendKeywordController@create')->name('get_backend.keyword.create');
-        Route::post('create', 'BackendKeywordController@store');
+        Route::post('create', 'BackendKeywordController@store')->name('get_backend.keyword.store');
 
         Route::get('update/{id}', 'BackendKeywordController@edit')->name('get_backend.keyword.update');
         Route::post('update/{id}', 'BackendKeywordController@update');

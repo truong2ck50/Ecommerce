@@ -13,8 +13,9 @@ use Illuminate\Support\Facades\DB;
 class BackendTagController extends Controller
 {
     protected $folder = 'backend.tag.';
+
     public function index() {
-        $tags = Tag::orderByDesc('id')->get();
+        $tags     = Tag::orderByDesc('id')->get();
         $viewData = [
             'tags' => $tags
         ];
@@ -23,17 +24,17 @@ class BackendTagController extends Controller
     }
 
     public function store(BackendTagRequest $request) {
-        $data = $request->except('_token');
-        $data['t_slug'] = Str::slug($request->t_name);
+        $data               = $request->except('_token');
+        $data['t_slug']     = Str::slug($request->t_name);
         $data['created_at'] = Carbon::now();
-        Tag::create($data);
+        $tag                = Tag::create($data);
 
         return redirect()->back();
     }
 
     public function edit($id) {
-        $tag = Tag::find($id);
-        $tags = Tag::orderByDesc('id')->get();
+        $tag      = Tag::find($id);
+        $tags     = Tag::orderByDesc('id')->get();
         $viewData = [
             'tags' => $tags,
             'tag'  => $tag
