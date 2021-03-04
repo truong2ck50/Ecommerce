@@ -1,4 +1,5 @@
 @extends('layouts.app_backend')
+@section('title', 'Thêm mới bài viết')
 @section('content')
-    <h1>Thêm mới article</h1>
+    @include('backend.article.form')
 @stop

@@ -8,7 +8,7 @@ use Illuminate\Support\Str;
 use Carbon\Carbon;
 use App\Models\Product;
 use App\Models\Category;
-use Illuminate\Support\Facades\DB;;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 
 class BackendProductController extends Controller

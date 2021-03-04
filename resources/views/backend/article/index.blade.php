@@ -1,4 +1,30 @@
 @extends('layouts.app_backend')
+@section('title', 'Danh sách bài viết')
 @section('content')
-    <h1>Danh sách article</h1>
+    <h1>Danh sách bài viết <a href="{{ route('get_backend.article.create') }}" class="btn btn-xs btn-success">Thêm mới</a></h1>
+    <table class="table table-hover">
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Slug</th>
+            <th>Time</th>
+            <th>Action</th>
+        </tr>
+        </thead>
+        <tbody>
+        @foreach($articles as $item)    
+            <tr>
+                <td>{{ $item->id }}</td>
+                <td>{{ $item->a_name }}</td>
+                <td>{{ $item->a_slug }}</td>
+                <td>{{ $item->created_at }}</td>
+                <td>
+                    <a href="{{ route('get_backend.article.update', $item->id) }}" class="btn btn-xs btn-primary">Update</a>
+                    <a href="{{ route('get_backend.article.delete', $item->id) }}" class="btn btn-xs btn-danger">Delete</a>
+                </td>
+            </tr>
+        @endforeach
+        </tbody>
+    </table>
 @stop
