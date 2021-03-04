@@ -2,7 +2,7 @@
     <thead>
     <tr>
         <th>ID</th>
-    <th>Name</th>
+        <th>Name</th>
         <th>Slug</th>
         <th>Time</th>
         <th>Action</th>

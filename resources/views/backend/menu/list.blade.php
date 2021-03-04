@@ -9,15 +9,15 @@
     </tr>
     </thead>
     <tbody>
-    @foreach($keywords as $item)    
+    @foreach($menus as $item)    
         <tr>
             <td>{{ $item->id }}</td>
-            <td>{{ $item->k_name }}</td>
-            <td>{{ $item->k_slug }}</td>
+            <td>{{ $item->mn_name }}</td>
+            <td>{{ $item->mn_slug }}</td>
             <td>{{ $item->created_at }}</td>
             <td>
-                <a href="{{ route('get_backend.keyword.update', $item->id) }}" class="btn btn-xs btn-primary">Update</a>
-                <a href="{{ route('get_backend.keyword.delete', $item->id) }}" class="btn btn-xs btn-danger">Delete</a>
+                <a href="{{ route('get_backend.menu.update', $item->id) }}" class="btn btn-xs btn-primary">Update</a>
+                <a href="{{ route('get_backend.menu.delete', $item->id) }}" class="btn btn-xs btn-danger">Delete</a>
             </td>
         </tr>
     @endforeach

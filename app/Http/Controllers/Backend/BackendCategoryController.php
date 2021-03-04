@@ -39,6 +39,7 @@ class BackendCategoryController extends Controller
             'categories' => $categories,
             'category'   => $category
         ];
+        
         return view($this->folder.'update', $viewData);
     }
 

@@ -64,7 +64,7 @@ Route::group(['namespace' => 'Backend', 'prefix' => 'admin'], function () {
         Route::get('', 'BackendMenuController@index')->name('get_backend.menu.index');
 
         Route::get('create', 'BackendMenuController@create')->name('get_backend.menu.create');
-        Route::post('create', 'BackendMenuController@store');
+        Route::post('create', 'BackendMenuController@store')->name('get_backend.menu.store');
 
         Route::get('update/{id}', 'BackendMenuController@edit')->name('get_backend.menu.update');
         Route::post('update/{id}', 'BackendMenuController@update');
