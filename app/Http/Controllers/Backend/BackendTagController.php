@@ -44,8 +44,8 @@ class BackendTagController extends Controller
     }
 
     public function update(BackendTagRequest $request, $id) {
-        $data = $request->except('_token');
-        $data['t_slug'] = Str::slug($request->t_name);
+        $data               = $request->except('_token');
+        $data['t_slug']     = Str::slug($request->t_name);
         $data['updated_at'] = Carbon::now();
         Tag::find($id)->update($data);
 
@@ -54,6 +54,6 @@ class BackendTagController extends Controller
 
     public function delete($id) {
        DB::table('tags')->where('id', $id)->delete();
-       return redirect()->back();
+       return redirect()->route('get_backend.tag.index');
     }
 }

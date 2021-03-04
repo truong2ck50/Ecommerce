@@ -44,8 +44,8 @@ class BackendKeywordController extends Controller
     }
 
     public function update(BackendKeywordRequest $request, $id) {
-        $data = $request->except('_token');
-        $data['k_slug'] = Str::slug($request->k_name);
+        $data               = $request->except('_token');
+        $data['k_slug']     = Str::slug($request->k_name);
         $data['updated_at'] = Carbon::now();
         Keyword::find($id)->update($data);
 
@@ -54,6 +54,6 @@ class BackendKeywordController extends Controller
 
     public function delete($id) {
         DB::table('keywords')->where('id', $id)->delete();
-        return redirect()->back();
+        return redirect()->route('get_backend.keyword.index');
     }
 }
