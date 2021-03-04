@@ -29,7 +29,7 @@ class BackendProductRequest extends FormRequest
             'pro_category_id' => 'required',
             'pro_number'      => 'required',
             'pro_description' => 'required',
-            'pro_content'     => 'required',
+            'pro_content'     => 'required'
         ];
     }
 

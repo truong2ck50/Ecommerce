@@ -27,7 +27,7 @@ class BackendCategoryController extends Controller
         $data               = $request->except('_token');
         $data['c_slug']     = Str::slug($request->c_name);
         $data['created_at'] = Carbon::now();
-        $category            = Category::create($data);
+        $category           = Category::create($data);
 
         return redirect()->back();
     }

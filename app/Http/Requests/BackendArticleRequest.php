@@ -27,7 +27,7 @@ class BackendArticleRequest extends FormRequest
             'a_name'        => 'required|unique:articles,a_name,'.$this->id,
             'a_menu_id'     => 'required',
             'a_description' => 'required',
-            'a_content'     => 'required',
+            'a_content'     => 'required'
         ];
     }
 
