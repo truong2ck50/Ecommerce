@@ -38,6 +38,14 @@ class BackendProductController extends Controller
         $data               = $request->except('_token','pro_avatar');
         $data['pro_slug']   = Str::slug($request->pro_name);
         $data['created_at'] = Carbon::now();
+        if($request->pro_avatar)
+        {
+            $image = upload_image('pro_avatar');
+            if(isset($image['code']))
+            {
+                $data['pro_avatar'] = $image['name'];
+            }
+        }
         $product            = Product::create($data);
 
         return redirect()->route('get_backend.product.index');
@@ -57,6 +65,14 @@ class BackendProductController extends Controller
         $data               = $request->except('_token','pro_avatar');
         $data['pro_slug']   = Str::slug($request->pro_name);
         $data['updated_at'] = Carbon::now();
+        if($request->pro_avatar)
+        {
+            $image = upload_image('pro_avatar');
+            if(isset($image['code']))
+            {
+                $data['pro_avatar'] = $image['name'];
+            }
+        }
         Product::find($id)->update($data);
 
         return redirect()->route('get_backend.product.index');

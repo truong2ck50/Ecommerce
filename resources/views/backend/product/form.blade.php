@@ -1,7 +1,7 @@
 <form method="POST" action="" enctype="multipart/form-data">
     @csrf
     <div class="row">
-        <div class="col-sm-7">
+        <div class="col-sm-8">
             <div class="card">
                 <div class="p-3">
                     <div class="form-group">
@@ -30,7 +30,7 @@
                         <small id="emailHelp" class="form-text text-danger">{{ $errors->first('pro_description') }}</small>
                         @endif
                     </div>
-                    <div class="form-group">
+                    <div class="form-group mt-3">
                         <label for="exampleInputEmail1">Content</label>
                         <textarea name="pro_content" class="form-control" id="" cols="30" rows="3">{{ old('pro_content', $product->pro_content ?? '') }}</textarea>
                         @if ($errors->first('pro_content'))
@@ -40,7 +40,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-sm-5">
+        <div class="col-sm-4">
             <div class="card">
                 <div class="p-3">
                     <div class="form-group">
@@ -57,9 +57,15 @@
                         <small id="emailHelp" class="form-text text-danger">{{ $errors->first('pro_number') }}</small>
                         @endif
                     </div>
-                    <div class="custom-file">
-                        <input type="file" class="custom-file-input" accept="image/*" id="customFile" name="pro_avatar">
-                        <label class="custom-file-label" for="customFile">Chọn ảnh</label>
+                    <div class="form-group">
+                        <div class="custom-file">
+                            <input type="file" class="custom-file-input" accept="image/*" id="customFile" name="pro_avatar">
+                            <label class="custom-file-label" for="customFile">Chọn ảnh</label>
+                        </div>
+                        @if(isset($product) && $product->pro_avatar)
+                            <img src="{{ pare_url_file($product->pro_avatar) }}" class="img-thumbnail" 
+                            style="width: 100%; height: auto; max-width: 100%; margin-top: 15px" alt="">
+                        @endif
                     </div>
                 </div>
             </div>
