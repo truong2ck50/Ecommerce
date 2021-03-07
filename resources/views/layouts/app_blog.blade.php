@@ -73,12 +73,12 @@
                 <div class="row">
                     <div class="col-md-4">
                         <div class="logo">
-                            <h6 class="text-white">Bootstrap Blog</h6>
+                            <h6 class="text-white">Blog Website</h6>
                         </div>
                         <div class="contact-details">
-                            <p>53 Broadway, Broklyn, NY 11249</p>
-                            <p>Phone: (020) 123 456 789</p>
-                            <p>Email: <a href="mailto:info@company.com">Info@Company.com</a></p>
+                            <p>Số 78, đường Quốc lộ 3, thôn Phù Mã, X. Phù Linh, H. Sóc Sơn, TP. Hà Nội</p>
+                            <p>Phone: 0971459902</p>
+                            <p>Email: <a href="mailto:truong2ck50@gmail.com">truong2ck50@gmail.com</a></p>
                             <ul class="social-menu">
                                 <li class="list-inline-item"><a href="#"><i class="fa fa-facebook"></i></a></li>
                                 <li class="list-inline-item"><a href="#"><i class="fa fa-twitter"></i></a></li>
@@ -91,22 +91,18 @@
                     <div class="col-md-4">
                         <div class="menus d-flex">
                             <ul class="list-unstyled">
-                                <li> <a href="#">My Account</a></li>
-                                <li> <a href="#">Add Listing</a></li>
-                                <li> <a href="#">Pricing</a></li>
-                                <li> <a href="#">Privacy &amp; Policy</a></li>
+                                <li> <a href="#">Tài khoản</a></li>
+                                <li> <a href="#">Điều khoản sử dụng</a></li>
                             </ul>
                             <ul class="list-unstyled">
-                                <li> <a href="#">Our Partners</a></li>
-                                <li> <a href="#">FAQ</a></li>
-                                <li> <a href="#">How It Works</a></li>
-                                <li> <a href="#">Contact</a></li>
+                                <li> <a href="#">Trang chủ</a></li>
+                                <li> <a href="#">Liên hệ</a></li>
                             </ul>
                         </div>
                     </div>
                     <div class="col-md-4">
                         <div class="latest-posts">
-                            <a href="#">
+                            <!-- <a href="#">
                                 <div class="post d-flex align-items-center">
                                     <div class="image"><img src="img/small-thumbnail-1.jpg" alt="..." class="img-fluid"></div>
                                     <div class="title"><strong>Hotels for all budgets</strong><span class="date last-meta">October 26, 2016</span></div>
@@ -123,7 +119,7 @@
                                     <div class="image"><img src="img/small-thumbnail-3.jpg" alt="..." class="img-fluid"></div>
                                     <div class="title"><strong>Best coffee shops in Sydney</strong><span class="date last-meta">October 26, 2016</span></div>
                                 </div>
-                            </a>
+                            </a> -->
                         </div>
                     </div>
                 </div>
@@ -132,12 +128,11 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-md-6">
-                            <p>&copy; 2017. All rights reserved. Your great site.</p>
+                            <p>&copy; 2021. All rights reserved. Your great site.</p>
                         </div>
                         <div class="col-md-6 text-right">
                             <p>
-                                Template By <a href="https://bootstrapious.com/p/bootstrap-carousel" class="text-white">Bootstrapious</a>
-                                <!-- Please do not remove the backlink to Bootstrap Temple unless you purchase an attribution-free license @ Bootstrap Temple or support us at http://bootstrapious.com/donate. It is part of the license conditions. Thanks for understanding :)                         -->
+                                Template By <a href="https://bootstrapious.com/p/bootstrap-carousel" class="text-white">TruongNM</a>
                             </p>
                         </div>
                     </div>
