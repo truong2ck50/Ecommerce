@@ -28,7 +28,8 @@ class BackendCategoryRequest extends FormRequest
         ];
     }
 
-    public function messages() {
+    public function messages() 
+    {
         return [
             'c_name.required' => 'Dữ liệu không được để trống',
             'c_name.unique'   => 'Dữ liệu đã tồn tại'

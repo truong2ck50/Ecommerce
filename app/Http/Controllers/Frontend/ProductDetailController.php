@@ -7,7 +7,8 @@ use Illuminate\Http\Request;
 
 class ProductDetailController extends Controller
 {
-    public function index() {
+    public function index() 
+    {
         return view('frontend.product_detail.index');
     }
 }

@@ -42,13 +42,7 @@
                         <div class="collapse navbar-collapse" id="navbarSupportedContent">
                             <ul class="navbar-nav mr-auto">
                                 <li class="nav-item">
-                                    <!-- Link--><a class="nav-link active" href="index.html">Home</a>
-                                </li>
-                                <li class="nav-item">
-                                    <!-- Link--><a class="nav-link" href="shop.html">Shop</a>
-                                </li>
-                                <li class="nav-item">
-                                    <!-- Link--><a class="nav-link" href="detail.html">Product detail</a>
+                                    <a class="nav-link" title="Trang chủ" href="{{ route('get.home') }}">Trang chủ</a>
                                 </li>
                                 <li class="nav-item dropdown">
                                     <a class="nav-link dropdown-toggle" id="pagesDropdown" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Danh mục</a>
@@ -57,6 +51,9 @@
                                         <a class="dropdown-item border-0 transition-link" title="{{ $item->c_name }}" href="{{ route('get.category', $item->c_slug)}}">{{ $item->c_name }}</a>
                                         @endforeach
                                     </div>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" title="Bài viết" href="{{ route('get.blog') }}">Bài viết</a>
                                 </li>
                             </ul>
                             <ul class="navbar-nav ml-auto">

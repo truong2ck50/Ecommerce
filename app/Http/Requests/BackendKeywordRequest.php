@@ -28,7 +28,8 @@ class BackendKeywordRequest extends FormRequest
         ];
     }
 
-    public function messages() {
+    public function messages() 
+    {
         return [
             'k_name.required' => 'Dữ liệu không được để trống',
             'k_name.unique'   => 'Dữ liệu đã tồn tại'

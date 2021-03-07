@@ -31,7 +31,8 @@ class BackendArticleRequest extends FormRequest
         ];
     }
 
-    public function messages() {
+    public function messages() 
+    {
         return [
             'a_name.required'        => 'Dữ liệu không được để trống',
             'a_name.unique'          => 'Dữ liệu đã tồn tại',

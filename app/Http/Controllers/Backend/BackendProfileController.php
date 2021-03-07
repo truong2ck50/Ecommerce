@@ -7,7 +7,8 @@ use Illuminate\Http\Request;
 
 class BackendProfileController extends Controller
 {
-    public function index() {
+    public function index() 
+    {
         return view('backend.profile.index');
     }
 }

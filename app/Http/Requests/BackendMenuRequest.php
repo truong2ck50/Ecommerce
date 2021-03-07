@@ -28,7 +28,8 @@ class BackendMenuRequest extends FormRequest
         ];
     }
 
-    public function messages() {
+    public function messages() 
+    {
         return [
             'mn_name.required' => 'Dữ liệu không được để trống',
             'mn_name.unique'   => 'Dữ liệu đã tồn tại'

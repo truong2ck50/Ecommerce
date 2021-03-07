@@ -8,27 +8,33 @@ use Illuminate\Http\Request;
 class BackendUserController extends Controller
 {
     protected $folder = 'backend.user.';
-    public function index() {
+    public function index() 
+    {
         return view($this->folder.'index');
     }
 
-    public function create() {
+    public function create() 
+    {
         return view($this->folder.'create');
     }
 
-    public function store() {
+    public function store() 
+    {
 
     }
 
-    public function edit($id) {
+    public function edit($id) 
+    {
         return view($this->folder.'update');
     }
 
-    public function update($id) {
+    public function update($id) 
+    {
 
     }
 
-    public function delete($id) {
+    public function delete($id) 
+    {
         
     }
 }

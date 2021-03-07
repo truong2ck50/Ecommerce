@@ -30,6 +30,7 @@ Route::group(['namespace' => 'Frontend'], function () {
 
     //Menu bài viết
     Route::get('menu/{slug}', 'MenuController@index')->name('get.menu');
+    Route::get('bai-viet', 'ArticleController@index')->name('get.blog');
 
     //Chi tiết bài viết
     Route::get('bai-viet/{slug}', 'ArticleDetailController@index')->name('get.article_detail');

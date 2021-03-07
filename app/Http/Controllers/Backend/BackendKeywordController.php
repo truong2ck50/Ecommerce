@@ -14,7 +14,8 @@ class BackendKeywordController extends Controller
 {
     protected $folder = 'backend.keyword.';
 
-    public function index() {
+    public function index() 
+    {
         $keywords = Keyword::orderByDesc('id')->get();
         $viewData = [
             'keywords' => $keywords
@@ -23,7 +24,8 @@ class BackendKeywordController extends Controller
         return view($this->folder.'index', $viewData);
     }
 
-    public function store(BackendKeywordRequest $request) {
+    public function store(BackendKeywordRequest $request) 
+    {
         $data               = $request->except('_token');
         $data['k_slug']     = Str::slug($request->k_name);
         $data['created_at'] = Carbon::now();
@@ -32,7 +34,8 @@ class BackendKeywordController extends Controller
         return redirect()->back();
     }
 
-    public function edit($id) {
+    public function edit($id) 
+    {
         $keyword       = Keyword::find($id);
         $keywords      = Keyword::orderByDesc('id')->get();
         $viewData  = [
@@ -43,7 +46,8 @@ class BackendKeywordController extends Controller
         return view($this->folder.'update', $viewData);
     }
 
-    public function update(BackendKeywordRequest $request, $id) {
+    public function update(BackendKeywordRequest $request, $id) 
+    {
         $data               = $request->except('_token');
         $data['k_slug']     = Str::slug($request->k_name);
         $data['updated_at'] = Carbon::now();
@@ -52,7 +56,8 @@ class BackendKeywordController extends Controller
         return redirect()->back();
     }
 
-    public function delete($id) {
+    public function delete($id) 
+    {
         DB::table('keywords')->where('id', $id)->delete();
         return redirect()->route('get_backend.keyword.index');
     }

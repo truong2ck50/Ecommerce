@@ -15,7 +15,8 @@ class BackendProductController extends Controller
 {
     protected $folder = 'backend.product.';
 
-    public function index() {
+    public function index() 
+    {
         $products = Product::orderByDesc('id')->paginate(20);
 
         $viewData = [
@@ -25,7 +26,8 @@ class BackendProductController extends Controller
         return view($this->folder.'index', $viewData);
     }
 
-    public function create() {
+    public function create() 
+    {
         $categories = Category::all();
         $viewData = [
             'categories' => $categories
@@ -34,7 +36,8 @@ class BackendProductController extends Controller
         return view($this->folder.'create', $viewData);
     }
 
-    public function store(BackendProductRequest $request) {
+    public function store(BackendProductRequest $request) 
+    {
         $data               = $request->except('_token','pro_avatar');
         $data['pro_slug']   = Str::slug($request->pro_name);
         $data['created_at'] = Carbon::now();
@@ -51,7 +54,8 @@ class BackendProductController extends Controller
         return redirect()->route('get_backend.product.index');
     }
 
-    public function edit($id) {
+    public function edit($id) 
+    {
         $categories = Category::all();
         $product    = Product::find($id);
         $viewData   = [
@@ -61,7 +65,8 @@ class BackendProductController extends Controller
         return view($this->folder.'update', $viewData);
     }
 
-    public function update(BackendProductRequest $request, $id) {
+    public function update(BackendProductRequest $request, $id) 
+    {
         $data               = $request->except('_token','pro_avatar');
         $data['pro_slug']   = Str::slug($request->pro_name);
         $data['updated_at'] = Carbon::now();
@@ -79,7 +84,8 @@ class BackendProductController extends Controller
         // return redirect()->back();
     }
 
-    public function delete($id) {
+    public function delete($id) 
+    {
         DB::table('products')->where('id', $id)->delete();
         return redirect()->back();
     }

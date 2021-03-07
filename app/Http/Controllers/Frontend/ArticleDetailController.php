@@ -7,7 +7,8 @@ use Illuminate\Http\Request;
 
 class ArticleDetailController extends Controller
 {
-    public function index() {
+    public function index() 
+    {
         return view('frontend.article_detail.index');   
     }
 }

@@ -13,7 +13,8 @@ class BackendMenuController extends Controller
 {
     protected $folder = 'backend.menu.';
 
-    public function index() {
+    public function index() 
+    {
         $menus    = Menu::orderByDesc('id')->get();
         $viewData = [
             'menus' => $menus
@@ -22,7 +23,8 @@ class BackendMenuController extends Controller
         return view($this->folder.'index', $viewData);
     }
 
-    public function store(BackendMenuRequest $request) {
+    public function store(BackendMenuRequest $request) 
+    {
         $data               = $request->except('_token');
         $data['mn_slug']    = Str::slug($request->mn_name);
         $data['created_at'] = Carbon::now();
@@ -31,7 +33,8 @@ class BackendMenuController extends Controller
         return redirect()->back();
     }
 
-    public function edit($id) {
+    public function edit($id) 
+    {
         $menus    = Menu::orderByDesc('id')->get();
         $menu     = Menu::find($id);
         $viewData = [
@@ -42,7 +45,8 @@ class BackendMenuController extends Controller
         return view($this->folder.'update', $viewData);
     }
 
-    public function update(BackendMenuRequest $request, $id) {
+    public function update(BackendMenuRequest $request, $id) 
+    {
         $data               = $request->except('_token');
         $data['mn_slug']     = Str::slug($request->mn_name);
         $data['updated_at'] = Carbon::now();
@@ -51,7 +55,8 @@ class BackendMenuController extends Controller
         return redirect()->back();
     }
 
-    public function delete($id) {
+    public function delete($id) 
+    {
         DB::table('menus')->where('id', $id)->delete();
         return redirect()->route('get_backend.menu.index');
     }

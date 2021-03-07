@@ -28,7 +28,8 @@ class BackendTagRequest extends FormRequest
         ];
     }
 
-    public function messages() {
+    public function messages() 
+    {
         return [
             't_name.required' => 'Dữ liệu không được để trống',
             't_name.unique'   => 'Dữ liệu đã tồn tại'

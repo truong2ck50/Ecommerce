@@ -14,7 +14,8 @@ class BackendCategoryController extends Controller
 {
     protected $folder = 'backend.category.';
 
-    public function index() {
+    public function index() 
+    {
         $categories = Category::orderByDesc('id')->get();
         $viewData   = [
             'categories' => $categories
@@ -23,7 +24,8 @@ class BackendCategoryController extends Controller
         return view($this->folder.'index', $viewData);
     }
 
-    public function store(BackendCategoryRequest $request) {
+    public function store(BackendCategoryRequest $request) 
+    {
         $data               = $request->except('_token');
         $data['c_slug']     = Str::slug($request->c_name);
         $data['created_at'] = Carbon::now();
@@ -32,7 +34,8 @@ class BackendCategoryController extends Controller
         return redirect()->back();
     }
 
-    public function edit($id) {
+    public function edit($id) 
+    {
         $categories = Category::orderByDesc('id')->get();
         $category   = Category::find($id);
         $viewData   = [
@@ -43,7 +46,8 @@ class BackendCategoryController extends Controller
         return view($this->folder.'update', $viewData);
     }
 
-    public function update(BackendCategoryRequest $request, $id) {
+    public function update(BackendCategoryRequest $request, $id) 
+    {
         $data               = $request->except('_token');
         $data['c_slug']     = Str::slug($request->c_name);
         $data['updated_at'] = Carbon::now();
@@ -52,7 +56,8 @@ class BackendCategoryController extends Controller
         return redirect()->back();
     }
 
-    public function delete($id) {
+    public function delete($id) 
+    {
         DB::table('categories')->where('id', $id)->delete();
         return redirect()->route('get_backend.category.index');
     }

@@ -14,7 +14,8 @@ class BackendTagController extends Controller
 {
     protected $folder = 'backend.tag.';
 
-    public function index() {
+    public function index() 
+    {
         $tags     = Tag::orderByDesc('id')->get();
         $viewData = [
             'tags' => $tags
@@ -23,7 +24,8 @@ class BackendTagController extends Controller
         return view($this->folder.'index', $viewData);
     }
 
-    public function store(BackendTagRequest $request) {
+    public function store(BackendTagRequest $request) 
+    {
         $data               = $request->except('_token');
         $data['t_slug']     = Str::slug($request->t_name);
         $data['created_at'] = Carbon::now();
@@ -32,7 +34,8 @@ class BackendTagController extends Controller
         return redirect()->back();
     }
 
-    public function edit($id) {
+    public function edit($id) 
+    {
         $tag      = Tag::find($id);
         $tags     = Tag::orderByDesc('id')->get();
         $viewData = [
@@ -43,7 +46,8 @@ class BackendTagController extends Controller
         return view($this->folder.'update', $viewData);
     }
 
-    public function update(BackendTagRequest $request, $id) {
+    public function update(BackendTagRequest $request, $id) 
+    {
         $data               = $request->except('_token');
         $data['t_slug']     = Str::slug($request->t_name);
         $data['updated_at'] = Carbon::now();
@@ -52,7 +56,8 @@ class BackendTagController extends Controller
         return redirect()->back();
     }
 
-    public function delete($id) {
+    public function delete($id) 
+    {
        DB::table('tags')->where('id', $id)->delete();
        return redirect()->route('get_backend.tag.index');
     }
