@@ -11,4 +11,10 @@ class Article extends Model
 
     protected $guarded = [''];
     protected $table = 'articles';
+
+    //Khoa ngoai tham chieu menu bai viet
+    public function menu()
+    {
+        return $this->belongsTo(Menu::class, 'a_menu_id');
+    }
 }

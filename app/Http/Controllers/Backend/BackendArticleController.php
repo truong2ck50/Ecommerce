@@ -16,7 +16,7 @@ class BackendArticleController extends Controller
     protected $folder = 'backend.article.';
 
     public function index() {
-        $articles = Article::orderByDesc('id')->paginate(20);
+        $articles = Article::with('menu:id,mn_name')->orderByDesc('id')->paginate(20);
 
         $viewData = [
             'articles' => $articles
@@ -38,6 +38,14 @@ class BackendArticleController extends Controller
         $data               = $request->except('_token','a_avatar');
         $data['a_slug']     = Str::slug($request->a_name);
         $data['created_at'] = Carbon::now();
+        if($request->a_avatar)
+        {
+            $image = upload_image('a_avatar');
+            if(isset($image['code']))
+            {
+                $data['a_avatar'] = $image['name'];
+            }
+        }
         $article            = Article::create($data);
 
         return redirect()->route('get_backend.article.index');
@@ -58,6 +66,14 @@ class BackendArticleController extends Controller
         $data               = $request->except('_token','a_avatar');
         $data['a_slug']   = Str::slug($request->a_name);
         $data['updated_at'] = Carbon::now();
+        if($request->a_avatar)
+        {
+            $image = upload_image('a_avatar');
+            if(isset($image['code']))
+            {
+                $data['a_avatar'] = $image['name'];
+            }
+        }
         Article::find($id)->update($data);
 
         return redirect()->route('get_backend.article.index');

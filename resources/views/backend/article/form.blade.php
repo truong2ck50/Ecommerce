@@ -1,7 +1,7 @@
 <form method="POST" action="" enctype="multipart/form-data">
     @csrf
     <div class="row">
-        <div class="col-sm-7">
+        <div class="col-sm-8">
             <div class="card">
                 <div class="p-3">
                     <div class="form-group">
@@ -40,12 +40,18 @@
                 </div>
             </div>
         </div>
-        <div class="col-sm-5">
+        <div class="col-sm-4">
             <div class="card">
                 <div class="p-3">
-                    <div class="custom-file">
-                        <input type="file" class="custom-file-input" accept="image/*" id="customFile" name="a_avatar">
-                        <label class="custom-file-label" for="customFile">Chọn ảnh</label>
+                    <div class="form-group">
+                        <div class="custom-file">
+                            <input type="file" class="custom-file-input" accept="image/*" id="customFile" name="a_avatar">
+                            <label class="custom-file-label" for="customFile">Chọn ảnh</label>
+                        </div>
+                        @if(isset($article) && $article->a_avatar)
+                            <img src="{{ pare_url_file($article->a_avatar) }}" class="img-thumbnail" 
+                            style="width: 100%; height: auto; max-width: 100%; margin-top: 15px" alt="">
+                        @endif
                     </div>
                 </div>
             </div>
