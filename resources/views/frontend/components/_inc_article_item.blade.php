@@ -1,6 +1,6 @@
 <div class="post col-xl-6">
     <div class="post-thumbnail">
-        <a href="post.html" title="{{ $item->a_name }}">
+        <a href="{{ route('get.article_detail', ['slug' => $item->a_slug]) }}" title="{{ $item->a_name }}">
             <img src="{{ pare_url_file($item->a_avatar)}}" alt="{{ $item->a_name }}" class="img-fluid">
         </a>
     </div>
@@ -9,7 +9,7 @@
         <div class="date meta-last">{{ $item->created_at }}</div>
         <div class="category"><a href="" title="{{ $item->menu->mn_name ?? '' }}">{{ $item->menu->mn_name ?? "" }}</a></div>
     </div>
-    <a href="" title="{{ $item->a_name }}">
+    <a href="{{ route('get.article_detail', ['slug' => $item->a_slug]) }}" title="{{ $item->a_name }}">
         <h3 class="h4">{{ $item->a_name }}</h3>
     </a>
     <p class="text-muted">{{ $item->a_description }}</p>

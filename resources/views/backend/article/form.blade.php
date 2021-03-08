@@ -24,6 +24,15 @@
                         @endif
                     </div>
                     <div class="form-group">
+                        <label for="exampleInputEmail1">Từ khoá</label>
+                        <select name="tags[]" class="form-control js-tags" id="" multiple>
+                            <option value="">--Chọn từ khoá--</option>
+                            @foreach($tags as $tag)
+                                <option value="{{ $tag->id }}" {{ in_array($tag->id, $tagsOld) ? "selected" : ""}}>{{ $tag->t_name }}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                    <div class="form-group">
                         <label for="exampleInputEmail1">Description</label>
                         <textarea name="a_description" class="form-control" id="" cols="30" rows="3">{{ old('a_description', $article->a_description ?? '') }}</textarea>
                         @if ($errors->first('a_description'))
