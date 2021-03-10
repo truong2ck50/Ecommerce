@@ -11,4 +11,6 @@ class Product extends Model
 
     protected $guarded = [''];
     protected $table = 'products';
+
+    const HOT = 1;
 }

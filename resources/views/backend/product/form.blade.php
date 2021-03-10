@@ -58,6 +58,16 @@
                         @endif
                     </div>
                     <div class="form-group">
+                        <div class="custom-control custom-radio custom-control-inline">
+                            <input type="radio" id="customRadioInline1" value="0" name="pro_hot" {{($product->pro_hot ?? 0) == 0 ? "checked" : ""}} class="custom-control-input">
+                            <label class="custom-control-label" for="customRadioInline1">Mặc định</label>
+                        </div>
+                        <div class="custom-control custom-radio custom-control-inline">
+                            <input type="radio" id="customRadioInline2" value="1" name="pro_hot" {{($product->pro_hot ?? 0) == 1 ? "checked" : ""}} class="custom-control-input">
+                            <label class="custom-control-label" for="customRadioInline2">Nổi bật</label>
+                        </div>
+                    </div>
+                    <div class="form-group">
                         <div class="custom-file">
                             <input type="file" class="custom-file-input" accept="image/*" id="customFile" name="pro_avatar">
                             <label class="custom-file-label" for="customFile">Chọn ảnh</label>

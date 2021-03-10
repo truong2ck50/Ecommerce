@@ -12,6 +12,14 @@ Bootstrap Temple Blog Template
 * GENERAL
 * =====================
 */
+.img-fluid {
+  max-width: inherit;
+  max-height: 300px;
+  min-height: 40px;
+  width: auto;
+  height: auto;
+}
+
 .text-bold {
   font-weight: 700;
 }

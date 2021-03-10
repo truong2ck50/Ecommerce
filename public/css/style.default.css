@@ -161,6 +161,11 @@ button:focus, button:active {
 .product img {
   -webkit-filter: grayscale(40%);
   filter: grayscale(40%);
+  max-width: inherit;
+  max-height: 260px;
+  min-height: 40px;
+  width: auto;
+  height: auto;
   transition: all 0.3s;
 }
 
@@ -1111,6 +1116,7 @@ a.text-hover-dark:focus, a.text-hover-dark:hover {
 .reset-anchor {
   color: inherit;
   transition: all 0.3s;
+  display: block;
 }
 
 .reset-anchor:hover, .reset-anchor:focus {
