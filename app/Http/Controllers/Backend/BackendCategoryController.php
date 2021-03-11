@@ -26,9 +26,17 @@ class BackendCategoryController extends Controller
 
     public function store(BackendCategoryRequest $request) 
     {
-        $data               = $request->except('_token');
+        $data               = $request->except('_token', 'c_avatar');
         $data['c_slug']     = Str::slug($request->c_name);
         $data['created_at'] = Carbon::now();
+        if($request->c_avatar)
+        {
+            $image = upload_image('c_avatar');
+            if(isset($image['code']))
+            {
+                $data['c_avatar'] = $image['name'];
+            }
+        }
         $category           = Category::create($data);
 
         return redirect()->back();
@@ -48,9 +56,17 @@ class BackendCategoryController extends Controller
 
     public function update(BackendCategoryRequest $request, $id) 
     {
-        $data               = $request->except('_token');
+        $data               = $request->except('_token', 'c_avatar');
         $data['c_slug']     = Str::slug($request->c_name);
         $data['updated_at'] = Carbon::now();
+        if($request->c_avatar)
+        {
+            $image = upload_image('c_avatar');
+            if(isset($image['code']))
+            {
+                $data['c_avatar'] = $image['name'];
+            }
+        }
         Category::find($id)->update($data);
 
         return redirect()->back();
