@@ -1,7 +1,7 @@
 <div class="post col-xl-6">
     <div class="post-thumbnail">
         <a href="{{ route('get.article_detail', ['slug' => $item->a_slug]) }}" title="{{ $item->a_name }}">
-            <img src="{{ pare_url_file($item->a_avatar)}}" alt="{{ $item->a_name }}" class="img-fluid w-100">
+            <img src="{{ pare_url_file($item->a_avatar)}}" alt="{{ $item->a_name }}" class="img-fluid1">
         </a>
     </div>
     <div class="post-details">
