@@ -158,14 +158,16 @@ button:focus, button:active {
 * ==========================================
 *
 */
+
+/* Định dạng ảnh sản phẩm */
 .product img {
   -webkit-filter: grayscale(40%);
   filter: grayscale(40%);
-  max-width: inherit;
-  max-height: 260px;
+  max-height: 250px;
   min-height: 40px;
   width: auto;
-  height: auto;
+  
+  display: block;
   transition: all 0.3s;
 }
 

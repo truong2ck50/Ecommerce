@@ -17,7 +17,7 @@ class BackendProductController extends Controller
 
     public function index() 
     {
-        $products = Product::orderByDesc('id')->paginate(20);
+        $products = Product::with('category:id,c_name')->orderByDesc('id')->paginate(20);
 
         $viewData = [
             'products' => $products
