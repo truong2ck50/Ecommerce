@@ -19,6 +19,21 @@ use Illuminate\Support\Facades\Route;
 
 //FRONTEND
 Route::group(['namespace' => 'Frontend'], function () {
+
+    //Đăng kí, Đăng nhập
+    Route::group(['namespace' => 'Auth'], function () {
+        //Đăng nhập
+        Route::get('login', 'LoginController@getLogin')->name('get.login');
+        Route::post('login', 'LoginController@postLogin');
+
+        //Đăng ký
+        Route::get('register', 'RegisterController@getRegister')->name('get.register');
+        Route::post('register', 'RegisterController@postRegister');
+
+        //Đăng xuất
+        Route::get('logout', 'LoginController@getLogOut')->name('get.logout');
+    });
+
     //Trang chủ
     Route::get('', 'HomeController@index')->name('get.home');
 

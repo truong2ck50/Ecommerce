@@ -60,7 +60,21 @@
                                     </a>
                                  </li>
                                 <li class="nav-item"><a class="nav-link" href="#"> <i class="far fa-heart mr-1"></i><small class="text-gray"> (0)</small></a></li>
-                                <li class="nav-item"><a class="nav-link" href="#"> <i class="fas fa-user-alt mr-1 text-gray"></i>Đăng nhập</a></li>
+                                @if(get_data_user('web'))
+                                    <div class="dropdown">
+                                        <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+                                            {{ get_data_user('web', 'name') }}
+                                        </button>
+                                        <div class="dropdown-menu">
+                                            <a class="dropdown-item" href="#">Đơn hàng</a>
+                                            <a class="dropdown-item" href="{{ route('get.logout') }}">Đăng xuất</a>
+                                        </div>
+                                    </div>
+                                @else
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="{{ route('get.login') }}"> <i class="fas fa-user-alt mr-1 text-gray"></i>Đăng nhập</a>
+                                    </li>
+                                @endif
                             </ul>
                         </div>
                     </nav>
