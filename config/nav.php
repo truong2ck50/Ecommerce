@@ -31,7 +31,11 @@
                         [ 
                             'name' => 'Thành viên',
                             'route' => 'get_backend.user.index'
-                        ],                
+                        ],  
+                        [ 
+                            'name' => 'Slide',
+                            'route' => 'get_backend.slide.index'
+                        ]              
                     ]            
             ]
         ];

@@ -98,6 +98,19 @@ Route::group(['namespace' => 'Backend', 'prefix' => 'admin'], function () {
         Route::get('delete/{id}', 'BackendArticleController@delete')->name('get_backend.article.delete');
     });
 
+    //Slide
+    Route::prefix('slide')->group(function() {
+        Route::get('', 'BackendSlideController@index')->name('get_backend.slide.index');
+
+        Route::get('create', 'BackendSlideController@create')->name('get_backend.slide.create');
+        Route::post('create', 'BackendSlideController@store')->name('get_backend.slide.store');
+
+        Route::get('update/{id}', 'BackendSlideController@edit')->name('get_backend.slide.update');
+        Route::post('update/{id}', 'BackendSlideController@update');
+
+        Route::get('delete/{id}', 'BackendSlideController@delete')->name('get_backend.slide.delete');
+    });
+
     //Setting
     Route::get('setting', 'BackendSettingController@index')->name('get_backend.setting');
     Route::post('setting', 'BackendSettingController@createOrUpdate')->name('get_backend.setting.store');
