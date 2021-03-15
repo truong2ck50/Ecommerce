@@ -25,7 +25,7 @@
                     </a>
                 </td>
                 <td>{{ $item->pro_name }}</td>
-                <td>{{ $item->category->c_name ?? [N\A] }}</td>
+                <td>{{ $item->category->c_name ?? '[N\A]' }}</td>
                 <td>
                     <div class="custom-control custom-radio custom-control-inline">
                         <input type="radio" id="customRadioInline1" value="1" {{$item->pro_hot == 1 ? "checked" : ""}} class="custom-control-input">

@@ -10,7 +10,7 @@
     <div class="form-group">
         <label for="exampleInputEmail1">Category Parent</label>
         <select name="c_parent_id" class="form-control" id="">
-            <option value="">--Chọn danh mục cha--</option>
+            <option value="0">--Chọn danh mục cha--</option>
             @foreach($categoriesParent as $item)
                 <option value="{{ $item->id }}" {{ old('c_parent_id', $category->c_parent_id ?? 0) == $item->id ? "selected" : ""}}>{{ $item->c_name }}</option>
             @endforeach

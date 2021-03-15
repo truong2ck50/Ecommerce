@@ -15,5 +15,5 @@
                 @include('backend.category.form', ['route' => route('get_backend.category.store')])
             </div>
         </div>
-    </div>>
+    </div>
 @stop

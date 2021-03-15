@@ -16,8 +16,8 @@
             <td>{{ $item->mn_slug }}</td>
             <td>{{ $item->created_at }}</td>
             <td>
-                <a href="{{ route('get_backend.menu.update', $item->id) }}" class="btn btn-xs btn-primary">Update</a>
-                <a href="{{ route('get_backend.menu.delete', $item->id) }}" class="btn btn-xs btn-danger">Delete</a>
+                <a href="{{ route('get_backend.menu.update', $item->id) }}" class="btn btn-sm btn-primary">Update</a>
+                <a href="{{ route('get_backend.menu.delete', $item->id) }}" class="btn btn-sm btn-danger">Delete</a>
             </td>
         </tr>
     @endforeach

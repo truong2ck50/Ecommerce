@@ -7,7 +7,7 @@ use App\Models\Keyword;
 use App\Models\Product;
 use Illuminate\Http\Request;
 
-class KeywordController extends Controller
+class KeywordController extends ProductBaseController
 {
     public function index(Request $request, $slug)
     {
@@ -22,6 +22,7 @@ class KeywordController extends Controller
         
         $viewData = [
             'title'    => $keyword->k_name,
+            'categoriesSort' => $this->getCategoriesSort(),
             'products' => $products,
             'keyword'  => $keyword,
             

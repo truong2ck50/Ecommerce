@@ -24,8 +24,8 @@
             <td>{{ $item->s_link }}</td>
             <td>{{ $item->created_at }}</td>
             <td>
-                <a href="{{ route('get_backend.slide.update', $item->id) }}" class="btn btn-xs btn-primary">Update</a>
-                <a href="{{ route('get_backend.slide.delete', $item->id) }}" class="btn btn-xs btn-danger">Delete</a>
+                <a href="{{ route('get_backend.slide.update', $item->id) }}" class="btn btn-sm btn-primary">Update</a>
+                <a href="{{ route('get_backend.slide.delete', $item->id) }}" class="btn btn-sm btn-danger">Delete</a>
             </td>
         </tr>
     @endforeach
