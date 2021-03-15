@@ -8,6 +8,15 @@
         @endif
     </div>
     <div class="form-group">
+        <label for="exampleInputEmail1">Category Parent</label>
+        <select name="c_parent_id" class="form-control" id="">
+            <option value="">--Chọn danh mục cha--</option>
+            @foreach($categoriesParent as $item)
+                <option value="{{ $item->id }}" {{ old('c_parent_id', $category->c_parent_id ?? 0) == $item->id ? "selected" : ""}}>{{ $item->c_name }}</option>
+            @endforeach
+        </select>
+    </div>
+    <div class="form-group">
         <div class="custom-control custom-radio custom-control-inline">
             <input type="radio" id="customRadioInline1" value="0" name="c_hot" {{($category->c_hot ?? 0) == 0 ? "checked" : ""}} class="custom-control-input">
             <label class="custom-control-label" for="customRadioInline1">Mặc định</label>

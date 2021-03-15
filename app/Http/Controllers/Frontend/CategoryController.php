@@ -7,7 +7,7 @@ use App\Models\Category;
 use App\Models\Product;
 use Illuminate\Http\Request;
 
-class CategoryController extends Controller
+class CategoryController extends ProductBaseController
 {
     public function index(Request $request, $slug)  
     {
@@ -20,9 +20,10 @@ class CategoryController extends Controller
         ->paginate(12);
 
         $viewData = [
-            'title'    => $category->c_name,
-            'category' => $category,
-            'products' => $products
+            'title'          => $category->c_name,
+            'category'       => $category,
+            'categoriesSort' => $this->getCategoriesSort(),
+            'products'       => $products
         ];
 
         return view('frontend.category.index', $viewData);

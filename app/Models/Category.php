@@ -13,4 +13,14 @@ class Category extends Model
     protected $table = 'categories';
 
     const HOT = 1;
+
+    public function parent()
+    {
+        return $this->belongsTo(Category::class, 'c_parent_id');
+    }
+
+    public function childs()
+    {
+        return $this->hasMany(Category::class, 'c_parent_id');
+    }
 }

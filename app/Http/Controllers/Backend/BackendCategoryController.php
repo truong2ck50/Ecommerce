@@ -16,9 +16,12 @@ class BackendCategoryController extends Controller
 
     public function index() 
     {
-        $categories = Category::orderByDesc('id')->get();
+        $categories       = Category::with('parent:id,c_name')->orderByDesc('id')->get();
+        $categoriesParent = Category::where('c_parent_id', 0)->get();
+
         $viewData   = [
-            'categories' => $categories
+            'categoriesParent' => $categoriesParent,
+            'categories'       => $categories
         ];
 
         return view($this->folder.'index', $viewData);
@@ -44,11 +47,14 @@ class BackendCategoryController extends Controller
 
     public function edit($id) 
     {
-        $categories = Category::orderByDesc('id')->get();
-        $category   = Category::find($id);
+        $categories         = Category::with('parent:id,c_name')->orderByDesc('id')->get();
+        $category           = Category::find($id);
+        $categoriesParent   = Category::where('c_parent_id', 0)->get();
+
         $viewData   = [
-            'categories' => $categories,
-            'category'   => $category
+            'categories'       => $categories,
+            'category'         => $category,
+            'categoriesParent' => $categoriesParent
         ];
         
         return view($this->folder.'update', $viewData);

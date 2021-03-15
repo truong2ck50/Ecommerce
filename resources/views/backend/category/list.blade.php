@@ -4,6 +4,7 @@
         <th>ID</th>
         <th>Avatar</th>
         <th>Name</th>
+        <th>Parent</th>
         <th>Slug</th>
         <th>Hot</th>
         <th>Time</th>
@@ -20,6 +21,7 @@
                 </a>
             </td>
             <td>{{ $item->c_name }}</td>
+            <td>{{ $item->parent->c_name ?? "__ROOT__" }}</td>
             <td>{{ $item->c_slug }}</td>
             <td>
                 <div class="custom-control custom-radio custom-control-inline">
@@ -29,8 +31,8 @@
             </td>
             <td>{{ $item->created_at }}</td>
             <td>
-                <a href="{{ route('get_backend.category.update', $item->id) }}" class="btn btn-xs btn-primary">Update</a>
-                <a href="{{ route('get_backend.category.delete', $item->id) }}" class="btn btn-xs btn-danger">Delete</a>
+                <a href="{{ route('get_backend.category.update', $item->id) }}" class="btn btn-sm btn-primary">Update</a>
+                <a href="{{ route('get_backend.category.delete', $item->id) }}" class="btn btn-sm btn-danger">Delete</a>
             </td>
         </tr>
     @endforeach

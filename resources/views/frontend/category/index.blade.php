@@ -32,10 +32,16 @@
                 <!-- SHOP SIDEBAR-->
                 <div class="col-lg-3 order-2 order-lg-1">
                     <h5 class="text-uppercase mb-4">Danh mục</h5>
-                    <div class="py-2 px-4 bg-dark text-white mb-3"><strong class="small text-uppercase font-weight-bold">Fashion &amp; Acc</strong></div>
-                    <ul class="list-unstyled small text-muted pl-lg-4 font-weight-normal">
-                        <li class="mb-2"><a class="reset-anchor" href="#">Women's T-Shirts</a></li>
-                    </ul>
+                    @foreach($categoriesSort as $items)
+                    <div class="py-2 px-4 bg-dark text-white mb-3"><strong class="small text-uppercase font-weight-bold">{{ $items->c_name }}</strong></div>
+                        @if(isset($items->childs) && !$items->childs->isEmpty())
+                            <ul class="list-unstyled small text-muted pl-lg-4 font-weight-normal">
+                                @foreach($items->childs as $item)
+                                <li class="mb-2"><a class="reset-anchor" href="{{ route('get.category', ['slug' => $item->c_slug]) }}">{{ $item->c_name }}</a></li>
+                                @endforeach
+                            </ul>
+                        @endif
+                    @endforeach
                     <h6 class="text-uppercase mb-4">Khoảng giá</h6>
                     <div class="price-range pt-4 mb-5">
                         <div id="range" class="noUi-target noUi-ltr noUi-horizontal noUi-txt-dir-ltr">
