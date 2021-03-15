@@ -30,6 +30,15 @@
                         <small id="emailHelp" class="form-text text-danger">{{ $errors->first('pro_description') }}</small>
                         @endif
                     </div>
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Từ khoá</label>
+                        <select name="keywords[]" class="form-control js-tags" id="" multiple>
+                            <option value="">--Chọn từ khoá--</option>
+                            @foreach($keywords as $keyword)
+                                <option value="{{ $keyword->id }}" {{ in_array($keyword->id, $keywordOld) ? "selected" : ""}}>{{ $keyword->k_name }}</option>
+                            @endforeach
+                        </select>
+                    </div>
                     <div class="form-group mt-3">
                         <label for="exampleInputEmail1">Content</label>
                         <textarea name="pro_content" class="form-control" id="" cols="30" rows="3">{{ old('pro_content', $product->pro_content ?? '') }}</textarea>

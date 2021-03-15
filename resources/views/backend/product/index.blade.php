@@ -35,8 +35,8 @@
                 <td><span class="text-danger">{{ number_format($item->pro_price, 0, ',', '.') }} đ</span></td>
                 <td>{{ $item->created_at }}</td>
                 <td>
-                    <a href="{{ route('get_backend.product.update', $item->id) }}" class="btn btn-xs btn-primary">Update</a>
-                    <a href="{{ route('get_backend.product.delete', $item->id) }}" class="btn btn-xs btn-danger">Delete</a>
+                    <a href="{{ route('get_backend.product.update', $item->id) }}" class="btn btn-sm btn-primary">Update</a>
+                    <a href="{{ route('get_backend.product.delete', $item->id) }}" class="btn btn-sm btn-danger">Delete</a>
                 </td>
             </tr>
         @endforeach
