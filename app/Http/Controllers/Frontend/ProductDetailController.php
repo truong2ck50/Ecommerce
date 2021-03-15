@@ -10,7 +10,7 @@ class ProductDetailController extends Controller
 {
     public function index(Request $request, $slug) 
     {
-        $product = Product::with('category:id,c_name,c_slug')->where('pro_slug', $slug)->first();
+        $product = Product::with('category:id,c_name,c_slug', 'keywords')->where('pro_slug', $slug)->first();
         if(!$product) return abort(404);
 
         $productsRelated = Product::where('pro_category_id', $product->pro_category_id)

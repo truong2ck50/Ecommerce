@@ -17,6 +17,9 @@
                             @if(isset($category))
                             <li class="breadcrumb-item active" aria-current="page">{{ $category->c_name }}</li>
                             @endif
+                            @if(isset($keyword))
+                            <li class="breadcrumb-item active" aria-current="page">{{ $keyword->k_name }}</li>
+                            @endif
                         </ol>
                     </nav>
                 </div>

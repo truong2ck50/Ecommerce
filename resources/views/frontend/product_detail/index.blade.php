@@ -73,7 +73,14 @@
                             <strong class="text-uppercase text-dark">Danh mục:</strong>
                             <a class="reset-anchor ml-2" href="{{ route('get.category', ['slug' => $product->category->c_slug ?? '']) }}">{{ $product->category->c_name ?? [N\A] }}</a>
                         </li>
-                        <!-- <li class="px-3 py-2 mb-1 bg-white text-muted"><strong class="text-uppercase text-dark">Tags:</strong><a class="reset-anchor ml-2" href="#">Innovation</a></li> -->
+                        @if($product->keywords && !$product->keywords->isEmpty())
+                        <li class="px-3 py-2 mb-1 bg-white text-muted">
+                            <strong class="text-uppercase text-dark">Từ khoá:</strong>
+                            @foreach($product->keywords as $keyword)
+                            <a class="reset-anchor ml-2" href="{{ route('get.keyword', ['slug' => $keyword->k_slug]) }}" title="{{ $keyword->k_name }}">{{ $keyword->k_name }}</a>
+                            @endforeach
+                        </li>
+                        @endif
                     </ul>
                 </div>
             </div>

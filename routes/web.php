@@ -37,6 +37,9 @@ Route::group(['namespace' => 'Frontend'], function () {
     //Trang chủ
     Route::get('', 'HomeController@index')->name('get.home');
 
+    //Keyword
+    Route::get('keyword/{slug}', 'KeywordController@index')->name('get.keyword');
+
     //Danh mục sản phẩm
     Route::get('danh-muc/{slug}', 'CategoryController@index')->name('get.category');
 
