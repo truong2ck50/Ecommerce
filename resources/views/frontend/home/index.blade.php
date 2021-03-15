@@ -18,31 +18,39 @@
         <!-- CATEGORIES SECTION-->
         <section class="pt-5">
             <header class="text-center">
-                <p class="small text-muted small text-uppercase mb-1">Carefully created collections</p>
-                <h2 class="h5 text-uppercase mb-4">Browse our categories</h2>
+                <h2 class="h5 text-uppercase mb-4">Danh mục nổi bật</h2>
             </header>
             <div class="row">
+                @if(isset($categoriesHot[0]) && $cate = $categoriesHot[0])
+                    <div class="col-md-4 mb-4 mb-md-0">
+                        <a class="category-item" href="{{ route('get.category', ['slug' => $cate->c_slug]) }}" title="{{ $cate->c_name }}">
+                            <img class="img-fluid" src="{{ pare_url_file($cate->c_avatar)}}" alt="{{ $cate->c_name }}">
+                            <strong class="category-item-title">{{ $cate->c_name }}</strong>
+                        </a>
+                    </div>
+                @endif
                 <div class="col-md-4 mb-4 mb-md-0">
-                    <a class="category-item" href="shop.html">
-                        <img class="img-fluid" src="img/cat-img-1.jpg" alt="">
-                        <strong class="category-item-title">Clothes</strong>
-                    </a>
+                    @if(isset($categoriesHot[1]) && $cate = $categoriesHot[1])
+                        <a class="category-item mb-4" href="{{ route('get.category', ['slug' => $cate->c_slug]) }}" title="{{ $cate->c_name}}">
+                            <img class="img-fluid" src="{{ pare_url_file($cate->c_avatar)}}" alt="{{ $cate->c_name }}">
+                            <strong class="category-item-title">{{ $cate->c_name }}</strong>
+                        </a>
+                    @endif
+                    @if(isset($categoriesHot[2]) && $cate = $categoriesHot[2])
+                        <a class="category-item" href="{{ route('get.category', ['slug' => $cate->c_slug]) }}" title="{{ $cate->c_name}}">
+                            <img class="img-fluid" src="{{ pare_url_file($cate->c_avatar)}}" alt="{{ $cate->c_name }}">
+                            <strong class="category-item-title">{{ $cate->c_name }}</strong>
+                        </a>
+                    @endif
                 </div>
-                <div class="col-md-4 mb-4 mb-md-0">
-                    <a class="category-item mb-4" href="shop.html">
-                        <img class="img-fluid" src="img/cat-img-2.jpg" alt="">
-                        <strong class="category-item-title">Shoes</strong></a>
-                    <a class="category-item" href="shop.html">
-                        <img class="img-fluid" src="img/cat-img-3.jpg" alt="">
-                        <strong class="category-item-title">Watches</strong>
-                    </a>
-                </div>
-                <div class="col-md-4">
-                    <a class="category-item" href="shop.html">
-                        <img class="img-fluid" src="img/cat-img-4.jpg" alt="">
-                        <strong class="category-item-title">Electronics</strong>
-                    </a>
-                </div>
+                @if (isset($categoriesHot[3]) && $cate = $categoriesHot[3])
+                    <div class="col-md-4">
+                        <a class="category-item" href="{{ route('get.category', ['slug' => $cate->c_slug]) }}" title="{{ $cate->c_name}}">
+                            <img class="img-fluid" src="{{ pare_url_file($cate->c_avatar)}}" alt="{{ $cate->c_name }}">
+                            <strong class="category-item-title">{{ $cate->c_name }}</strong>
+                        </a>
+                    </div>
+                @endif
             </div>
         </section>
         <!-- TRENDING PRODUCTS-->
