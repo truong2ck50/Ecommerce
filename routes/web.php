@@ -53,6 +53,11 @@ Route::group(['namespace' => 'Frontend'], function () {
 
     //Chi tiết bài viết
     Route::get('bai-viet/{slug}', 'ArticleDetailController@index')->name('get.article_detail');
+
+    //Chi tiết sản phẩm ajax
+    Route::group(['namespace' => 'Ajax', 'prefix' => 'ajax'], function () {
+        Route::get('view-product/{id}', 'AjaxViewProductController@getPreviewProduct')->name('get_ajax.product_preview');
+    });
 });
 
 include 'route_admin.php';

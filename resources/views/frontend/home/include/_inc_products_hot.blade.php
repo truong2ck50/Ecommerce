@@ -22,7 +22,7 @@
                                 <a class="btn btn-sm btn-dark" href="">Thêm giỏ hàng</a>
                             </li>
                             <li class="list-inline-item mr-0">
-                                <a class="btn btn-sm btn-outline-dark" href="" data-toggle="modal"><i class="fas fa-expand"></i></a>
+                                <a class="btn btn-sm btn-outline-dark js-product-preview" href="{{ route('get_ajax.product_preview', $item->id) }}" data-toggle="modal"><i class="fas fa-expand"></i></a>
                             </li>
                         </ul>
                     </div>
