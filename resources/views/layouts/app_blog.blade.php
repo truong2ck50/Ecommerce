@@ -89,6 +89,7 @@
                         </div>
                     </div>
                     <div class="col-md-4">
+                        <h6>Về chúng tôi</h6>
                         <div class="menus d-flex">
                             <ul class="list-unstyled">
                                 <li> <a href="#">Tài khoản</a></li>
