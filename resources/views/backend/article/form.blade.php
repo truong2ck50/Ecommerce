@@ -34,14 +34,14 @@
                     </div>
                     <div class="form-group">
                         <label for="exampleInputEmail1">Description</label>
-                        <textarea name="a_description" class="form-control" id="" cols="30" rows="3">{{ old('a_description', $article->a_description ?? '') }}</textarea>
+                        <textarea name="a_description" class="form-control" id="editor1" cols="30" rows="3">{{ old('a_description', $article->a_description ?? '') }}</textarea>
                         @if ($errors->first('a_description'))
                         <small id="emailHelp" class="form-text text-danger">{{ $errors->first('a_description') }}</small>
                         @endif
                     </div>
                     <div class="form-group">
                         <label for="exampleInputEmail1">Content</label>
-                        <textarea name="a_content" class="form-control" id="" cols="30" rows="3">{{ old('a_content', $article->a_content ?? '') }}</textarea>
+                        <textarea name="a_content" class="form-control" id="editor2" cols="30" rows="3">{{ old('a_content', $article->a_content ?? '') }}</textarea>
                         @if ($errors->first('a_content'))
                         <small id="emailHelp" class="form-text text-danger">{{ $errors->first('a_content') }}</small>
                         @endif

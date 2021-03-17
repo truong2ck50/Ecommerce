@@ -25,7 +25,7 @@
                     </div>
                     <div class="form-group">
                         <label for="exampleInputEmail1">Description</label>
-                        <textarea name="pro_description" class="form-control" id="" cols="30" rows="3">{{ old('pro_description', $product->pro_description ?? '') }}</textarea>
+                        <textarea name="pro_description" class="form-control" id="editor3" cols="30" rows="3">{{ old('pro_description', $product->pro_description ?? '') }}</textarea>
                         @if ($errors->first('pro_description'))
                         <small id="emailHelp" class="form-text text-danger">{{ $errors->first('pro_description') }}</small>
                         @endif
@@ -41,7 +41,7 @@
                     </div>
                     <div class="form-group mt-3">
                         <label for="exampleInputEmail1">Content</label>
-                        <textarea name="pro_content" class="form-control" id="" cols="30" rows="3">{{ old('pro_content', $product->pro_content ?? '') }}</textarea>
+                        <textarea name="pro_content" class="form-control" id="editor4" cols="30" rows="3">{{ old('pro_content', $product->pro_content ?? '') }}</textarea>
                         @if ($errors->first('pro_content'))
                         <small id="emailHelp" class="form-text text-danger">{{ $errors->first('pro_content') }}</small>
                         @endif

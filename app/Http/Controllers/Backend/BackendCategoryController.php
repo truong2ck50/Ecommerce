@@ -75,7 +75,7 @@ class BackendCategoryController extends Controller
         }
         Category::find($id)->update($data);
 
-        return redirect()->back();
+        return redirect()->route('get_backend.category.index');;
     }
 
     public function delete($id) 
