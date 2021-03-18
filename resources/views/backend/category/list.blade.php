@@ -25,7 +25,7 @@
             <td>{{ $item->c_slug }}</td>
             <td>
                 <div class="custom-control custom-radio custom-control-inline">
-                        <input type="radio" id="customRadioInline1" value="1" {{$item->c_hot == 1 ? "checked" : ""}} class="custom-control-input">
+                        <input type="radio" id="customRadioInline" value="1" {{$item->c_hot == 1 ? "checked" : ""}} class="custom-control-input">
                         <label class="custom-control-label" for="customRadioInline1">Nổi bật</label>
                     </div>
             </td>

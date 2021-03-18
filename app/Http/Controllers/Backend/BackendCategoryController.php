@@ -42,7 +42,8 @@ class BackendCategoryController extends Controller
         }
         $category           = Category::create($data);
 
-        return redirect()->back();
+        return redirect()->route('get_backend.category.index');
+        // return redirect()->back();
     }
 
     public function edit($id) 
