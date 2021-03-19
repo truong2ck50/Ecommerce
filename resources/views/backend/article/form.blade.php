@@ -68,3 +68,8 @@
     </div>
     <button type="submit" class="btn btn-primary mt-2">Lưu</button>
  </form>
+<script src="{{ asset('ckeditor/ckeditor.js')}}"></script>
+ <script>
+    CKEDITOR.replace('editor1');
+    CKEDITOR.replace('editor2');
+</script>

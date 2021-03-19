@@ -54,9 +54,17 @@ Route::group(['namespace' => 'Frontend'], function () {
     //Chi tiết bài viết
     Route::get('bai-viet/{slug}', 'ArticleDetailController@index')->name('get.article_detail');
 
-    //Chi tiết sản phẩm ajax
+    //Giỏ hàng
+    Route::get('cart.html', 'ShoppingCartController@index')->name('get.shopping');
+
+    //Thanh toán
+    Route::get('checkout.html', 'ShoppingCartController@checkout')->name('get.shopping.checkout');
+    Route::post('checkout.html', 'ShoppingCartController@pay');
+
+    //Sản phẩm ajax
     Route::group(['namespace' => 'Ajax', 'prefix' => 'ajax'], function () {
         Route::get('view-product/{id}', 'AjaxViewProductController@getPreviewProduct')->name('get_ajax.product_preview');
+        Route::get('add/cart/{id}', 'AjaxShoppingCartController@add')->name('get_ajax.shopping.add');
     });
 });
 

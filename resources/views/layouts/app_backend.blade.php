@@ -51,13 +51,6 @@
         <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
         <script src="https://getbootstrap.com/docs/4.0/assets/js/vendor/popper.min.js"></script>
         <script src="https://getbootstrap.com/docs/4.0/dist/js/bootstrap.min.js"></script>
-        <script src="{{ asset('ckeditor/ckeditor.js')}}"></script>
-        <script>
-            CKEDITOR.replace('editor1');
-            CKEDITOR.replace('editor2');
-            CKEDITOR.replace('editor3');
-            CKEDITOR.replace('editor4');
-        </script>
         <script>
             $(function() {
                 $(document).ready(function() {
