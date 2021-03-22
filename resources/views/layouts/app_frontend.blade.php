@@ -180,12 +180,26 @@
                             console.log(results)
                         });
                     })
-                    $(".js-add-cart").click(function(event){
+
+                    $("body").on("click",'.js-add-cart', function(event){
+                    // $(".js-add-cart").click(function(event){
                         event.preventDefault()
                         let $this = $(this)
                         let URL = $this.attr("href")
+                        let qty = 1
+                        let $elementQty = $this.parents('.box-qty').find('.val-qty')
+                        if($elementQty.length)
+                        {
+                            qty = $elementQty.val()
+                        }
+
+                        console.log(qty)
+
                         $.ajax({
                             url: URL,
+                            data: {
+                                qty : qty
+                            }
                         }).done(function( results ) {
                             console.log(results)
                         });

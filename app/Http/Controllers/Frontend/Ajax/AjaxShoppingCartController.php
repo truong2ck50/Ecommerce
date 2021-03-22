@@ -16,6 +16,7 @@ class AjaxShoppingCartController extends Controller
        if($request->ajax())
         {
             //Kiểm tra sản phẩm
+            $qty     = $request->qty;
             $product = Product::find($productID);
             if(!$product)
             {
@@ -41,7 +42,7 @@ class AjaxShoppingCartController extends Controller
 
             if($idCartProduct) {
                 $productByCart = Cart::get($idCartProduct);
-                if($product->pro_number < ($productByCart->qty + 1))
+                if($product->pro_number < ($productByCart->qty + $qty))
                 {
                     return response()->json([
                         'status'  => 200,
@@ -54,7 +55,7 @@ class AjaxShoppingCartController extends Controller
             Cart::add([
                 'id'      => $product->id,
                 'name'    => $product->pro_name,
-                'qty'     => 1,
+                'qty'     => $qty,
                 'price'   => $product->pro_price,
                 'weight'  => '1',
                 'options' => [
