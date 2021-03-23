@@ -70,4 +70,15 @@ class AjaxShoppingCartController extends Controller
             ]);
         }
     }
+
+    public function delete(Request $request, $id)
+    {
+        if($request->ajax())
+        {
+            return response()->json([
+                Cart::remove($id),
+                'status' => 200
+            ]);
+        }
+    }
 }

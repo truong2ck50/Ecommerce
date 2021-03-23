@@ -23,10 +23,20 @@ class ShoppingCartController extends Controller
     public function checkout()
     {
         $products = Cart::content();
-        $viewData = [
-            'products' => $products
-        ];
+        if(Cart::count() < 1)
+        {
+            $viewData = [
+                'message' => 'Giỏ hàng trống',
+                'products' => $products
+            ];
+            return view('frontend.shopping.index', $viewData);
+        } else {
+            
+            $viewData = [
+                'products' => $products
+            ];
         return view('frontend.shopping.checkout', $viewData);
+        }
     }
 
     public function pay(Request $request)
@@ -35,7 +45,7 @@ class ShoppingCartController extends Controller
         $dataTransaction['created_at']    = Carbon::now();
         $dataTransaction['t_total_money'] = (int)str_replace(',', '', Cart::subtotal(0));
         $transaction = Transaction::create($dataTransaction);
-        
+    
         if($transaction)
         {
             $products = Cart::content();
@@ -52,7 +62,6 @@ class ShoppingCartController extends Controller
         }
 
         Cart::destroy();
-
         return redirect()->route('get.home');
     }
 }

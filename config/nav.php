@@ -31,6 +31,10 @@
                         [ 
                             'name' => 'Thành viên',
                             'route' => 'get_backend.user.index'
+                        ],
+                        [ 
+                            'name' => 'Đơn hàng',
+                            'route' => 'get_backend.transaction.index'
                         ],  
                         [ 
                             'name' => 'Slide',

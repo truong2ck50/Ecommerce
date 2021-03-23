@@ -182,7 +182,6 @@
                     })
 
                     $("body").on("click",'.js-add-cart', function(event){
-                    // $(".js-add-cart").click(function(event){
                         event.preventDefault()
                         let $this = $(this)
                         let URL = $this.attr("href")
@@ -193,8 +192,6 @@
                             qty = $elementQty.val()
                         }
 
-                        console.log(qty)
-
                         $.ajax({
                             url: URL,
                             data: {
@@ -202,6 +199,22 @@
                             }
                         }).done(function( results ) {
                             console.log(results)
+                        });
+                    })
+
+                    $("body").on("click",'.js-delete-cart', function(event){
+                        event.preventDefault()
+                        let $this = $(this)
+                        let URL = $this.attr("href")
+
+                        $.ajax({
+                            url: URL
+                        }).done(function( results ) {
+                            console.log(results)
+                            if(results.status === 200)
+                            {
+                                $this.parents('tr').remove()
+                            }
                         });
                     })
                 })

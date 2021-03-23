@@ -22,6 +22,9 @@
         </section>
         <section class="py-5">
             <h2 class="h5 text-uppercase mb-4">Danh sách sản phẩm</h2>
+            @if($message ?? '')
+                <h5 class="text-uppercase text-danger">{{ $message }}</h5>
+            @endif
             <div class="row">
                 <div class="col-lg-8 mb-4 mb-lg-0">
                     <!-- CART TABLE-->
@@ -37,11 +40,11 @@
                                 </tr>
                             </thead>
                             <tbody>
-                            @foreach($products as $item)
+                            @foreach($products as $row => $item)
                                 <tr>
                                     <th class="pl-0 border-0" scope="row">
                                         <div class="media align-items-center">
-                                            <a class="reset-anchor d-block animsition-link" href="detail.html"><img src="{{ pare_url_file($item->options->image) }}" alt="..." width="70"></a>
+                                            <a class="reset-anchor d-block animsition-link" href="detail.html"><img src="{{ pare_url_file($item->options->image) }}" alt="..." height="70" width="70"></a>
                                             <div class="media-body ml-3">
                                                 <strong class="h6"><a class="reset-anchor animsition-link" href="detail.html">{{ $item->name }}</a></strong>
                                             </div>
@@ -63,7 +66,7 @@
                                     <td class="align-middle border-0">  
                                         <p class="mb-0 small">{{ number_format($item->price * $item->qty) }} VNĐ</p>
                                     </td>
-                                    <td class="align-middle border-0"><a class="reset-anchor" href="#"><i class="fas fa-trash-alt small text-muted"></i></a></td>
+                                    <td class="align-middle border-0"><a class="reset-anchor js-delete-cart" href="{{ route('get_ajax.shopping.delete', $row) }}"><i class="fas fa-trash-alt small text-muted"></i></a></td>
                                 </tr>
                             @endforeach
                             </tbody>
