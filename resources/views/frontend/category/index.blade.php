@@ -31,7 +31,14 @@
             <div class="row">
                 <!-- SHOP SIDEBAR-->
                 <div class="col-lg-3 order-2 order-lg-1">
-                    <h5 class="text-uppercase mb-4">Danh mục</h5>
+                    <h6 class="text-uppercase mb-4">Tìm kiếm</h6>
+                    <div>
+                        <form action="">
+                            <input type="text" name="k" value="{{ Request::get('k') }}" class="form-control" placeholder="Tìm kiếm...">
+                            <button type="submit" class="btn btn-success btn-sm d-block mt-2 mb-4 w-100">Tìm kiếm</button>
+                        </form>
+                    </div>
+                    <h6 class="text-uppercase mb-4">Danh mục</h6>
                     @foreach($categoriesSort as $items)
                     <div class="py-2 px-4 bg-dark text-white mb-3"><strong class="small text-uppercase font-weight-bold">{{ $items->c_name }}</strong></div>
                         @if(isset($items->childs) && !$items->childs->isEmpty())

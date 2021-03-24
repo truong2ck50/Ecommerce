@@ -58,7 +58,7 @@
                                             <span class="small text-uppercase text-gray headings-font-family">QTY</span>
                                             <div class="quantity">
                                                 <button class="dec-btn p-0"><i class="fas fa-caret-left"></i></button>
-                                                <input class="form-control form-control-sm border-0 shadow-0 p-0" type="text" value="{{ $item->qty }}">
+                                                <input class="form-control form-control-sm border-0 shadow-0 p-0 val-qty" type="text" value="{{ $item->qty }}">
                                                 <button class="inc-btn p-0"><i class="fas fa-caret-right"></i></button>
                                             </div>
                                         </div>
@@ -66,7 +66,10 @@
                                     <td class="align-middle border-0">  
                                         <p class="mb-0 small">{{ number_format($item->price * $item->qty) }} VNĐ</p>
                                     </td>
-                                    <td class="align-middle border-0"><a class="reset-anchor js-delete-cart" href="{{ route('get_ajax.shopping.delete', $row) }}"><i class="fas fa-trash-alt small text-muted"></i></a></td>
+                                    <td class="align-middle border-0">
+                                        <a class="reset-anchor js-update-cart" href="{{ route('get_ajax.shopping.update', $row) }}"><i class="fas fa-pen small text-muted"></i></a>
+                                        <a class="reset-anchor js-delete-cart" href="{{ route('get_ajax.shopping.delete', $row) }}"><i class="fas fa-trash-alt small text-muted"></i></a>
+                                    </td>
                                 </tr>
                             @endforeach
                             </tbody>

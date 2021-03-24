@@ -66,6 +66,7 @@ Route::group(['namespace' => 'Frontend'], function () {
         Route::get('view-product/{id}', 'AjaxViewProductController@getPreviewProduct')->name('get_ajax.product_preview');
         Route::get('add/cart/{id}', 'AjaxShoppingCartController@add')->name('get_ajax.shopping.add');
         Route::get('delete/cart/{id}', 'AjaxShoppingCartController@delete')->name('get_ajax.shopping.delete');
+        Route::get('update/cart/{id}', 'AjaxShoppingCartController@update')->name('get_ajax.shopping.update');
     });
 });
 

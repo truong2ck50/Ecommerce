@@ -81,4 +81,15 @@ class AjaxShoppingCartController extends Controller
             ]);
         }
     }
+
+    public function update(Request $request, $id)
+    {
+       if($request->ajax())
+       {
+           Cart::update($id, $request->qty);
+           return response()->json([
+                'status' => 200
+           ]);
+       } 
+    }
 }

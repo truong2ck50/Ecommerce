@@ -217,6 +217,27 @@
                             }
                         });
                     })
+
+                    $("body").on("click",'.js-update-cart', function(event){
+                        event.preventDefault()
+                        let $this = $(this)
+                        let URL = $this.attr("href")
+                        let $elementQty = $this.parents('tr').find('.val-qty')
+                        if($elementQty.length)
+                        {
+                            qty = $elementQty.val()
+                        }
+                        console.log(qty)
+                        $.ajax({
+                            url: URL,
+                            data: {
+                                qty : qty
+                            }
+                        }).done(function( results ) {
+                            // console.log(results)
+                            location.reload()
+                        });
+                    })
                 })
             </script>
             <!-- FontAwesome CSS - loading as last, so it doesn't block rendering-->
