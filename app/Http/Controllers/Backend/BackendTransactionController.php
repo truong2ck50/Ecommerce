@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Backend;
 use App\Http\Controllers\Controller;
 use App\Models\Transaction;
 use App\Models\Order;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 
 class BackendTransactionController extends Controller
@@ -44,6 +45,20 @@ class BackendTransactionController extends Controller
         $transaction = Transaction::find($id);
         $transaction->t_status = Transaction::STATUS_CANCEL;
         $transaction->save();
+        return redirect()->back();
+    }
+
+    public function delete($id)
+    {
+        $orders = Order::where('od_transaction_id', $id)->get();
+        if($orders)
+        {
+            foreach ($orders as $item) {
+                DB::table('orders')->where('id', $item->id)->delete();
+            }
+        }
+
+        DB::table('transactions')->where('id', $id)->delete();
         return redirect()->back();
     }
 }

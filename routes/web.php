@@ -71,3 +71,4 @@ Route::group(['namespace' => 'Frontend'], function () {
 });
 
 include 'route_admin.php';
+include 'route_user.php';

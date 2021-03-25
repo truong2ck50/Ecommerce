@@ -30,20 +30,24 @@
                         </div>
                         <div class="post-tags"><a href="#" class="tag">#Business</a><a href="#" class="tag">#Tricks</a><a href="#" class="tag">#Financial</a><a href="#" class="tag">#Economy</a></div>
                         <div class="posts-nav d-flex justify-content-between align-items-stretch flex-column flex-md-row">
-                            <a href="#" class="prev-post text-left d-flex align-items-center">
+                            @if($articlePrev)
+                            <a href="{{ route('get.article_detail', ['slug' => $articlePrev->a_slug]) }}" class="prev-post text-left d-flex align-items-center">
                                 <div class="icon prev"><i class="fa fa-angle-left"></i></div>
                                 <div class="text">
-                                    <strong class="text-primary">Previous Post </strong>
-                                    <h6>I Bought a Wedding Dress.</h6>
+                                    <strong class="text-primary">Bài viết trước </strong>
+                                    <h6 class="row-2">{{ $articlePrev->a_name }}</h6>
                                 </div>
                             </a>
-                            <a href="#" class="next-post text-right d-flex align-items-center justify-content-end">
+                            @endif
+                            @if($articleNext)
+                            <a href="{{ route('get.article_detail', ['slug' => $articleNext->a_slug]) }}" class="next-post text-right d-flex align-items-center justify-content-end">
                                 <div class="text">
-                                    <strong class="text-primary">Next Post </strong>
-                                    <h6>I Bought a Wedding Dress.</h6>
+                                    <strong class="text-primary">Bài viết tiếp theo </strong>
+                                    <h6 class="row-2">{{ $articleNext->a_name }}</h6>
                                 </div>
                                 <div class="icon next"><i class="fa fa-angle-right">   </i></div>
                             </a>
+                            @endif
                         </div>
                         <div class="post-comments">
                             <header>
@@ -60,32 +64,10 @@
                                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
                                 </div>
                             </div>
-                            <div class="comment">
-                                <div class="comment-header d-flex justify-content-between">
-                                    <div class="user d-flex align-items-center">
-                                        <div class="image"><img src="img/user.svg" alt="..." class="img-fluid rounded-circle"></div>
-                                        <div class="title"><strong>Nikolas</strong><span class="date">May 2016</span></div>
-                                    </div>
-                                </div>
-                                <div class="comment-body">
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
-                                </div>
-                            </div>
-                            <div class="comment">
-                                <div class="comment-header d-flex justify-content-between">
-                                    <div class="user d-flex align-items-center">
-                                        <div class="image"><img src="img/user.svg" alt="..." class="img-fluid rounded-circle"></div>
-                                        <div class="title"><strong>John Doe</strong><span class="date">May 2016</span></div>
-                                    </div>
-                                </div>
-                                <div class="comment-body">
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
-                                </div>
-                            </div>
                         </div>
                         <div class="add-comment">
                             <header>
-                                <h3 class="h6">Leave a reply</h3>
+                                <h3 class="h6">Để lại bình luận của bạn</h3>
                             </header>
                             <form action="#" class="commenting-form">
                                 <div class="row">

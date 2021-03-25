@@ -135,4 +135,3 @@ Route::group(['namespace' => 'Backend', 'prefix' => 'admin'], function () {
 
 });
 
-?>

@@ -31,19 +31,19 @@
                     <div class="row">
                         <div class="col-lg-6 form-group">
                             <label class="text-small text-uppercase" for="firstName">Họ và tên</label>
-                            <input class="form-control form-control-lg" id="firstName" name="t_name" required type="text" placeholder="Enter your first name">
+                            <input class="form-control form-control-lg" id="firstName" value="{{ $user->name ?? ''}}" name="t_name" required type="text" placeholder="Enter your first name">
                         </div>
                         <div class="col-lg-6 form-group">
                             <label class="text-small text-uppercase" for="email">Email</label>
-                            <input class="form-control form-control-lg" id="email" name="t_email" required type="email" placeholder="e.g. Jason@example.com">
+                            <input class="form-control form-control-lg" id="email" value="{{ $user->email ?? ''}}" name="t_email" required type="email" placeholder="e.g. Jason@example.com">
                         </div>
                         <div class="col-lg-6 form-group">
                             <label class="text-small text-uppercase" for="phone">Số điện thoại</label>
-                            <input class="form-control form-control-lg" id="phone" name="t_phone" required type="tel" placeholder="e.g. +02 245354745">
+                            <input class="form-control form-control-lg" id="phone" value="{{ $user->phone ?? ''}}" name="t_phone" required type="tel" placeholder="e.g. +02 245354745">
                         </div>
                         <div class="col-lg-12 form-group">
                             <label class="text-small text-uppercase" for="address">Địa chỉ</label>
-                            <input class="form-control form-control-lg" id="address" name="t_address" type="text" placeholder="House number and street name">
+                            <input class="form-control form-control-lg" id="address" value="{{ $user->address ?? ''}}" name="t_address" required type="text" placeholder="House number and street name">
                         </div>
                         <div class="col-lg-12 form-group">
                             <button class="btn btn-dark" type="submit">Đặt hàng</button>

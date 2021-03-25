@@ -23,9 +23,17 @@
         <link rel="stylesheet" href="{{ asset('asset_blog/css/custom.css') }}">
         <!-- Favicon-->
         <link rel="shortcut icon" href="{{ asset('img/favicon.png')}}">
-        <!-- Tweaks for older IEs--><!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
+        <style>
+            .row-2 {
+                line-height: 1.3;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                display: -webkit-box;
+                -webkit-line-clamp: 2;
+                -webkit-box-orient: vertical;
+                margin-bottom: 10px;
+            }
+        </style> 
     </head>
     <body>
         <header class="header">
