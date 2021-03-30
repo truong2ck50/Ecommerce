@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
 use App\Models\User;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 
 class BackendUserController extends Controller
@@ -43,6 +44,7 @@ class BackendUserController extends Controller
 
     public function delete($id) 
     {
-        
+        DB::table('users')->where('id', $id)->delete();
+        return redirect()->route('get_backend.user.index');
     }
 }

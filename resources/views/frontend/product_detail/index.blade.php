@@ -41,12 +41,19 @@
                 </div>
                 <!-- PRODUCT DETAILS-->
                 <div class="col-lg-6">
+                    @php
+                        $age = 0;
+                        if($product->pro_review_total)
+                        {
+                            $age = round($product->pro_review_star / $product->pro_review_total, 0);
+                        }
+                    @endphp
                     <ul class="list-inline mb-2">
-                        <li class="list-inline-item m-0"><i class="fas fa-star small text-warning"></i></li>
-                        <li class="list-inline-item m-0"><i class="fas fa-star small text-warning"></i></li>
-                        <li class="list-inline-item m-0"><i class="fas fa-star small text-warning"></i></li>
-                        <li class="list-inline-item m-0"><i class="fas fa-star small text-warning"></i></li>
-                        <li class="list-inline-item m-0"><i class="fas fa-star small text-warning"></i></li>
+                        @for($i = 1; $i <= 5; $i++)
+                            <li class="list-inline-item m-0">
+                                <i class="fas fa-star {{ $i <= $age ? '' : 'fa-star-half-alt' }} text-warning"></i>
+                            </li>
+                        @endfor
                     </ul>
                     <h1>{{ $product->pro_name }}</h1>
                     <p class="text-muted lead">{{ number_format($product->pro_price, 0, ',', '.') }} VNĐ</p>
@@ -99,36 +106,23 @@
                     <div class="p-4 p-lg-5 bg-white">
                         <div class="row">
                             <div class="col-lg-8">
+                            @foreach($votes as $item)
                                 <div class="media mb-3">
                                     <img class="rounded-circle" src="img/customer-1.png" alt="" width="50">
                                     <div class="media-body ml-3">
-                                        <h6 class="mb-0 text-uppercase">Jason Doe</h6>
-                                        <p class="small text-muted mb-0 text-uppercase">20 May 2020</p>
+                                        <h6 class="mb-0 text-uppercase">{{ $item->user->name ?? '[N\A]' }}</h6>
+                                        <p class="small text-muted mb-0 text-uppercase">{{ $item->created_at }}</p>
                                         <ul class="list-inline mb-1 text-xs">
-                                            <li class="list-inline-item m-0"><i class="fas fa-star text-warning"></i></li>
-                                            <li class="list-inline-item m-0"><i class="fas fa-star text-warning"></i></li>
-                                            <li class="list-inline-item m-0"><i class="fas fa-star text-warning"></i></li>
-                                            <li class="list-inline-item m-0"><i class="fas fa-star text-warning"></i></li>
-                                            <li class="list-inline-item m-0"><i class="fas fa-star-half-alt text-warning"></i></li>
+                                            @for($i = 1; $i <=5; $i++)
+                                                <li class="list-inline-item m-0">
+                                                    <i class="fas fa-star {{ $i <= $item->v_number ? '' : 'fa-star-half-alt' }} text-warning"></i>
+                                                </li> 
+                                            @endfor
                                         </ul>
-                                        <p class="text-small mb-0 text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                                        <p class="text-small mb-0 text-muted">{{ $item->v_content }}</p>
                                     </div>
                                 </div>
-                                <div class="media">
-                                    <img class="rounded-circle" src="img/customer-2.png" alt="" width="50">
-                                    <div class="media-body ml-3">
-                                        <h6 class="mb-0 text-uppercase">Jason Doe</h6>
-                                        <p class="small text-muted mb-0 text-uppercase">20 May 2020</p>
-                                        <ul class="list-inline mb-1 text-xs">
-                                            <li class="list-inline-item m-0"><i class="fas fa-star text-warning"></i></li>
-                                            <li class="list-inline-item m-0"><i class="fas fa-star text-warning"></i></li>
-                                            <li class="list-inline-item m-0"><i class="fas fa-star text-warning"></i></li>
-                                            <li class="list-inline-item m-0"><i class="fas fa-star text-warning"></i></li>
-                                            <li class="list-inline-item m-0"><i class="fas fa-star-half-alt text-warning"></i></li>
-                                        </ul>
-                                        <p class="text-small mb-0 text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                                    </div>
-                                </div>
+                            @endforeach
                             </div>
                         </div>
                     </div>

@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
 use App\Models\Product;
+use App\Models\Vote;
 use Illuminate\Http\Request;
 
 class ProductDetailController extends Controller
@@ -19,8 +20,11 @@ class ProductDetailController extends Controller
         ->select('id', 'pro_name', 'pro_slug', 'pro_price', 'pro_avatar')
         ->get();
 
+        $votes = Vote::with('user')->where('v_product_id', $product->id)->get();
+
         $viewData = [
             'product'         => $product,
+            'votes'           => $votes,  
             'productsRelated' => $productsRelated
         ];
         return view('frontend.product_detail.index', $viewData);

@@ -15,5 +15,5 @@
                 @include('backend.keyword.form', ['route' => route('get_backend.keyword.store')])
             </div>
         </div>
-    </div>>
+    </div>
 @stop
