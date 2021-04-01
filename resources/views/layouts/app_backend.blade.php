@@ -37,6 +37,14 @@
                     <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
                     <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
                 </form> -->
+                <ul class="navbar-nav nav-flex-icons">
+                    <li class="nav-item">
+                        <a class="nav-link"><i class="fab fa-user">Xin chào {{ get_data_user('admins', 'name') }}</i></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('get_admin.logout') }}"><i class="fab fa-twitter">Thoát</i></a>
+                    </li>                
+                </ul>
             </div>
         </nav>
         <main role="main" class="container-fluid">

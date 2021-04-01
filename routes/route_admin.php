@@ -2,8 +2,16 @@
 
 use Illuminate\Support\Facades\Route;
 
-//BACKEND
 Route::group(['namespace' => 'Backend', 'prefix' => 'admin'], function () {
+    Route::group(['namespace' => 'Auth'], function () {
+        Route::get('login', 'BackendLoginController@getLogin')->name('get_admin.login');
+        Route::post('login', 'BackendLoginController@postLogin');
+        Route::get('logout', 'BackendLoginController@getLogout')->name('get_admin.logout');
+    });
+});
+
+//BACKEND
+Route::group(['namespace' => 'Backend', 'prefix' => 'admin', 'middleware' => 'checkLoginAdmin'], function () {
     //Trang chủ
     Route::get('', 'BackendHomeController@index')->name('get_backend.home');
 
