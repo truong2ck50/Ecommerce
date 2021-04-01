@@ -24,9 +24,9 @@
                 <td>{{ $item->created_at }}</td>
                 <td>
                     <a href="{{ route('get_user.transaction.view', $item->id) }}" class="btn btn-sm btn-primary">Chi tiết</a>
-                    @if($item->t_status == \App\Models\Transaction::STATUS_DEFAULT)
-                    <a href="{{ route('get_user.transaction.delete', $item->id) }}" class="btn btn-sm btn-danger">Huỷ bỏ</a>
-                    @endif  
+                    <!-- @if($item->t_status == \App\Models\Transaction::STATUS_DEFAULT)
+                    <a href="{{ route('get_user.transaction.delete', $item->id) }}" class="btn btn-sm btn-danger">Delete</a>
+                    @endif   -->
                 </td>
             </tr>
         @endforeach

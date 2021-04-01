@@ -49,7 +49,7 @@
                             </a>
                             @endif
                         </div>
-                        <div class="post-comments">
+                        <!-- <div class="post-comments">
                             <header>
                                 <h3 class="h6">Post Comments<span class="no-of-comments">(3)</span></h3>
                             </header>
@@ -85,7 +85,7 @@
                                     </div>
                                 </div>
                             </form>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
             </div>

@@ -31,24 +31,21 @@
     <body>
         <div class="page-holder">
             <!-- navbar-->
-            <header class="header bg-white">
+            <header class="header bg-white" style="position: fixed; width: 100%; top: 0; z-index: 99;">
                 <div class="container px-0 px-lg-3">
                     <nav class="navbar navbar-expand-lg navbar-light py-3 px-lg-0">
-                        <a class="navbar-brand" href="{{ route('get.home') }}" title="Trang chủ"><span class="font-weight-bold text-uppercase text-dark">Trường Chinh Computer</span></a>
+                        <!-- <a class="navbar-brand" href="{{ route('get.home') }}" title="Trang chủ"><span class="font-weight-bold text-uppercase text-dark">Trường Chinh Computer</span></a> -->
                         <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                         <div class="collapse navbar-collapse" id="navbarSupportedContent">
                             <ul class="navbar-nav mr-auto">
                                 <li class="nav-item">
-                                    <a class="nav-link" title="Trang chủ" href="{{ route('get.home') }}">Trang chủ</a>
+                                    <a class="nav-link" title="Trang chủ" href="{{ route('get.home') }}" ><i class="fas fa-home"></i>Trang chủ</a>
                                 </li>
-                                <li class="nav-item dropdown">
-                                    <a class="nav-link dropdown-toggle" id="pagesDropdown" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Danh mục</a>
-                                    <div class="dropdown-menu mt-3" aria-labelledby="pagesDropdown">
-                                        @foreach($categoriesGlobal as $item)
-                                        <a class="dropdown-item border-0 transition-link" title="{{ $item->c_name }}" href="{{ route('get.category', $item->c_slug)}}">{{ $item->c_name }}</a>
-                                        @endforeach
-                                    </div>
-                                </li>
+                                @foreach($categoriesGlobal as $item)
+                                    <li>
+                                        <a class="nav-link" title="{{ $item->c_name }}" href="{{ route('get.category', $item->c_slug)}}">{{ $item->c_name }}</a>
+                                    </li>
+                                @endforeach
                                 <li class="nav-item">
                                     <a class="nav-link" title="Bài viết" href="{{ route('get.blog') }}">Bài viết</a>
                                 </li>
@@ -73,7 +70,7 @@
                                 @else
                                     <li class="nav-item">
                                         <a class="nav-link" href="{{ route('get.login') }}"> <i class="fas fa-user-alt mr-1 text-gray"></i>Đăng nhập</a>
-                                    </li>
+                                    </li>   
                                 @endif
                             </ul>
                         </div>
@@ -89,30 +86,29 @@
                 <div class="container py-4">
                     <div class="row py-5">
                         <div class="col-md-4 mb-3 mb-md-0">
-                            <h6 class="text-uppercase mb-3">Customer services</h6>
+                            <h6 class="text-uppercase mb-3">Thông tin liên hệ</h6>
                             <ul class="list-unstyled mb-0">
-                                <li><a class="footer-link" href="#">Help &amp; Contact Us</a></li>
-                                <li><a class="footer-link" href="#">Returns &amp; Refunds</a></li>
-                                <li><a class="footer-link" href="#">Online Stores</a></li>
-                                <li><a class="footer-link" href="#">Terms &amp; Conditions</a></li>
+                                <li><a class="footer-link" href="#">Công ty TNHH Thiết bị kỹ thuật Tin học Trường Chinh</a></li>
+                                <li><a class="footer-link" href="#">Trụ sở chính: Số 78, đường Quốc lộ 3, thôn Phù Mã, Xã Phù Linh, Huyện Sóc Sơn, TP Hà Nội</a></li>
+                                <li><a class="footer-link" href="#">Email: truong2ck50@gmail.com</a></li>
+                                <li><a class="footer-link" href="#">Phone: 0971459902</a></li>
                             </ul>
                         </div>
                         <div class="col-md-4 mb-3 mb-md-0">
-                            <h6 class="text-uppercase mb-3">Company</h6>
+                            <h6 class="text-uppercase mb-3">Về chúng tôi</h6>
                             <ul class="list-unstyled mb-0">
-                                <li><a class="footer-link" href="#">What We Do</a></li>
-                                <li><a class="footer-link" href="#">Available Services</a></li>
-                                <li><a class="footer-link" href="#">Latest Posts</a></li>
-                                <li><a class="footer-link" href="#">FAQs</a></li>
+                                <li><a class="footer-link" href="#">Giới thiệu</a></li>
+                                @foreach($menusGlobal as $item)
+                                    <li><a class="footer-link" href="{{ route('get.menu', $item->mn_slug) }}">{{ $item->mn_name }}</a></li>
+                                @endforeach
                             </ul>
                         </div>
                         <div class="col-md-4">
-                            <h6 class="text-uppercase mb-3">Social media</h6>
+                            <h6 class="text-uppercase mb-3">Chính sách</h6>
                             <ul class="list-unstyled mb-0">
-                                <li><a class="footer-link" href="#">Twitter</a></li>
-                                <li><a class="footer-link" href="#">Instagram</a></li>
-                                <li><a class="footer-link" href="#">Tumblr</a></li>
-                                <li><a class="footer-link" href="#">Pinterest</a></li>
+                                <li><a class="footer-link" href="#">Chính sách mua hàng</a></li>
+                                <li><a class="footer-link" href="#">Chính sách đổi trả</a></li>
+                                <li><a class="footer-link" href="#">Chính sách bảo hành</a></li>
                             </ul>
                         </div>
                     </div>

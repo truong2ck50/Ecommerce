@@ -1,11 +1,11 @@
 <section class="py-5">
     <header>
         <!-- <p class="small text-muted small text-uppercase mb-1">Made the hard way</p> -->
-        <h2 class="h5 text-uppercase mb-4">Top sản phẩm nổi bật</h2>
+        <h2 class="h5 text-uppercase mb-4">Sản phẩm mới</h2>
     </header>
     <div class="row">
         <!-- PRODUCT-->
-        @foreach($products as $item)
+        @foreach($products as $key => $item)
         <div class="col-xl-3 col-lg-4 col-sm-6">
             <div class="product text-center">
                 <div class="position-relative mb-3">
@@ -33,6 +33,15 @@
                 <p class="small text-muted">    {{ number_format($item->pro_price, 0, ',', '.') }} VNĐ</p>
             </div>
         </div>
+        @if($key == 5)
+            <div class="col-xl-6 col-lg-4 col-sm-6">
+                <div class="product text-center">
+                    <a href="">
+                        <img src="https://cdn.tgdd.vn/Products/Images/522/228144/Feature/samsung-galaxy-tab-a7-2020-ft.jpg" alt="">
+                    </a>
+                </div>
+            </div>
+        @endif
         @endforeach
     </div>
 </section>
