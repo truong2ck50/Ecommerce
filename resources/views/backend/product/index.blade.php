@@ -2,6 +2,9 @@
 @section('title', 'Danh sách sản phẩm')
 @section('content')
     <h1>Danh sách sản phẩm <a href="{{ route('get_backend.product.create') }}" class="btn btn-xs btn-success">Thêm mới</a></h1>
+    <div class="float-right">
+        {!! $products->appends($query ?? [])->links('vendor.pagination.bootstrap-4') !!}
+    </div>
     <table class="table table-hover">
         <thead>
         <tr>
@@ -42,4 +45,7 @@
         @endforeach
         </tbody>
     </table>
+    <div class="float-right">
+        {!! $products->appends($query ?? [])->links('vendor.pagination.bootstrap-4') !!}
+    </div>
 @stop

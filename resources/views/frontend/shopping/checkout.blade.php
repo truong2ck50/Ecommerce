@@ -41,9 +41,13 @@
                             <label class="text-small text-uppercase" for="phone">Số điện thoại</label>
                             <input class="form-control form-control-lg" id="phone" value="{{ $user->phone ?? ''}}" name="t_phone" required type="tel" placeholder="e.g. +02 245354745">
                         </div>
-                        <div class="col-lg-12 form-group">
+                        <div class="col-lg-6 form-group">
                             <label class="text-small text-uppercase" for="address">Địa chỉ</label>
                             <input class="form-control form-control-lg" id="address" value="{{ $user->address ?? ''}}" name="t_address" required type="text" placeholder="House number and street name">
+                        </div>
+                        <div class="col-lg-6 form-group">
+                            <label class="text-small text-uppercase" for="note">Ghi chú</label>
+                            <input class="form-control form-control-lg" value="Nhận hàng mới thanh toán" name="t_note" required type="text" placeholder="Note">
                         </div>
                         <div class="col-lg-12 form-group">
                             <button class="btn btn-dark" type="submit">Đặt hàng</button>

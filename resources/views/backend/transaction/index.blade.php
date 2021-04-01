@@ -10,6 +10,7 @@
             <th>Phone</th>
             <th>Total</th>
             <th>Status</th>
+            <th>Note</th>
             <th>Time</th>
             <th>Action</th>
         </tr>
@@ -22,6 +23,7 @@
                 <td>{{ $item->t_phone }}</td>
                 <td><span class="text-danger">{{ number_format($item->t_total_money, 0, ',', '.') }} đ</span></td>
                 <td><span class="text-{{ $item->getStatus($item->t_status)['class'] }}">{{ $item->getStatus($item->t_status)['name'] }}</span></td>
+                <td>{{ $item->t_note }}</td>
                 <td>{{ $item->created_at }}</td>
                 <td>
                     <a href="{{ route('get_backend.transaction.view', $item->id) }}" class="btn btn-sm btn-primary">View</a>

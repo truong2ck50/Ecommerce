@@ -94,6 +94,6 @@
  </form>
 <script src="{{ asset('ckeditor/ckeditor.js')}}"></script>
 <script>
-    CKEDITOR.replace('editor3');
+    // CKEDITOR.replace('editor3');
     CKEDITOR.replace('editor4');
 </script>

@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Frontend\Auth;
 use App\Http\Controllers\Controller;
 use App\Models\User;
 use Carbon\Carbon;
-use Illuminate\Http\Request;
+use App\Http\Requests\RegisterRequest;
 use Illuminate\Support\Facades\Auth;
 
 class RegisterController extends Controller
@@ -15,7 +15,7 @@ class RegisterController extends Controller
         return view('frontend.auth.register');
     }
 
-    public function postRegister(Request $request)
+    public function postRegister(RegisterRequest $request)
     {
         $data = $request->except('_token');
         $data['password'] = bcrypt($request->password); // Mã hoá password (Hash password)

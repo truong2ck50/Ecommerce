@@ -41,16 +41,28 @@
                             <form method="POST" action="">
                                 @csrf                                
                                 <div class="form-group mb-3">
-                                    <input id="inputEmail" type="email" placeholder="Email address" name="email" required="" autofocus="" class="form-control rounded-pill border-0 shadow-sm px-4">
+                                    <input id="inputEmail" type="email" placeholder="Email address" name="email" value="{{ old('email') }}" required="" autofocus="" class="form-control rounded-pill border-0 shadow-sm px-4">
+                                    @if ($errors->first('email'))
+                                        <small id="emailHelp" class="form-text text-danger">{{ $errors->first('email') }}</small>
+                                    @endif
                                 </div>
                                 <div class="form-group mb-3">
                                     <input id="inputPassword" type="password" placeholder="Password" name="password" required="" class="form-control rounded-pill border-0 shadow-sm px-4 text-primary">
+                                    @if ($errors->first('password'))
+                                        <small id="emailHelp" class="form-text text-danger">{{ $errors->first('password') }}</small>
+                                    @endif
                                 </div>
                                 <div class="form-group mb-3">
-                                    <input type="text" placeholder="Name" name="name" required="" class="form-control rounded-pill border-0 shadow-sm px-4 text-primary">
+                                    <input type="text" placeholder="Name" name="name" value="{{ old('name') }}" required="" class="form-control rounded-pill border-0 shadow-sm px-4 text-primary">
+                                    @if ($errors->first('name'))
+                                        <small id="emailHelp" class="form-text text-danger">{{ $errors->first('name') }}</small>
+                                    @endif
                                 </div>
                                 <div class="form-group mb-3">
-                                    <input type="text" placeholder="Phone" name="phone" required="" class="form-control rounded-pill border-0 shadow-sm px-4 text-primary">
+                                    <input type="text" placeholder="Phone" name="phone" value="{{ old('phone') }}" required="" class="form-control rounded-pill border-0 shadow-sm px-4 text-primary">
+                                    @if ($errors->first('phone'))
+                                        <small id="emailHelp" class="form-text text-danger">{{ $errors->first('phone') }}</small>
+                                    @endif
                                 </div>
                                 <button type="submit" class="btn btn-primary btn-block text-uppercase mb-2 rounded-pill shadow-sm">Đăng ký</button>
                                 <div class="text-center d-flex justify-content-between mt-4"><p>Bạn đã có tài khoản vui lòng đăng nhập
