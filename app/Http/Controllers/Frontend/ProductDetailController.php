@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Frontend;
 use App\Http\Controllers\Controller;
 use App\Models\Product;
 use App\Models\Vote;
+use App\Models\Comment;
 use Illuminate\Http\Request;
 
 class ProductDetailController extends Controller
@@ -22,11 +23,29 @@ class ProductDetailController extends Controller
 
         $votes = Vote::with('user')->where('v_product_id', $product->id)->get();
 
+        $comments = Comment::with('user:id,name,avatar')->where('c_product_id', $product->id)->get();
+
         $viewData = [
             'product'         => $product,
             'votes'           => $votes,  
-            'productsRelated' => $productsRelated
+            'productsRelated' => $productsRelated,
+            'comments'        => $comments
         ];
         return view('frontend.product_detail.index', $viewData);
+    }
+
+    public function comment(Request $request, $slug)
+    {
+        $product = Product::with('category:id,c_name,c_slug', 'keywords')->where('pro_slug', $slug)->first();
+        if(!$product) return abort(404);
+
+        $comment = new Comment();
+        $comment->c_name = $request->username;
+        $comment->c_user_id = get_data_user('web');
+        $comment->c_product_id = $product->id;
+        $comment->c_content = $request->comment;
+        $comment->save();
+
+        return redirect()->back();
     }
 }

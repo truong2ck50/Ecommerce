@@ -95,6 +95,7 @@
             <ul class="nav nav-tabs border-0" id="myTab" role="tablist">
                 <li class="nav-item"><a class="nav-link active" id="description-tab" data-toggle="tab" href="#description" role="tab" aria-controls="description" aria-selected="true">Mô tả sản phẩm</a></li>
                 <li class="nav-item"><a class="nav-link" id="reviews-tab" data-toggle="tab" href="#reviews" role="tab" aria-controls="reviews" aria-selected="false">Đánh giá sản phẩm</a></li>
+                <li class="nav-item"><a class="nav-link" id="comment-tab" data-toggle="tab" href="#comment" role="tab" aria-controls="reviews" aria-selected="false">Bình luận</a></li>
             </ul>
             <div class="tab-content mb-5" id="myTabContent">
                 <div class="tab-pane fade show active" id="description" role="tabpanel" aria-labelledby="description-tab">
@@ -123,6 +124,56 @@
                                     </div>
                                 </div>
                             @endforeach
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-pane fade" id="comment" role="tabpanel" aria-labelledby="reviews-tab">
+                    <div class="p-4 p-lg-5 bg-white">
+                        <div class="row">
+                            <div class="col-lg-8">
+                                <h4>Bình luận</h4>
+                                <div class="post-comments">
+                                    @foreach($comments as $item)
+                                        <div class="comment" style="margin-bottom: 20px;">
+                                            <div class="comment-header d-flex justify-content-between">
+                                                <div class="user d-flex align-items-center">
+                                                    <div class="image"><img style="width: 50px; margin-bottom: 5px;" src="{{ pare_url_file($item->user->avatar ?? '') }}" alt="..." class="img-fluid rounded-circle"></div>
+                                                    <div class="title"><strong>{{ $item->c_name }}</strong><span class="date">{{' '.$item->created_at }}</span></div>
+                                                </div>
+                                            </div>
+                                            <div class="comment-body">
+                                                <p>{{ $item->c_content }}</p>
+                                            </div>
+                                        </div>
+                                    @endforeach
+                                </div>
+                                @if(get_data_user('web'))
+                                    <div class="add-comment">
+                                        <header>
+                                            <h3 class="h6">Để lại bình luận của bạn</h3>
+                                        </header>
+                                        <form action="{{ route('get.product_detail.comment', ['slug' => $product->pro_slug]) }}" method="POST" class="commenting-form">
+                                            @csrf
+                                            <div class="row">
+                                                <div class="form-group col-md-6">
+                                                    <input type="text" name="username" value="{{get_data_user('web', 'name')}}" id="username" placeholder="Name" class="form-control">
+                                                </div>
+                                                <div class="form-group col-md-6">
+                                                    <input type="email" name="username" id="useremail" disabled placeholder="" value="{{get_data_user('web', 'email')}}" class="form-control">
+                                                </div>
+                                                <div class="form-group col-md-12">
+                                                    <textarea name="comment" id="usercomment" required placeholder="Type your comment" class="form-control"></textarea>
+                                                </div>
+                                                <div class="form-group col-md-12">
+                                                    <button type="submit" class="btn btn-secondary">Gửi bình luận</button>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                @else
+                                    <p style="color: red;">Đăng nhập để bình luận</p>
+                                @endif
                             </div>
                         </div>
                     </div>

@@ -45,6 +45,7 @@ Route::group(['namespace' => 'Frontend'], function () {
 
     //Chi tiết sản phẩm
     Route::get('san-pham/{slug}', 'ProductDetailController@index')->name('get.product_detail');
+    Route::post('san-pham/{slug}/comment', 'ProductDetailController@comment')->name('get.product_detail.comment');
 
     //Menu bài viết
     Route::get('menu/{slug}', 'MenuController@index')->name('get.menu');
