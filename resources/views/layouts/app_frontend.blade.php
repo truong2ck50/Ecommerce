@@ -53,7 +53,7 @@
                             <ul class="navbar-nav ml-auto">
                                 <li class="nav-item">
                                     <a class="nav-link" href="{{ route('get.shopping') }}" title="Giỏ hàng"> 
-                                        <i class="fas fa-dolly-flatbed mr-1 text-gray"></i>Giỏ hàng<small class="text-gray">({{ Cart::count() }})</small>
+                                        <i class="fas fa-dolly-flatbed mr-1 text-gray"></i>Giỏ hàng<small class="text-gray" id="totalCart">({{ Cart::count() }})</small>
                                     </a>
                                  </li>
                                 <li class="nav-item"><a class="nav-link" href="#"> <i class="far fa-heart mr-1"></i><small class="text-gray"> (0)</small></a></li>
@@ -194,7 +194,9 @@
                                 qty : qty
                             }
                         }).done(function( results ) {
-                            console.log(results)
+                            alert(results.message)
+                            if(typeof results.totalCart !== "undefined")
+                                $("#totalCart").text("(" + results.totalCart + ")")
                         });
                     })
 
@@ -206,10 +208,13 @@
                         $.ajax({
                             url: URL
                         }).done(function( results ) {
-                            console.log(results)
+                            alert(results.message)
                             if(results.status === 200)
                             {
                                 $this.parents('tr').remove()
+
+                                if(typeof results.totalCart !== "undefined")
+                                    $("#totalCart").text("(" + results.totalCart + ")")
                             }
                         });
                     })
@@ -230,7 +235,9 @@
                                 qty : qty
                             }
                         }).done(function( results ) {
-                            // console.log(results)
+                            alert(results.message)
+                            if(typeof results.totalCart !== "undefined")
+                                $("#totalCart").text("(" + results.totalCart + ")")
                             location.reload()
                         });
                     })

@@ -73,7 +73,7 @@
                             <a class="js-add-cart btn btn-dark btn-sm btn-block h-100 d-flex align-items-center justify-content-center px-0" href="{{ route('get_ajax.shopping.add', $product->id) }}">Thêm giỏ hàng</a>
                         </div>
                     </div>
-                    <a class="btn btn-link text-dark p-0 mb-4" href="#"><i class="far fa-heart mr-2"></i>Add to wish list</a><br>
+                    <!-- <a class="btn btn-link text-dark p-0 mb-4" href="#"><i class="far fa-heart mr-2"></i>Add to wish list</a><br> -->
                     <ul class="list-unstyled small d-inline-block">
                         <!-- <li class="px-3 py-2 mb-1 bg-white"><strong class="text-uppercase">SKU:</strong><span class="ml-2 text-muted">039</span></li> -->
                         <li class="px-3 py-2 mb-1 bg-white text-muted">

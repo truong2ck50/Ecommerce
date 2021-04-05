@@ -16,9 +16,7 @@ class BackendLoginController extends Controller
 
     public function postLogin(Request $request)
     {
-        $credentials = $request->only('email', 'password');
-
-        if (Auth::guard('admins')->attempt($credentials)) {
+        if (Auth::guard('admins')->attempt(['email' => $request->email, 'password' => $request->password])) {
             return redirect()->route('get_backend.home');
         }
 

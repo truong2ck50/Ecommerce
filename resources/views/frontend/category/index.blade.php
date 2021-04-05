@@ -3,7 +3,7 @@
 @section('content')
     <div class="container">
     <!-- HERO SECTION-->
-    <section class="py-5 bg-light">
+    <section class="py-5 bg-light" style="padding-top: 120px !important;">
         <div class="container">
             <div class="row px-4 px-lg-5 py-lg-4 align-items-center">
                 <div class="col-lg-6">
@@ -137,6 +137,9 @@
                             </div>
                         </div>
                         @endforeach
+                    </div>
+                    <div class="float-right">
+                        {!! $products->appends($query ?? [])->links('vendor.pagination.bootstrap-4') !!}
                     </div>
                     <!-- PAGINATION-->
                     <!-- <nav aria-label="Page navigation example">
