@@ -10,6 +10,7 @@
         <link rel="canonical" href="https://getbootstrap.com/docs/4.0/examples/navbar-fixed/">
         <!-- Bootstrap core CSS -->
         <link href="https://getbootstrap.com/docs/4.0/dist/css/bootstrap.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdn.datatables.net/1.10.24/css/jquery.dataTables.min.css">
         <!-- Custom styles for this template -->
         <style>
             /* Show it is fixed to the top */
@@ -56,13 +57,15 @@
         <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
         <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
         <!-- Placed at the end of the document so the pages load faster -->
-        <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
+        <!-- <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery-slim.min.js"><\/script>')</script> -->
         <script src="https://getbootstrap.com/docs/4.0/assets/js/vendor/popper.min.js"></script>
         <script src="https://getbootstrap.com/docs/4.0/dist/js/bootstrap.min.js"></script>
+        <script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
         <script>
             $(function() {
                 $(document).ready(function() {
                     $('.js-tags').select2();
+                    $('#jsDataTable').DataTable();
                 });
             })
         </script>

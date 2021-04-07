@@ -2,10 +2,8 @@
 @section('title', 'Danh sách sản phẩm')
 @section('content')
     <h1>Danh sách sản phẩm <a href="{{ route('get_backend.product.create') }}" class="btn btn-xs btn-success">Thêm mới</a></h1>
-    <div class="float-right">
-        {!! $products->appends($query ?? [])->links('vendor.pagination.bootstrap-4') !!}
-    </div>
-    <table class="table table-hover">
+
+    <table class="table table-hover" id="jsDataTable">
         <thead>
         <tr>
             <th>ID</th>
@@ -27,7 +25,11 @@
                         <img src="{{ pare_url_file($item->pro_avatar) }}" class="img-thumbnail" style="width: 60px; height: 60px;" alt="">
                     </a>
                 </td>
-                <td>{{ $item->pro_name }}</td>
+                <td style="width: 300px">
+                    <a href="{{ route('get.product_detail', $item->pro_slug) }}" target="_blank">
+                        {{ $item->pro_name }}
+                    </a>
+                </td>
                 <td>{{ $item->category->c_name ?? '[N\A]' }}</td>
                 <td>
                     <div class="custom-control custom-radio custom-control-inline">
@@ -45,7 +47,4 @@
         @endforeach
         </tbody>
     </table>
-    <div class="float-right">
-        {!! $products->appends($query ?? [])->links('vendor.pagination.bootstrap-4') !!}
-    </div>
 @stop

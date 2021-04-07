@@ -2,7 +2,7 @@
 @section('title', 'Danh sách đơn hàng')
 @section('content')
     <h1>Danh sách đơn hàng</h1>
-    <table class="table table-hover">
+    <table class="table table-hover" id="jsDataTable">
         <thead>
         <tr>
             <th>ID</th>

@@ -12,7 +12,7 @@ class BackendTransactionController extends Controller
 {
     public function index(Request $request)
     {
-        $transactions = Transaction::orderByDesc('id')->paginate(20);
+        $transactions = Transaction::orderByDesc('id')->get();
         $viewData = [
             'transactions' => $transactions
         ];

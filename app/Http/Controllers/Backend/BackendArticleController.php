@@ -18,7 +18,7 @@ class BackendArticleController extends Controller
 
     public function index() 
     {
-        $articles = Article::with('menu:id,mn_name')->orderByDesc('id')->paginate(10);
+        $articles = Article::with('menu:id,mn_name')->orderByDesc('id')->get();
 
         $viewData = [
             'articles' => $articles
