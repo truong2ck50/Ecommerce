@@ -1,7 +1,8 @@
 @extends('layouts.app_user')
 @section('title', 'Đơn hàng của bạn')
 @section('content')
-    <table class="table table-hover">
+    <h4 style="margin-bottom: 10px">ĐƠN HÀNG CỦA BẠN</h4>
+    <table class="table table-hover" id="jsDataTable">
         <thead>
         <tr>
             <th>ID</th>
@@ -24,9 +25,9 @@
                 <td>{{ $item->created_at }}</td>
                 <td>
                     <a href="{{ route('get_user.transaction.view', $item->id) }}" class="btn btn-sm btn-primary">Chi tiết</a>
-                    <!-- @if($item->t_status == \App\Models\Transaction::STATUS_DEFAULT)
+                    @if($item->t_status == \App\Models\Transaction::STATUS_CANCEL)
                     <a href="{{ route('get_user.transaction.delete', $item->id) }}" class="btn btn-sm btn-danger">Delete</a>
-                    @endif   -->
+                    @endif  
                 </td>
             </tr>
         @endforeach

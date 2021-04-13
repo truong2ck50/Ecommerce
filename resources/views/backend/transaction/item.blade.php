@@ -4,8 +4,12 @@
     <h1>Chi tiết đơn hàng #{{ $transaction->id }} - Tổng tiền <b class="text-danger">{{ number_format($transaction->t_total_money, 0, ',', '.') }} VNĐ</b></h1>
     <p><b>Trạng thái: <span class="text-{{ $transaction->getStatus($transaction->t_status)['class'] }}">{{ $transaction->getStatus($transaction->t_status)['name'] }}</span></b></p>
     <div>
-        <a href="{{ route('get_backend.transaction.success', $transaction->id) }}" class="btn btn-sm btn-success">Hoàn thành</a>
-        <a href="{{ route('get_backend.transaction.cancel', $transaction->id) }}" class="btn btn-sm btn-danger">Huỷ bỏ</a>
+        @if($transaction->t_status == \App\Models\Transaction::STATUS_CANCEL)
+            
+        @else
+            <a href="{{ route('get_backend.transaction.success', $transaction->id) }}" class="btn btn-sm btn-success">Hoàn thành</a>
+            <a href="{{ route('get_backend.transaction.cancel', $transaction->id) }}" class="btn btn-sm btn-danger">Huỷ bỏ</a>
+        @endif
     </div>
     <table class="table table-hover mt-3">
         <thead>
@@ -17,7 +21,7 @@
             <th>Quantity</th>
             <th>Total</th>
             <th>Time</th>
-            <th>Action</th>
+            <!-- <th>Action</th> -->
         </tr>
         </thead>
         <tbody>
@@ -34,9 +38,9 @@
                 <td>{{ $item->od_qty }}</td>
                 <td><span class="text-danger">{{ number_format($item->od_price * $item->od_qty, 0, ',', '.') }} đ</span></td>
                 <td>{{ $item->created_at }}</td>
-                <td>
+                <!-- <td>
                     <a href="{{ route('get_backend.order.delete', $item->id) }}" class="btn btn-sm btn-danger">Delete</a>
-                </td>
+                </td> -->
             </tr>
         @endforeach
         </tbody>

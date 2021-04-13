@@ -21,6 +21,7 @@
         <link rel="stylesheet" href="{{ asset('asset_blog/css/style.default.css') }}" id="theme-stylesheet">
         <!-- Custom stylesheet - for your changes-->
         <link rel="stylesheet" href="{{ asset('asset_blog/css/custom.css') }}">
+        <link rel="stylesheet" href="https://cdn.datatables.net/1.10.24/css/jquery.dataTables.min.css">
         <!-- Favicon-->
         <link rel="shortcut icon" href="{{ asset('img/favicon.png')}}">
         <style>
@@ -150,8 +151,10 @@
         <script src="{{ asset('asset_blog/vendor/jquery.cookie/jquery.cookie.js')}}"> </script>
         <script src="{{ asset('asset_blog/vendor/@fancyapps/fancybox/jquery.fancybox.min.js')}}"></script>
         <script src="{{ asset('asset_blog/js/front.js')}}"></script>
+        <script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
         <script>
             $(function() {
+                $('#jsDataTable').DataTable();
                 $('#sidebarCollapse').on('click', function() {
                     $('#sidebar, #content').toggleClass('active');
                 });

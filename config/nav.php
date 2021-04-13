@@ -44,6 +44,11 @@
             ],
             'user' => [
                 [
+                    'name'  => 'Trang chủ',
+                    'route' => 'get.home',
+                    'icon'  => 'fa-home'
+                ],
+                [
                     'name'  => 'Tổng quan',
                     'route' => 'get_user.home',
                     'icon'  => 'fa-th-large'
