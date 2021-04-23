@@ -62,6 +62,9 @@ Route::group(['namespace' => 'Frontend'], function () {
     Route::get('checkout.html', 'ShoppingCartController@checkout')->name('get.shopping.checkout');
     Route::post('checkout.html', 'ShoppingCartController@pay');
 
+    //Liên hệ
+    Route::get('lien-he', 'ContactController@lienHe')->name('get.contact');
+
     //Sản phẩm ajax
     Route::group(['namespace' => 'Ajax', 'prefix' => 'ajax'], function () {
         Route::get('view-product/{id}', 'AjaxViewProductController@getPreviewProduct')->name('get_ajax.product_preview');

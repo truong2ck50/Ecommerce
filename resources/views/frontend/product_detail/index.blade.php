@@ -9,20 +9,26 @@
                 <div class="row m-sm-0">
                     <div class="col-sm-2 p-sm-0 order-2 order-sm-1 mt-2 mt-sm-0">
                         <div class="owl-thumbs d-flex flex-row flex-sm-column" data-slider-id="1">
-                            <div class="owl-thumb-item flex-fill mb-2 mr-2 mr-sm-0 active"><img class="w-100" src="{{asset('img/product-detail-1.jpg')}}" alt="..."></div>
-                            <div class="owl-thumb-item flex-fill mb-2 mr-2 mr-sm-0"><img class="w-100" src="{{asset('img/product-detail-2.jpg')}}" alt="..."></div>
+                            <div class="owl-thumb-item flex-fill mb-2 mr-2 mr-sm-0 active">
+                                <img class="w-100" 
+                                    style=" width: 100px; height: 100px;" 
+                                    src="{{ pare_url_file($product->pro_avatar) }}" alt="...">
+                            </div>
+                            <!-- <div class="owl-thumb-item flex-fill mb-2 mr-2 mr-sm-0"><img class="w-100" src="{{asset('img/product-detail-2.jpg')}}" alt="..."></div>
                             <div class="owl-thumb-item flex-fill mb-2 mr-2 mr-sm-0"><img class="w-100" src="{{asset('img/product-detail-3.jpg')}}" alt="..."></div>
-                            <div class="owl-thumb-item flex-fill mb-2"><img class="w-100" src="{{asset('img/product-detail-4.jpg')}}" alt="..."></div>
+                            <div class="owl-thumb-item flex-fill mb-2"><img class="w-100" src="{{asset('img/product-detail-4.jpg')}}" alt="..."></div> -->
                         </div>
                     </div>
                     <div class="col-sm-10 order-1 order-sm-2">
                         <div class="owl-carousel product-slider owl-loaded owl-drag" data-slider-id="1">
                             <div class="owl-stage-outer">
                                 <div class="owl-stage" style="transform: translate3d(0px, 0px, 0px); transition: all 0s ease 0s; width: 1680px;">
-                                    <div class="owl-item active" style="width: 420px;"><a class="d-block" href="{{asset('img/product-detail-1.jpg')}}" data-lightbox="product" title="Product item 1"><img class="img-fluid" src="{{asset('img/product-detail-1.jpg')}}" alt="..."></a></div>
-                                    <div class="owl-item" style="width: 420px;"><a class="d-block" href="{{asset('img/product-detail-2.jpg')}}" data-lightbox="product" title="Product item 2"><img class="img-fluid" src="{{asset('img/product-detail-2.jpg')}}" alt="..."></a></div>
+                                    <div class="owl-item active" style="width: 420px;"><a class="d-block" href="{{ pare_url_file($product->pro_avatar) }}" data-lightbox="product" title="Product item 1">
+                                        <img class="img-fluid" style="width:420px; height: 450px;" src="{{ pare_url_file($product->pro_avatar) }}" alt="..."></a>
+                                    </div>
+                                    <!-- <div class="owl-item" style="width: 420px;"><a class="d-block" href="{{asset('img/product-detail-2.jpg')}}" data-lightbox="product" title="Product item 2"><img class="img-fluid" src="{{asset('img/product-detail-2.jpg')}}" alt="..."></a></div>
                                     <div class="owl-item" style="width: 420px;"><a class="d-block" href="{{asset('img/product-detail-3.jpg')}}" data-lightbox="product" title="Product item 3"><img class="img-fluid" src="{{asset('img/product-detail-3.jpg')}}" alt="..."></a></div>
-                                    <div class="owl-item" style="width: 420px;"><a class="d-block" href="{{asset('img/product-detail-4.jpg')}}" data-lightbox="product" title="Product item 4"><img class="img-fluid" src="{{asset('img/product-detail-4.jpg')}}" alt="..."></a></div>
+                                    <div class="owl-item" style="width: 420px;"><a class="d-block" href="{{asset('img/product-detail-4.jpg')}}" data-lightbox="product" title="Product item 4"><img class="img-fluid" src="{{asset('img/product-detail-4.jpg')}}" alt="..."></a></div> -->
                                 </div>
                             </div>
                             <div class="owl-nav disabled">
@@ -172,7 +178,7 @@
                                         </form>
                                     </div>
                                 @else
-                                    <p style="color: red;">Đăng nhập để bình luận</p>
+                                    <a href="{{ route('get.login') }}" style="color: red;">Đăng nhập để bình luận</a>
                                 @endif
                             </div>
                         </div>

@@ -27,7 +27,7 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         try{
-            $categoriesGlobal = Category::all();
+            $categoriesGlobal = Category::with('childs:id,c_name,c_parent_id,c_slug')->where('c_parent_id', 0)->get();
             $menusGlobal = Menu::all();
         } catch(\Exception $exception)
         {

@@ -94,6 +94,11 @@ button:focus, button:active {
   transition: .2s ease all;
 }
 
+.navbar .dropdown-menu li a {
+  padding: 5px 10px;
+  display: block;
+}
+
 .megamenu {
   position: static;
 }

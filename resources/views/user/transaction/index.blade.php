@@ -24,10 +24,10 @@
                 <td><span class="text-{{ $item->getStatus($item->t_status)['class'] }}">{{ $item->getStatus($item->t_status)['name'] }}</span></td>
                 <td>{{ $item->created_at }}</td>
                 <td>
-                    <a href="{{ route('get_user.transaction.view', $item->id) }}" class="btn btn-sm btn-primary">Chi tiết</a>
-                    @if($item->t_status == \App\Models\Transaction::STATUS_CANCEL)
+                    <a href="{{ route('get_user.transaction.view', $item->id) }}" class="btn btn-sm btn-primary">Xem đơn hàng</a>
+                    <!-- @if($item->t_status == \App\Models\Transaction::STATUS_CANCEL)
                     <a href="{{ route('get_user.transaction.delete', $item->id) }}" class="btn btn-sm btn-danger">Delete</a>
-                    @endif  
+                    @endif   -->
                 </td>
             </tr>
         @endforeach
