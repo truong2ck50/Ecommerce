@@ -5,14 +5,14 @@
             <div class="card">
                 <div class="p-3">
                     <div class="form-group">
-                        <label for="exampleInputEmail1">Name</label>
+                        <label for="exampleInputEmail1">Tên sản phẩm</label>
                         <input type="text" class="form-control" name="pro_name" value="{{ old('pro_name', $product->pro_name ?? '') }}">
                         @if ($errors->first('pro_name'))
                             <small id="emailHelp" class="form-text text-danger">{{ $errors->first('pro_name') }}</small>
                         @endif
                     </div>
                     <div class="form-group">
-                        <label for="exampleInputEmail1">Category</label>
+                        <label for="exampleInputEmail1">Danh mục</label>
                         <select name="pro_category_id" class="form-control" id="">
                             <option value="">--Chọn danh mục--</option>
                             @foreach($categories as $item)
@@ -24,7 +24,7 @@
                         @endif
                     </div>
                     <div class="form-group">
-                        <label for="exampleInputEmail1">Description</label>
+                        <label for="exampleInputEmail1">Mô tả</label>
                         <textarea name="pro_description" class="form-control" id="editor3" cols="30" rows="3">{{ old('pro_description', $product->pro_description ?? '') }}</textarea>
                         @if ($errors->first('pro_description'))
                         <small id="emailHelp" class="form-text text-danger">{{ $errors->first('pro_description') }}</small>
@@ -40,7 +40,7 @@
                         </select>
                     </div>
                     <div class="form-group mt-3">
-                        <label for="exampleInputEmail1">Content</label>
+                        <label for="exampleInputEmail1">Nội dung</label>
                         <textarea name="pro_content" class="form-control" id="editor4" cols="30" rows="3">{{ old('pro_content', $product->pro_content ?? '') }}</textarea>
                         @if ($errors->first('pro_content'))
                         <small id="emailHelp" class="form-text text-danger">{{ $errors->first('pro_content') }}</small>
@@ -53,14 +53,14 @@
             <div class="card">
                 <div class="p-3">
                     <div class="form-group">
-                        <label for="exampleInputEmail1">Price</label>
+                        <label for="exampleInputEmail1">Giá</label>
                             <input type="text" class="form-control" name="pro_price" value="{{ old('pro_price', $product->pro_price ?? '0') }}">
                             @if ($errors->first('pro_price'))
                             <small id="emailHelp" class="form-text text-danger">{{ $errors->first('pro_price') }}</small>
                             @endif
                     </div>
                     <div class="form-group">
-                        <label for="exampleInputEmail1">Number</label>
+                        <label for="exampleInputEmail1">Số lượng</label>
                         <input type="text" class="form-control" name="pro_number" value="{{ old('pro_number', $product->pro_number ?? '0') }}">
                         @if ($errors->first('pro_number'))
                         <small id="emailHelp" class="form-text text-danger">{{ $errors->first('pro_number') }}</small>

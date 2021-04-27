@@ -29,7 +29,7 @@ class BackendProductController extends Controller
 
     public function create()
     {
-        $categories = Category::all();
+        $categories = Category::where('c_parent_id','<>', 0)->get();   
         $keywords   = Keyword::all();
         $viewData   = [
             'categories' => $categories,
@@ -62,7 +62,7 @@ class BackendProductController extends Controller
 
     public function edit($id)
     {
-        $categories = Category::all();
+        $categories = Category::where('c_parent_id','<>', 0)->get();
         $keywords   = Keyword::all();
         $product    = Product::find($id);
         $keywordOld   = DB::table('products_keywords')
@@ -85,7 +85,7 @@ class BackendProductController extends Controller
             {
                 $datas[] = [
                     'pk_product_id' => $productID,
-                    'pk_keyword_id'     => $keyword
+                    'pk_keyword_id' => $keyword
                 ];
             }
             DB::table('products_keywords')->where('pk_product_id', $productID)->delete();

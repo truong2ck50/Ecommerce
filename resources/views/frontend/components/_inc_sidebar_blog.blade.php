@@ -21,13 +21,13 @@
             <a href="{{ route('get.article_detail', ['slug' => $item->a_slug]) }}" title="{{ $item->a_name }}">
                 <div class="item d-flex align-items-center">
                     <div class="image">
-                        <img src="{{ pare_url_file($item->a_avatar) }}" alt="{{ $item->a_name }}" class="img-fluid">
+                        <img style="width: 100%; height: 100%;" src="{{ pare_url_file($item->a_avatar) }}" alt="{{ $item->a_name }}" class="img-fluid">
                     </div>
                     <div class="title">
                         <strong>{{ $item->a_name }}</strong>
                         <div class="d-flex align-items-center">
-                            <div class="views"><i class="icon-eye"></i> 500</div>
-                            <div class="comments"><i class="icon-comment"></i>12</div>
+                            <!-- <div class="views"><i class="icon-eye"></i> 500</div>
+                            <div class="comments"><i class="icon-comment"></i>12</div> -->
                         </div>
                     </div>
                 </div>

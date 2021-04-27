@@ -54,12 +54,22 @@
                             $age = round($product->pro_review_star / $product->pro_review_total, 0);
                         }
                     @endphp
-                    <ul class="list-inline mb-2">
-                        @for($i = 1; $i <= 5; $i++)
+                    <ul class="list-inline mb-2 mt-4">
+                        @if($product->pro_review_total)
+                            @for($i = 1; $i <= 5; $i++)
+                                <li class="list-inline-item m-0">
+                                    <i class="fas fa-star {{ $i <= $age ? '' : 'fa-star-half-alt' }} text-warning"></i>
+                                </li>
+                            @endfor
+                        @else
                             <li class="list-inline-item m-0">
-                                <i class="fas fa-star {{ $i <= $age ? '' : 'fa-star-half-alt' }} text-warning"></i>
+                                <i class="fas fa-star text-warning"></i>
+                                <i class="fas fa-star text-warning"></i>
+                                <i class="fas fa-star text-warning"></i>
+                                <i class="fas fa-star text-warning"></i>
+                                <i class="fas fa-star text-warning"></i>
                             </li>
-                        @endfor
+                        @endif
                     </ul>
                     <h1>{{ $product->pro_name }}</h1>
                     <p class="text-muted lead">{{ number_format($product->pro_price, 0, ',', '.') }} VNĐ</p>

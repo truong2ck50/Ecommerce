@@ -1,5 +1,5 @@
 @extends('layouts.app_frontend')
-@section('title', 'Trang chủ')
+@section('title', 'Liên hệ')
 @section('content')
     <div class="container">
         @if($slide)

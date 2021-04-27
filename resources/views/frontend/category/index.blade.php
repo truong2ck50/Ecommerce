@@ -84,30 +84,33 @@
                         </div>
                         <div class="col-lg-6">
                             <ul class="list-inline d-flex align-items-center justify-content-lg-end mb-0">
-                                <li class="list-inline-item text-muted mr-3"><a class="reset-anchor p-0" href="#"><i class="fas fa-th-large"></i></a></li>
-                                <li class="list-inline-item text-muted mr-3"><a class="reset-anchor p-0" href="#"><i class="fas fa-th"></i></a></li>
+                                <!-- <li class="list-inline-item text-muted mr-3"><a class="reset-anchor p-0" href="#"><i class="fas fa-th-large"></i></a></li>
+                                <li class="list-inline-item text-muted mr-3"><a class="reset-anchor p-0" href="#"><i class="fas fa-th"></i></a></li> -->
+                                <label>Sắp xếp: &nbsp;</label>
                                 <li class="list-inline-item">
-                                    <div class="dropdown bootstrap-select ml-auto" style="width: 200px;">
-                                        <select class="selectpicker ml-auto" name="sorting" data-width="200" data-style="bs-select-form-control" data-title="Default sorting" tabindex="-98">
-                                            <option class="bs-title-option" value=""></option>
-                                            <option value="default">Default sorting</option>
-                                            <option value="popularity">Popularity</option>
-                                            <option value="low-high">Price: Low to High</option>
-                                            <option value="high-low">Price: High to Low</option>
-                                        </select>
-                                        <button type="button" class="btn dropdown-toggle bs-select-form-control bs-placeholder" data-toggle="dropdown" role="combobox" aria-owns="bs-select-1" aria-haspopup="listbox" aria-expanded="false" title="Default sorting">
-                                            <div class="filter-option">
-                                                <div class="filter-option-inner">
-                                                    <div class="filter-option-inner-inner">Default sorting</div>
+                                    <form class="tree-most" action="" method="get">
+                                        <div class="dropdown bootstrap-select ml-auto" style="width: 200px;">
+                                            <select class="selectpicker ml-auto" name="sorting" data-width="200" data-style="bs-select-form-control" data-title="Mặc định" tabindex="-98">
+                                                <option class="bs-title-option" value=""></option>
+                                                <option value="default">Mặc định</option>
+                                                <option value="popularity">Mới nhất</option>
+                                                <option value="low-high">Giá tăng dần</option>
+                                                <option value="high-low">Giá giảm dần</option>
+                                            </select>
+                                            <!-- <button type="button" class="btn dropdown-toggle bs-select-form-control bs-placeholder" data-toggle="dropdown" role="combobox" aria-owns="bs-select-1" aria-haspopup="listbox" aria-expanded="false" title="Default sorting">
+                                                <div class="filter-option">
+                                                    <div class="filter-option-inner">
+                                                        <div class="filter-option-inner-inner">Mặc định</div>
+                                                    </div>
                                                 </div>
-                                            </div>
-                                        </button>
-                                        <div class="dropdown-menu ">
-                                            <div class="inner show" role="listbox" id="bs-select-1" tabindex="-1">
-                                                <ul class="dropdown-menu inner show" role="presentation"></ul>
-                                            </div>
+                                            </button>
+                                            <div class="dropdown-menu ">
+                                                <div class="inner show" role="listbox" id="bs-select-1" tabindex="-1">
+                                                    <ul class="dropdown-menu inner show" role="presentation"></ul>
+                                                </div>
+                                            </div> -->
                                         </div>
-                                    </div>
+                                    </form>
                                 </li>
                             </ul>
                         </div>
