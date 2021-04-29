@@ -94,7 +94,7 @@
                                             {{ get_data_user('web', 'name') }}
                                         </button>
                                         <div class="dropdown-menu">
-                                            <a class="dropdown-item" href="{{ route('get_user.home') }}">Thông tin cá nhân</a>
+                                            <a class="dropdown-item" href="{{ route('get_user.home') }}">Quản lý</a>
                                             <a class="dropdown-item" href="{{ route('get.logout') }}">Đăng xuất</a>
                                         </div>
                                     </div>

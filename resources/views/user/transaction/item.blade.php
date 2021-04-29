@@ -4,7 +4,7 @@
     <h1>Chi tiết đơn hàng #{{ $transaction->id }} - Tổng tiền <b class="text-danger">{{ number_format($transaction->t_total_money, 0, ',', '.') }} VNĐ</b></h1>
     <p><b>Trạng thái: <span class="text-{{ $transaction->getStatus($transaction->t_status)['class'] }}">{{ $transaction->getStatus($transaction->t_status)['name'] }}</span></b></p>
     <div>
-        @if($transaction->t_status == \App\Models\Transaction::STATUS_CANCEL)
+        @if($transaction->t_status == \App\Models\Transaction::STATUS_CANCEL | $transaction->t_status == \App\Models\Transaction::STATUS_SUCCESS )
 
         @else
             <a href="{{ route('get_user.transaction.cancel', $transaction->id) }}" class="btn btn-sm btn-danger">Huỷ bỏ</a>

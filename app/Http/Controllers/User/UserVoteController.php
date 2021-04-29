@@ -12,7 +12,12 @@ class UserVoteController extends Controller
 {
     public function create($productID)
     {
-        return view('user.vote.create');
+        $pro = Product::find($productID);
+        $viewData = [
+            'pro' => $pro
+        ];
+
+        return view('user.vote.create', $viewData);
     }
     public function  store(Request $request, $productID)
     {
@@ -31,6 +36,6 @@ class UserVoteController extends Controller
             $product->save();
         }
 
-        return redirect()->back();
+        return redirect()->back()->with('success', 'Đánh giá thành công!');
     }
 }

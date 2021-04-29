@@ -7,6 +7,10 @@ Route::group(['namespace' => 'User', 'prefix' => 'user', 'middleware' => 'checkL
     //Trang chủ
     Route::get('', 'UserController@index')->name('get_user.home');
 
+    //Update Password
+    Route::get('password', 'UserController@updatePassword')->name('get_user.update.password');
+    Route::post('password', 'UserController@saveUpdatePassword');
+
     //Profile
     Route::get('profile/{id}', 'UserProfileController@index')->name('get_user.profile');
     Route::post('profile/{id}', 'UserProfileController@update');

@@ -16,7 +16,10 @@ class UserProfileController extends Controller
     
     public function update(Request $request, $id)
     {
-        User::find($id)->update($request->except(['_token']));
-        return redirect()->back();
+        if(User::find($id)->update($request->except(['_token'])))
+        {
+            return redirect()->back()->with('success', 'Cập nhật thông tin thành công!');
+        }
+        return redirect()->back()->with('danger', 'Cập nhật thông tin thất bại!');
     }
 }

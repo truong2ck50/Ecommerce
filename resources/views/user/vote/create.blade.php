@@ -1,5 +1,12 @@
 @extends('layouts.app_user')
+@section('title', 'Đánh giá sản phẩm')
 @section('content')
+    <h1>Đánh giá sản phẩm {{$pro->pro_name}}</h1>
+    @if (session('success'))
+        <div class="alert alert-success">
+            <p>{{ session('success') }}</p>
+        </div>
+    @endif
     <form method="POST">
         @csrf
         <div class="form-group">

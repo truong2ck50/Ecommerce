@@ -21,6 +21,9 @@ class LoginController extends Controller
             // $request->session()->regenerate();
             return redirect()->route('get.home');
         }
+        else {
+            return redirect()->back();
+        }
 
     }
 

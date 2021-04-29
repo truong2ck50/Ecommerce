@@ -8,6 +8,7 @@
             <th>ID</th>
             <th>Name</th>
             <th>Phone</th>
+            <th>Address</th>
             <th>Total</th>
             <th>Status</th>
             <th>Note</th>
@@ -21,6 +22,7 @@
                 <td>{{ $item->id }}</td>
                 <td>{{ $item->t_name }}</td>
                 <td>{{ $item->t_phone }}</td>
+                <td style="width: 300px;">{{ $item->t_address}}</td>
                 <td><span class="text-danger">{{ number_format($item->t_total_money, 0, ',', '.') }} đ</span></td>
                 <td><span class="text-{{ $item->getStatus($item->t_status)['class'] }}">{{ $item->getStatus($item->t_status)['name'] }}</span></td>
                 <td>{{ $item->t_note }}</td>

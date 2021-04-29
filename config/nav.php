@@ -54,10 +54,15 @@
                     'icon'  => 'fa-th-large'
                 ],
                 [
-                    'name'  => 'Thông tin',
+                    'name'  => 'Cập nhật thông tin',
                     'route' => 'get_user.profile',
                     'icon'  => 'fa-user', 
                     'param' => true
+                ],
+                [
+                    'name'  => 'Cập nhật mật khẩu',
+                    'route' => 'get_user.update.password',
+                    'icon'  => 'fa-lock'
                 ],
                 [
                     'name'  => 'Đơn hàng',
