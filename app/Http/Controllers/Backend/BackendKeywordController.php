@@ -31,7 +31,7 @@ class BackendKeywordController extends Controller
         $data['created_at'] = Carbon::now();
         $keyword            = Keyword::create($data);
 
-        return redirect()->back();
+        return redirect()->route('get_backend.keyword.index')->with('success','Thêm từ khoá thành công!');
     }
 
     public function edit($id) 
@@ -53,12 +53,12 @@ class BackendKeywordController extends Controller
         $data['updated_at'] = Carbon::now();
         Keyword::find($id)->update($data);
 
-        return redirect()->back();
+        return redirect()->route('get_backend.keyword.index')->with('success','Cập nhật từ khoá thành công!');
     }
 
     public function delete($id) 
     {
         DB::table('keywords')->where('id', $id)->delete();
-        return redirect()->route('get_backend.keyword.index');
+        return redirect()->route('get_backend.keyword.index')->with('success','Xoá từ khoá thành công!');
     }
 }

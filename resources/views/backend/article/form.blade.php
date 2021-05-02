@@ -5,14 +5,14 @@
             <div class="card">
                 <div class="p-3">
                     <div class="form-group">
-                        <label for="exampleInputEmail1">Name</label>
+                        <label for="exampleInputEmail1"><b>Tên bài viết:</b></label>
                         <input type="text" class="form-control" name="a_name" value="{{ old('a_name', $article->a_name ?? '') }}">
                         @if ($errors->first('a_name'))
                             <small id="emailHelp" class="form-text text-danger">{{ $errors->first('a_name') }}</small>
                         @endif
                     </div>
                     <div class="form-group">
-                        <label for="exampleInputEmail1">Menu</label>
+                        <label for="exampleInputEmail1"><b>Menu:</b></label>
                         <select name="a_menu_id" class="form-control" id="">
                             <option value="">--Chọn menu--</option>
                             @foreach($menus as $item)
@@ -24,7 +24,7 @@
                         @endif
                     </div>
                     <div class="form-group">
-                        <label for="exampleInputEmail1">Từ khoá</label>
+                        <label for="exampleInputEmail1"><b>Từ khoá:</b></label>
                         <select name="tags[]" class="form-control js-tags" id="" multiple>
                             <option value="">--Chọn từ khoá--</option>
                             @foreach($tags as $tag)
@@ -33,14 +33,14 @@
                         </select>
                     </div>
                     <div class="form-group">
-                        <label for="exampleInputEmail1">Description</label>
+                        <label for="exampleInputEmail1"><b>Mô tả:</b></label>
                         <textarea name="a_description" class="form-control" id="editor1" cols="30" rows="3">{{ old('a_description', $article->a_description ?? '') }}</textarea>
                         @if ($errors->first('a_description'))
                         <small id="emailHelp" class="form-text text-danger">{{ $errors->first('a_description') }}</small>
                         @endif
                     </div>
                     <div class="form-group">
-                        <label for="exampleInputEmail1">Content</label>
+                        <label for="exampleInputEmail1"><b>Nội dung:</b></label>
                         <textarea name="a_content" class="form-control" id="editor2" cols="30" rows="3">{{ old('a_content', $article->a_content ?? '') }}</textarea>
                         @if ($errors->first('a_content'))
                         <small id="emailHelp" class="form-text text-danger">{{ $errors->first('a_content') }}</small>
@@ -53,9 +53,10 @@
             <div class="card">
                 <div class="p-3">
                     <div class="form-group">
-                        <div class="custom-file">
+                        <label for="exampleInputEmail1"><b>Hình ảnh:</b></label>
+                        <div class="custom-file">                            
                             <input type="file" class="custom-file-input" accept="image/*" id="customFile" name="a_avatar">
-                            <label class="custom-file-label" for="customFile">Chọn ảnh</label>
+                            <label class="custom-file-label" for="customFile">Chọn hình ảnh</label>
                         </div>
                         @if(isset($article) && $article->a_avatar)
                             <img src="{{ pare_url_file($article->a_avatar) }}" class="img-thumbnail" 
@@ -66,7 +67,7 @@
             </div>
         </div>
     </div>
-    <button type="submit" class="btn btn-primary mt-2">Lưu</button>
+    <button type="submit" class="btn btn-primary mt-2">Lưu thông tin</button>
  </form>
 <script src="{{ asset('ckeditor/ckeditor.js')}}"></script>
  <script>

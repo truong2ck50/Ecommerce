@@ -29,7 +29,8 @@ class BackendProductRequest extends FormRequest
             'pro_category_id' => 'required',
             'pro_number'      => 'required',
             'pro_description' => 'required',
-            'pro_content'     => 'required'
+            'pro_content'     => 'required',
+            'pro_sale'        => 'required'
         ];
     }
 
@@ -42,7 +43,8 @@ class BackendProductRequest extends FormRequest
             'pro_category_id.required' => 'Dữ liệu không được để trống',
             'pro_number.required'      => 'Dữ liệu không được để trống',
             'pro_description.required' => 'Dữ liệu không được để trống',
-            'pro_content.required'     => 'Dữ liệu không được để trống'
+            'pro_content.required'     => 'Dữ liệu không được để trống',
+            'pro_sale.required'        => 'Dữ liệu không được để trống'
         ];
     } 
 }

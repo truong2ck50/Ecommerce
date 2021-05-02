@@ -75,9 +75,6 @@
                                     </li>
                                 @endforeach
                                 <li class="nav-item">
-                                    <a class="nav-link" title="Liên hệ" href="{{ route('get.contact') }}">Liên hệ</a>
-                                </li>
-                                <li class="nav-item">
                                     <a class="nav-link" title="Bài viết" href="{{ route('get.blog') }}">Bài viết</a>
                                 </li>
                             </ul>
@@ -128,7 +125,7 @@
                         <div class="col-md-4 mb-3 mb-md-0">
                             <h6 class="text-uppercase mb-3">Về chúng tôi</h6>
                             <ul class="list-unstyled mb-0">
-                                <li><a class="footer-link" href="#">Giới thiệu</a></li>
+                                <li><a class="footer-link" href="{{ route('get.contact') }}">Liên hệ</a></li>
                                 @foreach($menusGlobal as $item)
                                     <li><a class="footer-link" href="{{ route('get.menu', $item->mn_slug) }}">{{ $item->mn_name }}</a></li>
                                 @endforeach
@@ -143,7 +140,7 @@
                             </ul>
                         </div>
                     </div>
-                    <div class="border-top pt-4" style="border-color: #1d1d1d !important">
+                    <!-- <div class="border-top pt-4" style="border-color: #1d1d1d !important">
                         <div class="row">
                             <div class="col-lg-6">
                                 <p class="small text-muted mb-0">&copy; 2021 All rights reserved.</p>
@@ -152,7 +149,7 @@
                                 <p class="small text-muted mb-0">Template designed by <a class="text-white reset-anchor" href="https://bootstraptemple.com/p/bootstrap-ecommerce">Bootstrap Temple</a></p>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
             </footer>
             <!-- JavaScript files-->

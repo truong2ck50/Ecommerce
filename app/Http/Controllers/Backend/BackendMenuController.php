@@ -30,7 +30,7 @@ class BackendMenuController extends Controller
         $data['created_at'] = Carbon::now();
         $menu               = Menu::create($data);
 
-        return redirect()->back();
+        return redirect()->back()->with('success','Thêm menu bài viết thành công!');
     }
 
     public function edit($id) 
@@ -52,12 +52,12 @@ class BackendMenuController extends Controller
         $data['updated_at'] = Carbon::now();
         Menu::find($id)->update($data);
 
-        return redirect()->back();
+        return redirect()->route('get_backend.menu.index')->with('success','Cập nhật menu bài viết thành công!');
     }
 
     public function delete($id) 
     {
         DB::table('menus')->where('id', $id)->delete();
-        return redirect()->route('get_backend.menu.index');
+        return redirect()->route('get_backend.menu.index')->with('success','Xoá menu bài viết thành công!');
     }
 }

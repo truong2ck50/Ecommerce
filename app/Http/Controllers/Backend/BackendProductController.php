@@ -29,7 +29,8 @@ class BackendProductController extends Controller
 
     public function create()
     {
-        $categories = Category::where('c_parent_id','<>', 0)->get();   
+        // $categories = Category::where('c_parent_id','<>', 0)->get();  
+        $categories = Category::all(); 
         $keywords   = Keyword::all();
         $viewData   = [
             'categories' => $categories,
@@ -57,12 +58,13 @@ class BackendProductController extends Controller
             $this->syncKeyword($request->keywords, $product->id);
         }
 
-        return redirect()->route('get_backend.product.index');
+        return redirect()->route('get_backend.product.index')->with('success','Thêm sản phẩm thành công!');
     }
 
     public function edit($id)
     {
-        $categories = Category::where('c_parent_id','<>', 0)->get();
+        // $categories = Category::where('c_parent_id','<>', 0)->get();
+        $categories = Category::all();
         $keywords   = Keyword::all();
         $product    = Product::find($id);
         $keywordOld   = DB::table('products_keywords')
@@ -110,13 +112,13 @@ class BackendProductController extends Controller
             $this->syncKeyword($request->keywords, $id);
         }
 
-        return redirect()->route('get_backend.product.index');
+        return redirect()->route('get_backend.product.index')->with('success', 'Cập nhật sản phẩm thành công!');
         // return redirect()->back();
     }
 
     public function delete($id)
     {
         DB::table('products')->where('id', $id)->delete();
-        return redirect()->back();
+        return redirect()->back()->with('success', 'Xoá sản phẩm thành công!');
     }
 }

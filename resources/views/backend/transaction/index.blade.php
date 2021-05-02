@@ -2,6 +2,11 @@
 @section('title', 'Danh sách đơn hàng')
 @section('content')
     <h1>Danh sách đơn hàng</h1>
+    @if (session('success'))
+        <div class="alert alert-success">
+            <p>{{ session('success') }}</p>
+        </div>
+    @endif
     <table class="table table-hover" id="jsDataTable">
         <thead>
         <tr>

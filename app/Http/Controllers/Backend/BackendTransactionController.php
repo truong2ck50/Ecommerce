@@ -59,6 +59,6 @@ class BackendTransactionController extends Controller
         }
 
         DB::table('transactions')->where('id', $id)->delete();
-        return redirect()->back();
+        return redirect()->back()->with('success','Xoá đơn hàng thành công!');
     }
 }

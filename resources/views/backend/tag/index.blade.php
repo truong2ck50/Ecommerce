@@ -2,6 +2,11 @@
 @section('title', 'Danh sách tags')
 @section('content')
     <h1>Danh sách tags</h1>
+    @if (session('success'))
+        <div class="alert alert-success">
+            <p>{{ session('success') }}</p>
+        </div>
+    @endif
     <div class="row">
         <div class="col-sm-7">
             <div class="card">
