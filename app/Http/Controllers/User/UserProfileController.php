@@ -18,8 +18,8 @@ class UserProfileController extends Controller
     {
         if(User::find($id)->update($request->except(['_token'])))
         {
-            return redirect()->back()->with('success', 'Cập nhật thông tin thành công!');
+            return redirect()->back()->with('success', 'Cập nhật thông tin thành công');
         }
-        return redirect()->back()->with('danger', 'Cập nhật thông tin thất bại!');
+        return redirect()->back()->with('danger', 'Cập nhật thông tin thất bại');
     }
 }

@@ -57,7 +57,7 @@ class BackendArticleController extends Controller
         if($request->tags)
             $this->syncTags($request->tags, $article->id);
 
-        return redirect()->route('get_backend.article.index')->with('success','Thêm bài viết thành công!');
+        return redirect()->route('get_backend.article.index')->with('success','Thêm bài viết thành công');
     }
 
     public function edit($id) 
@@ -112,13 +112,13 @@ class BackendArticleController extends Controller
         if($request->tags)
             $this->syncTags($request->tags, $id);
 
-        return redirect()->route('get_backend.article.index')->with('success','Cập nhật bài viết thành công!');
+        return redirect()->route('get_backend.article.index')->with('success','Cập nhật bài viết thành công');
         // return redirect()->back();
     }
 
     public function delete($id) 
     {
         DB::table('articles')->where('id', $id)->delete();
-        return redirect()->route('get_backend.article.index')->with('success','Xoá bài viết thành công!');;
+        return redirect()->route('get_backend.article.index')->with('success','Xoá bài viết thành công');;
     }
 }

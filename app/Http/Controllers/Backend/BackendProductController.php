@@ -58,7 +58,7 @@ class BackendProductController extends Controller
             $this->syncKeyword($request->keywords, $product->id);
         }
 
-        return redirect()->route('get_backend.product.index')->with('success','Thêm sản phẩm thành công!');
+        return redirect()->route('get_backend.product.index')->with('success','Thêm sản phẩm thành công');
     }
 
     public function edit($id)
@@ -112,14 +112,14 @@ class BackendProductController extends Controller
             $this->syncKeyword($request->keywords, $id);
         }
 
-        return redirect()->route('get_backend.product.index')->with('success', 'Cập nhật sản phẩm thành công!');
+        return redirect()->route('get_backend.product.index')->with('success', 'Cập nhật sản phẩm thành công');
         // return redirect()->back();
     }
 
     public function delete($id)
     {
         DB::table('products')->where('id', $id)->delete();
-        return redirect()->back()->with('success', 'Xoá sản phẩm thành công!');
+        return redirect()->back()->with('success', 'Xoá sản phẩm thành công');
     }
 
     public function active($id)

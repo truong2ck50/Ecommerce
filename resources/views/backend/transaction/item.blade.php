@@ -3,8 +3,9 @@
 @section('content')
     <h1>Chi tiết đơn hàng #{{ $transaction->id }} - Tổng tiền <b class="text-danger">{{ number_format($transaction->t_total_money, 0, ',', '.') }} VNĐ</b></h1>
     @if (session('success'))
-        <div class="alert alert-success alert-dismissible" style="position: fixed; right: 15px; top: 60px; left: 60%;">
-            <p>{{ session('success') }}</p>
+        <div class="alert alert-success alert-dismissible" style="position: fixed; right: 15px; top: 60px; left: 65%;">
+            <strong>Thành công!</strong> {{ session('success') }}
+            <button type="button" class="close" data-dismiss="alert">&times;</button>
         </div>
     @endif  
     <p><b>Trạng thái: <span class="text-{{ $transaction->getStatus($transaction->t_status)['class'] }}">{{ $transaction->getStatus($transaction->t_status)['name'] }}</span></b></p>

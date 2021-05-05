@@ -36,7 +36,7 @@ class BackendSlideController extends Controller
         }
         $slide = Slide::create($data);
 
-        return redirect()->back()->with('success','Thêm banner thành công!');
+        return redirect()->back()->with('success','Thêm banner thành công');
     }
 
     public function edit($id) 
@@ -65,12 +65,12 @@ class BackendSlideController extends Controller
         }
         Slide::find($id)->update($data);
 
-        return redirect()->route('get_backend.slide.index')->with('success','Cập nhật banner thành công!');
+        return redirect()->route('get_backend.slide.index')->with('success','Cập nhật banner thành công');
     }
 
     public function delete($id) 
     {
         DB::table('slides')->where('id', $id)->delete();
-        return redirect()->route('get_backend.slide.index')->with('success','Xoá banner thành công!');
+        return redirect()->route('get_backend.slide.index')->with('success','Xoá banner thành công');
     }
 }

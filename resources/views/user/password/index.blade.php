@@ -3,12 +3,14 @@
 @section('content')
     <h1>Cập nhật mật khẩu</h1>
     @if (session('success'))
-        <div class="alert alert-success">
-            <p>{{ session('success') }}</p>
+        <div class="alert alert-success alert-dismissible" style="position: fixed; right: 15px; top: 60px; left: 60%; margin-top:45px;">
+            <strong>Thành công!</strong> {{ session('success') }}
+            <button type="button" class="close" data-dismiss="alert">&times;</button>
         </div>
     @elseif(session('danger'))
-        <div class="alert alert-danger">
-            <p>{{ session('danger') }}</p>
+        <div class="alert alert-danger alert-dismissible" style="position: fixed; right: 15px; top: 60px; left: 60%; margin-top:45px;">
+            <strong>Thất bại!</strong> {{ session('danger') }}
+            <button type="button" class="close" data-dismiss="alert">&times;</button>
         </div>
     @endif
     <form method="POST">

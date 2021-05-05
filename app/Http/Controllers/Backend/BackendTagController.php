@@ -31,7 +31,7 @@ class BackendTagController extends Controller
         $data['created_at'] = Carbon::now();
         $tag                = Tag::create($data);
 
-        return redirect()->back()->with('success','Thêm tag thành công!');;
+        return redirect()->back()->with('success','Thêm tag thành công');;
     }
 
     public function edit($id) 
@@ -53,12 +53,12 @@ class BackendTagController extends Controller
         $data['updated_at'] = Carbon::now();
         Tag::find($id)->update($data);
 
-        return redirect()->route('get_backend.tag.index')->with('success','Cập nhật từ khoá thành công!');
+        return redirect()->route('get_backend.tag.index')->with('success','Cập nhật tag thành công');
     }
 
     public function delete($id) 
     {
        DB::table('tags')->where('id', $id)->delete();
-       return redirect()->route('get_backend.tag.index')->with('success','Xoá từ khoá thành công!');
+       return redirect()->route('get_backend.tag.index')->with('success','Xoá tag thành công');
     }
 }

@@ -52,9 +52,9 @@ class UserController extends Controller
             $user->password = bcrypt($request->password);
             $user->save();
 
-            return redirect()->back()->with('success', 'Cập nhật thành công!');
+            return redirect()->back()->with('success', 'Cập nhật mật khẩu thành công');
         }
 
-        return redirect()->back()->with('danger', 'Mật khẩu cũ không đúng!');
+        return redirect()->back()->with('danger', 'Mật khẩu cũ không đúng');
     }
 }

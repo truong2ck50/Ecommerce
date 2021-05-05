@@ -4,7 +4,8 @@
     <h1>Danh sách danh mục</h1>
     @if (session('success'))
         <div class="alert alert-success alert-dismissible" style="position: fixed; right: 15px; top: 60px; left: 67%;">
-            <p>{{ session('success') }}</p>
+            <strong>Thành công!</strong> {{ session('success') }}
+            <button type="button" class="close" data-dismiss="alert">&times;</button>
         </div>
     @endif
     <div class="row">

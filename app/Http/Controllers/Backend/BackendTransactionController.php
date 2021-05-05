@@ -55,7 +55,7 @@ class BackendTransactionController extends Controller
         DB::table('users')->where('id', $transaction->t_user_id)->increment('total_pay');
         $transaction->t_status = Transaction::STATUS_SUCCESS;
         $transaction->save();
-        return redirect()->back()->with('success', 'Xử lý đơn hàng thành công!');
+        return redirect()->back()->with('success', 'Xử lý đơn hàng thành công');
     }
 
     public function cancel($id)
@@ -63,7 +63,7 @@ class BackendTransactionController extends Controller
         $transaction = Transaction::find($id);
         $transaction->t_status = Transaction::STATUS_CANCEL;
         $transaction->save();
-        return redirect()->back();
+        return redirect()->back()->with('success', 'Huỷ đơn hàng thành công');
     }
 
     public function delete($id)
@@ -77,6 +77,6 @@ class BackendTransactionController extends Controller
         }
 
         DB::table('transactions')->where('id', $id)->delete();
-        return redirect()->back()->with('success','Xoá đơn hàng thành công!');
+        return redirect()->back()->with('success','Xoá đơn hàng thành công');
     }
 }

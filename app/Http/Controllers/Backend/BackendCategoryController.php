@@ -42,7 +42,7 @@ class BackendCategoryController extends Controller
         }
         $category           = Category::create($data);
 
-        return redirect()->route('get_backend.category.index')->with('success','Thêm danh mục sản phẩm thành công!');
+        return redirect()->route('get_backend.category.index')->with('success','Thêm danh mục sản phẩm thành công');
         // return redirect()->back();
     }
 
@@ -76,12 +76,12 @@ class BackendCategoryController extends Controller
         }
         Category::find($id)->update($data);
 
-        return redirect()->route('get_backend.category.index')->with('success','Cập nhật danh mục sản phẩm thành công!');;
+        return redirect()->route('get_backend.category.index')->with('success','Cập nhật danh mục sản phẩm thành công');;
     }
 
     public function delete($id) 
     {
         DB::table('categories')->where('id', $id)->delete();
-        return redirect()->route('get_backend.category.index')->with('success','Xoá danh mục sản phẩm thành công!');;
+        return redirect()->route('get_backend.category.index')->with('success','Xoá danh mục sản phẩm thành công');;
     }
 }

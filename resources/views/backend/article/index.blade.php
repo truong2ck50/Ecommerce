@@ -4,7 +4,8 @@
     <h1>Danh sách bài viết <a href="{{ route('get_backend.article.create') }}" class="btn btn-xs btn-success">Thêm mới</a></h1>
     @if (session('success'))
         <div class="alert alert-success alert-dismissible" style="position: fixed; right: 15px; top: 60px; left: 60%;">
-            <p>{{ session('success') }}</p>
+            <strong>Thành công!</strong> {{ session('success') }}
+            <button type="button" class="close" data-dismiss="alert">&times;</button>
         </div>
     @endif
     <table class="table table-hover" id="jsDataTable">
