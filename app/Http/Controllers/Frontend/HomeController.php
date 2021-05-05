@@ -12,7 +12,7 @@ class HomeController extends Controller
 {
     public function index()
     {
-        $productsHot = Product::where('pro_hot', Product::HOT)
+        $productsHot = Product::where(['pro_hot' => Product::HOT, 'pro_active'=> Product::STATUS_PUBLIC])
             ->limit(6)
             ->select('id', 'pro_name', 'pro_slug', 'pro_price', 'pro_avatar')
             ->get();

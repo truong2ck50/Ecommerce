@@ -3,7 +3,7 @@
 @section('content')
     <h1>Danh sách sản phẩm <a href="{{ route('get_backend.product.create') }}" class="btn btn-xs btn-success">Thêm mới</a></h1>
     @if (session('success'))
-        <div class="alert alert-success">
+        <div class="alert alert-success alert-dismissible" style="position: fixed; right: 15px; top: 60px; left: 60%;">
             <p>{{ session('success') }}</p>
         </div>
     @endif
@@ -15,6 +15,7 @@
             <th>Hình ảnh</th>
             <th>Tên sản phẩm</th>
             <th>Danh mục</th>
+            <th>Trạng thái</th>
             <th>Hot</th>
             <th>Số lượng</th>
             <th>Thời gian</th>
@@ -40,6 +41,9 @@
                     </ul>
                 </td>
                 <td>{{ $item->category->c_name ?? '[N\A]' }}</td>
+                <td>
+                    <a href="{{ route('get_backend.product.active', $item->id) }}" class="text-{{ $item->getStatus($item->pro_active)['class'] }}">{{ $item->getStatus($item->pro_active)['name'] }}</a>
+                </td>
                 <td>
                     <div class="custom-control custom-radio custom-control-inline">
                         <input type="radio" id="customRadioInline" value="1" {{$item->pro_hot == 1 ? "checked" : ""}} class="custom-control-input">

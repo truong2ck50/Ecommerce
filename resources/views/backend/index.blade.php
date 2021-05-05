@@ -84,9 +84,9 @@
                 <thead>
                 <tr>
                     <th>ID</th>
-                    <th>Name</th>
+                    <th>Tên KH</th>
                     <th>Email</th>
-                    <th>Phone</th>
+                    <th>SĐT</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -108,11 +108,11 @@
                 <thead>
                 <tr>
                     <th>ID</th>
-                    <th>Name</th>
-                    <th>Phone</th>
-                    <th>Total</th>
-                    <th>Note</th>
-                    <th>Time</th>
+                    <th>Tên KH</th>
+                    <th>SĐT</th>
+                    <th>Tổng</th>
+                    <th>Ghi chú</th>
+                    <th>Thời gian</th>
                 </tr>
                 </thead>
                 <tbody>

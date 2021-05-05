@@ -3,7 +3,7 @@
 @section('content')
     <h1>Danh sách đơn hàng</h1>
     @if (session('success'))
-        <div class="alert alert-success">
+        <div class="alert alert-success alert-dismissible" style="position: fixed; right: 15px; top: 60px; left: 60%;">
             <p>{{ session('success') }}</p>
         </div>
     @endif
@@ -11,14 +11,14 @@
         <thead>
         <tr>
             <th>ID</th>
-            <th>Name</th>
-            <th>Phone</th>
-            <th>Address</th>
-            <th>Total</th>
-            <th>Status</th>
-            <th>Note</th>
-            <th>Time</th>
-            <th>Action</th>
+            <th>Tên KH</th>
+            <th>SĐT</th>
+            <th>Địa chỉ</th>
+            <th>Tổng</th>
+            <th>Trạng thái</th>
+            <th>Ghi chú</th>
+            <th>Thời gian</th>
+            <th>Thao tác</th>
         </tr>
         </thead>
         <tbody>

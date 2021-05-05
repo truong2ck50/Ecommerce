@@ -3,7 +3,7 @@
 @section('content')
     <h1>Danh sách danh mục</h1>
     @if (session('success'))
-        <div class="alert alert-success">
+        <div class="alert alert-success alert-dismissible" style="position: fixed; right: 15px; top: 60px; left: 67%;">
             <p>{{ session('success') }}</p>
         </div>
     @endif

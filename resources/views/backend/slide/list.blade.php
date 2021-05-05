@@ -2,12 +2,12 @@
     <thead>
     <tr>
         <th>ID</th>
-        <th>Avatar</th>
-        <th>Title</th>
-        <th>Description</th>
+        <th>Hình ảnh</th>
+        <th>Tiêu đề</th>
+        <th>Mô tả</th>
         <th>Link</th>
-        <th>Time</th>
-        <th>Action</th>
+        <th>Thời gian</th>
+        <th>Thao tác</th>
     </tr>
     </thead>
     <tbody>

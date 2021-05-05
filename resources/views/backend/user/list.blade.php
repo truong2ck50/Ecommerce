@@ -2,11 +2,11 @@
     <thead>
     <tr>
         <th>ID</th>
-        <th>Name</th>
+        <th>Tên KH</th>
         <th>Email</th>
-        <th>Phone</th>
-        <th>Time</th>
-        <th>Action</th>
+        <th>SĐT</th>
+        <th>Thời gian</th>
+        <th>Thao tác</th>
     </tr>
     </thead>
     <tbody>

@@ -121,4 +121,14 @@ class BackendProductController extends Controller
         DB::table('products')->where('id', $id)->delete();
         return redirect()->back()->with('success', 'Xoá sản phẩm thành công!');
     }
+
+    public function active($id)
+    {
+        $product = Product::find($id);
+
+        $product->pro_active = $product->pro_active ? 0 : 1;
+        $product->save();
+
+        return redirect()->back();
+    }
 }

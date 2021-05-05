@@ -2,10 +2,10 @@
     <thead>
     <tr>
         <th>ID</th>
-        <th>Name</th>
+        <th>Từ khoá</th>
         <th>Slug</th>
-        <th>Time</th>
-        <th>Action</th>
+        <th>Thời gian</th>
+        <th>Thao tác</th>
     </tr>
     </thead>
     <tbody>

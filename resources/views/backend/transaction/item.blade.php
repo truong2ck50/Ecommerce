@@ -2,9 +2,14 @@
 @section('title', 'Chi tiết đơn hàng')
 @section('content')
     <h1>Chi tiết đơn hàng #{{ $transaction->id }} - Tổng tiền <b class="text-danger">{{ number_format($transaction->t_total_money, 0, ',', '.') }} VNĐ</b></h1>
+    @if (session('success'))
+        <div class="alert alert-success alert-dismissible" style="position: fixed; right: 15px; top: 60px; left: 60%;">
+            <p>{{ session('success') }}</p>
+        </div>
+    @endif  
     <p><b>Trạng thái: <span class="text-{{ $transaction->getStatus($transaction->t_status)['class'] }}">{{ $transaction->getStatus($transaction->t_status)['name'] }}</span></b></p>
     <div>
-        @if($transaction->t_status == \App\Models\Transaction::STATUS_CANCEL)
+        @if($transaction->t_status == \App\Models\Transaction::STATUS_CANCEL || $transaction->t_status == \App\Models\Transaction::STATUS_SUCCESS)
             
         @else
             <a href="{{ route('get_backend.transaction.success', $transaction->id) }}" class="btn btn-sm btn-success">Hoàn thành</a>
@@ -15,12 +20,12 @@
         <thead>
         <tr>
             <th>ID</th>
-            <th>Image</th>
-            <th>Name</th>
-            <th>Price</th>
-            <th>Quantity</th>
-            <th>Total</th>
-            <th>Time</th>
+            <th>Hình ảnh</th>
+            <th>Tên sản phẩm</th>
+            <th>Giá</th>
+            <th>Số lượng</th>
+            <th>Tổng</th>
+            <th>Thời gian</th>
             <!-- <th>Action</th> -->
         </tr>
         </thead>

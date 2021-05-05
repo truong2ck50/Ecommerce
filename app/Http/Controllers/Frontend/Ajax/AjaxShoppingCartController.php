@@ -30,7 +30,7 @@ class AjaxShoppingCartController extends Controller
             {
                 return response()->json([
                     'status'  => 200,
-                    'message' => 'Số lượng không đủ'
+                    'message' => 'Số lượng sản phẩm không đủ'
                 ]);
             }
 
@@ -46,12 +46,19 @@ class AjaxShoppingCartController extends Controller
                 {
                     return response()->json([
                         'status'  => 200,
-                        'message' => 'Số lượng không đủ'
+                        'message' => 'Số lượng sản phẩm không đủ'
                     ]);
                 }
             }
 
             //Thêm vào giỏ hàng
+
+            $price = $product->pro_price;
+            if($product->pro_sale)
+            {
+                $price = $price * (100 - $product->pro_sale) / 100;
+            }
+            
             Cart::add([
                 'id'      => $product->id,
                 'name'    => $product->pro_name,
@@ -59,9 +66,9 @@ class AjaxShoppingCartController extends Controller
                 'price'   => $product->pro_price,
                 'weight'  => '1',
                 'options' => [
-                    // 'sale' => $product->pro_sale,
-                    // 'price_old' => $product->pro_price,
-                    'image' => $product->pro_avatar
+                    'sale'      => $product->pro_sale,
+                    'price_old' => $product->pro_price,
+                    'image'     => $product->pro_avatar
                 ]
             ]);
             return response()->json([

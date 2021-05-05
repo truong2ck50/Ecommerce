@@ -14,7 +14,7 @@ class CategoryController extends ProductBaseController
         $category = Category::where('c_slug', $slug)->first();
         if(!$category) return abort(404);
 
-        $products = Product::where('pro_category_id', $category->id);
+        $products = Product::where(['pro_category_id' => $category->id, 'pro_active' => Product::STATUS_PUBLIC]);
 
         if($name = $request->k)
         {

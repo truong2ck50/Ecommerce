@@ -18,11 +18,11 @@ class Transaction extends Model
 
     public $status = [
         self::STATUS_DEFAULT => [
-            'name'  => 'Mặc định',
+            'name'  => 'Chờ xử lý',
             'class' => 'muted'
         ],
         self::STATUS_SUCCESS => [
-            'name'  => 'Đã giao dịch',
+            'name'  => 'Đã xử lý',
             'class' => 'success'
         ],
         self::STATUS_CANCEL => [
