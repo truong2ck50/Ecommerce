@@ -9,9 +9,9 @@
         <div class="col-xl-3 col-lg-4 col-sm-6">
             <div class="product text-center">                
                 <div class="position-relative mb-3">
-                    <div class="badge text-white badge-">
+                    <div class="badge text-white badge-" style="right: 68px;">
                     @if($item->pro_sale)
-                        <span style="position: relative; background-image: linear-gradient(-90deg, #ec1f1f 0%, #ff9c00 100%); border-radius: 10px; padding: 1px 7px; font-size: 13px;">Giảm {{ $item->pro_sale }}%</span>
+                        <span style="position: absolute; background-image: linear-gradient(-90deg, #ec1f1f 0%, #ff9c00 100%); border-radius: 10px; padding: 1px 7px; font-size: 13px;">Giảm {{ $item->pro_sale }}%</span>
                     @endif
                     </div>
                     <a class="d-block" href="{{ route('get.product_detail', ['slug' => $item->pro_slug]) }}" title="{{ $item->pro_name }}">
