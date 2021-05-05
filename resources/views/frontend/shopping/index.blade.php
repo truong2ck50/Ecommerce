@@ -44,9 +44,9 @@
                                 <tr>
                                     <th class="pl-0 border-0" scope="row">
                                         <div class="media align-items-center">
-                                            <a class="reset-anchor d-block animsition-link" href="detail.html"><img src="{{ pare_url_file($item->options->image) }}" alt="..." height="70" width="70"></a>
+                                            <a class="reset-anchor d-block animsition-link" href="#"><img src="{{ pare_url_file($item->options->image) }}" alt="..." height="70" width="70"></a>
                                             <div class="media-body ml-3">
-                                                <strong class="h6"><a class="reset-anchor animsition-link" href="detail.html">{{ $item->name }}</a></strong>
+                                                <strong class="h6"><a class="reset-anchor animsition-link" href="#">{{ $item->name }}</a></strong>
                                             </div>
                                         </div>
                                     </th>

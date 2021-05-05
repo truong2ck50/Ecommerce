@@ -18,7 +18,7 @@ class ProductDetailController extends Controller
         $productsRelated = Product::where('pro_category_id', $product->pro_category_id)
         ->where('id', '<>', $product->id)
         ->limit(8)
-        ->select('id', 'pro_name', 'pro_slug', 'pro_price', 'pro_avatar')
+        ->select('id', 'pro_name', 'pro_slug', 'pro_price', 'pro_avatar', 'pro_sale')
         ->get();
 
         $votes = Vote::with('user')->where('v_product_id', $product->id)->get();

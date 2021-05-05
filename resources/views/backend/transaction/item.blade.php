@@ -23,6 +23,7 @@
             <th>Hình ảnh</th>
             <th>Tên sản phẩm</th>
             <th>Giá</th>
+            <th>Khuyến mãi</th>
             <th>Số lượng</th>
             <th>Tổng</th>
             <th>Thời gian</th>
@@ -40,8 +41,19 @@
                 </td>
                 <td>{{ $item->product->pro_name ?? '' }}</td>
                 <td><span class="text-danger">{{ number_format($item->od_price, 0, ',', '.') }} đ</span></td>
+                <td>{{ $item->od_sale }}%</td>
                 <td>{{ $item->od_qty }}</td>
-                <td><span class="text-danger">{{ number_format($item->od_price * $item->od_qty, 0, ',', '.') }} đ</span></td>
+                <td>
+                    @if($item->od_sale)
+                        <span class="text-danger">
+                            {{ number_format($item->od_price * (100 - $item->od_sale) * $item->od_qty / 100, 0, ',', '.') }} đ
+                        </span>
+                    @else
+                        <span class="text-danger">
+                            {{ number_format($item->od_price * $item->od_qty, 0, ',', '.') }} đ
+                        </span>
+                    @endif
+                </td>
                 <td>{{ $item->created_at }}</td>
                 <!-- <td>
                     <a href="{{ route('get_backend.order.delete', $item->id) }}" class="btn btn-sm btn-danger">Delete</a>

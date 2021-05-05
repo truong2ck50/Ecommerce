@@ -63,7 +63,8 @@ class ShoppingCartController extends Controller
                         'od_transaction_id' => $transaction->id,
                         'od_product_id'     => $item->id,
                         'od_qty'            => $item->qty,
-                        'od_price'          => $item->price,
+                        'od_price'          => $item->options->price_old,
+                        'od_sale'           => $item->options->sale,
                         'created_at'        => Carbon::now()
                     ]);
                 }

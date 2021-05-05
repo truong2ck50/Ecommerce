@@ -38,7 +38,6 @@ class BackendTransactionController extends Controller
     {
         $transaction = Transaction::find($id);
         $orders = Order::where('od_transaction_id', $id)->get();
-        // &  
 
         if($orders)
         {

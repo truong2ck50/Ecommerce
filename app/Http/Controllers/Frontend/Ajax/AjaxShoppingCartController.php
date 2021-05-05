@@ -63,7 +63,7 @@ class AjaxShoppingCartController extends Controller
                 'id'      => $product->id,
                 'name'    => $product->pro_name,
                 'qty'     => $qty,
-                'price'   => $product->pro_price,
+                'price'   => $price,
                 'weight'  => '1',
                 'options' => [
                     'sale'      => $product->pro_sale,
