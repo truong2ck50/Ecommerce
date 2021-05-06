@@ -21,6 +21,7 @@ class CreateProductsTable extends Migration
             $table->integer('pro_number')->default(0);
             $table->integer('pro_category_id')->default(0);
             $table->integer('pro_admin_id')->default(0);
+            $table->integer('pro_manufacturer_id')->default(0);
             $table->tinyInteger('pro_sale')->default(0);
             $table->string('pro_avatar')->nullable();
             $table->integer('pro_view')->default(0);

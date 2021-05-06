@@ -24,6 +24,14 @@
                         @endif
                     </div>
                     <div class="form-group">
+                        <label for="exampleInputEmail1"><b>Hãng sản phẩm:</b></label>
+                        <select name="pro_manufacturer_id" class="form-control" id="">
+                            @foreach($manufacturers as $item)
+                                <option value="{{ $item->id }}" {{ old('pro_manufacturer_id', $product->pro_manufacturer_id ?? 0) == $item->id ? "selected" : ""}}>{{ $item->m_name }}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                    <div class="form-group">
                         <label for="exampleInputEmail1"><b>Mô tả:</b></label>
                         <textarea name="pro_description" class="form-control" id="editor3" cols="30" rows="3">{{ old('pro_description', $product->pro_description ?? '') }}</textarea>
                         @if ($errors->first('pro_description'))

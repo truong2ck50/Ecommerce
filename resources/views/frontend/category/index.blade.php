@@ -38,17 +38,6 @@
                             <button type="submit" class="btn btn-success btn-sm d-block mt-2 mb-4 w-100">Tìm kiếm</button>
                         </form>
                     </div>
-                    <h6 class="text-uppercase mb-4">Danh mục</h6>
-                    @foreach($categoriesSort as $items)
-                    <div class="py-2 px-4 bg-dark text-white mb-3"><strong class="small text-uppercase font-weight-bold">{{ $items->c_name }}</strong></div>
-                        @if(isset($items->childs) && !$items->childs->isEmpty())
-                            <ul class="list-unstyled small text-muted pl-lg-4 font-weight-normal">
-                                @foreach($items->childs as $item)
-                                <li class="mb-2"><a class="reset-anchor" href="{{ route('get.category', ['slug' => $item->c_slug]) }}">{{ $item->c_name }}</a></li>
-                                @endforeach
-                            </ul>
-                        @endif
-                    @endforeach
                     <h6 class="text-uppercase mb-4">Khoảng giá</h6>
                     <div class="price-range pt-4 mb-5">
                         <div id="range" class="noUi-target noUi-ltr noUi-horizontal noUi-txt-dir-ltr">
@@ -75,6 +64,25 @@
                             <div class="col-6 text-right"><strong class="small font-weight-bold text-uppercase">To</strong></div>
                         </div>
                     </div>
+                    <h6 class="text-uppercase mb-4">Danh mục</h6>
+                    @foreach($categoriesSort as $items)
+                    <div class="py-2 px-4 bg-dark text-white mb-3"><strong class="small text-uppercase font-weight-bold">{{ $items->c_name }}</strong></div>
+                        @if(isset($items->childs) && !$items->childs->isEmpty())
+                            <ul class="list-unstyled small text-muted pl-lg-4 font-weight-normal">
+                                @foreach($items->childs as $item)
+                                <li class="mb-2"><a class="reset-anchor" href="{{ route('get.category', ['slug' => $item->c_slug]) }}">--  {{ $item->c_name }}</a></li>
+                                @endforeach
+                            </ul>
+                        @endif
+                    @endforeach
+
+                    <div class="py-2 px-4 bg-dark text-white mb-3"><strong class="small text-uppercase font-weight-bold">Hãng sản suất</strong></div>
+                        <ul class="list-unstyled small text-muted pl-lg-4 font-weight-normal">
+                            @foreach($manufacturers as $item)
+                            <li class="mb-2"><a class="reset-anchor" href="{{ request()->fullUrlWithQuery(['m' => $item->id]) }}">--  {{ $item->m_name }}</a></li>
+                            @endforeach
+                        </ul>
+                    
                 </div>
                 <!-- SHOP LISTING-->
                 <div class="col-lg-9 order-1 order-lg-2 mb-5 mb-lg-0">

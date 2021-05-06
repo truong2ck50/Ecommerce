@@ -41,6 +41,19 @@ Route::group(['namespace' => 'Backend', 'prefix' => 'admin', 'middleware' => 'ch
         Route::get('delete/{id}', 'BackendCategoryController@delete')->name('get_backend.category.delete');
     });
 
+    //Hãng
+    Route::prefix('manufacturer')->group(function() {
+        Route::get('', 'BackendManufacturerController@index')->name('get_backend.manufacturer.index');
+
+        Route::get('create', 'BackendManufacturerController@create')->name('get_backend.manufacturer.create');
+        Route::post('create', 'BackendManufacturerController@store')->name('get_backend.manufacturer.store');
+
+        Route::get('update/{id}', 'BackendManufacturerController@edit')->name('get_backend.manufacturer.update');
+        Route::post('update/{id}', 'BackendManufacturerController@update');
+
+        Route::get('delete/{id}', 'BackendManufacturerController@delete')->name('get_backend.manufacturer.delete');
+    });
+
     //Keyword
     Route::prefix('keyword')->group(function() {
         Route::get('', 'BackendKeywordController@index')->name('get_backend.keyword.index');
@@ -131,9 +144,9 @@ Route::group(['namespace' => 'Backend', 'prefix' => 'admin', 'middleware' => 'ch
     });
 
     //Chi tiết đơn hàng
-    Route::prefix('order')->group(function() {
-        Route::get('delete/{id}', 'BackendOrderController@delete')->name('get_backend.order.delete');
-    });
+    // Route::prefix('order')->group(function() {
+    //     Route::get('delete/{id}', 'BackendOrderController@delete')->name('get_backend.order.delete');
+    // });
 
     //Setting
     Route::get('setting', 'BackendSettingController@index')->name('get_backend.setting');

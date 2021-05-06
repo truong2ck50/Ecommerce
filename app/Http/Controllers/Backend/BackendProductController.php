@@ -8,6 +8,7 @@ use Illuminate\Support\Str;
 use Carbon\Carbon;
 use App\Models\Product;
 use App\Models\Category;
+use App\Models\Manufacturer;
 use App\Models\Keyword;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
@@ -30,12 +31,14 @@ class BackendProductController extends Controller
     public function create()
     {
         // $categories = Category::where('c_parent_id','<>', 0)->get();  
-        $categories = Category::all(); 
-        $keywords   = Keyword::all();
+        $categories    = Category::all(); 
+        $keywords      = Keyword::all();
+        $manufacturers = Manufacturer::orderByDesc('id')->get();
         $viewData   = [
-            'categories' => $categories,
-            'keywordOld' => [],
-            'keywords'   => $keywords
+            'categories'    => $categories,
+            'keywordOld'    => [],
+            'manufacturers' => $manufacturers,
+            'keywords'      => $keywords
         ];
 
         return view($this->folder . 'create', $viewData);
@@ -67,13 +70,15 @@ class BackendProductController extends Controller
         $categories = Category::all();
         $keywords   = Keyword::all();
         $product    = Product::find($id);
+        $manufacturers = Manufacturer::orderByDesc('id')->get();
         $keywordOld   = DB::table('products_keywords')
             ->where('pk_product_id', $id)->pluck('pk_keyword_id')->toArray() ?? [];
         $viewData   = [
-            'categories' => $categories,
-            'keywordOld' => $keywordOld,
-            'product'    => $product,
-            'keywords'   => $keywords
+            'categories'    => $categories,
+            'keywordOld'    => $keywordOld,
+            'manufacturers' => $manufacturers,
+            'product'       => $product,
+            'keywords'      => $keywords
         ];
         return view($this->folder . 'update', $viewData);
     }

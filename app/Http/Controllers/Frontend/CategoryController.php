@@ -21,6 +21,11 @@ class CategoryController extends ProductBaseController
             $products->where('pro_name', 'like', '%'. $name .'%');
         }
 
+        if($request->m)
+        {
+            $products->where('pro_manufacturer_id', $request->m);
+        }
+
         $products = $products->select('id', 'pro_name', 'pro_slug', 'pro_price', 'pro_avatar')
         ->paginate(12);
         

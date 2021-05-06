@@ -13,6 +13,10 @@
                             'route' => 'get_backend.category.index'
                         ],
                         [ 
+                            'name'  => 'QL hãng',
+                            'route' => 'get_backend.manufacturer.index'
+                        ],
+                        [ 
                             'name'  => 'Sản phẩm',
                             'route' => 'get_backend.product.index'
                         ],
