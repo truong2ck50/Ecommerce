@@ -93,7 +93,13 @@
                     <ul class="list-unstyled small d-inline-block">
                         <!-- <li class="px-3 py-2 mb-1 bg-white"><strong class="text-uppercase">SKU:</strong><span class="ml-2 text-muted">039</span></li> -->
                         <li class="px-3 py-2 mb-1 bg-white text-muted">
-                            <strong class="text-uppercase text-dark">Số lượng sản phẩm: {{$product->pro_number}}</strong>
+                            <strong class="text-uppercase text-dark">Số lượng sản phẩm: 
+                                @if($product->pro_number == 0)
+                                   Tạm hết hàng
+                                @else    
+                                    {{$product->pro_number}}
+                                @endif
+                            </strong>
                         </li>
                         <li class="px-3 py-2 mb-1 bg-white text-muted">
                             <strong class="text-uppercase text-dark">Danh mục:</strong>
@@ -212,7 +218,7 @@
                             <div class="product-overlay">
                                 <ul class="mb-0 list-inline">
                                     <li class="list-inline-item m-0 p-0"><a class="btn btn-sm btn-outline-dark" href="#"><i class="far fa-heart"></i></a></li>
-                                    <li class="list-inline-item m-0 p-0"><a class="btn btn-sm btn-dark " href="#">Thêm giỏ hàng</a></li>
+                                    <li class="list-inline-item m-0 p-0"><a class="btn btn-sm btn-dark js-add-cart" href="{{ route('get_ajax.shopping.add', $product->id) }}   ">Thêm giỏ hàng</a></li>
                                     <li class="list-inline-item mr-0">
                                         <a class="btn btn-sm btn-outline-dark js-product-preview" href="{{ route('get_ajax.product_preview', $item->id) }}" data-toggle="modal"><i class="fas fa-expand"></i></a>
                                     </li>
