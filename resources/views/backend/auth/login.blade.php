@@ -36,7 +36,7 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-lg-10 col-xl-7 mx-auto">
-                            <h3 class="display-4">Admin đăng nhập</h3>
+                            <h3 class="display-5">Admin đăng nhập</h3>
                             <p class="text-muted mb-4">Điền đầy đủ thông tin đăng nhập hệ thống</p>
                             <form method="POST" action="">
                                 @csrf                                

@@ -36,7 +36,18 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-lg-10 col-xl-7 mx-auto">
-                            <h3 class="display-4">Thành viên đăng nhập</h3>
+                            @if (session('success'))
+                                <div class="alert alert-success alert-dismissible" style="position: fixed; right: 210px; top: 60px; left: 55%;">
+                                    <strong>Thành công!</strong> {{ session('success') }}
+                                    <button type="button" class="close" data-dismiss="alert">&times;</button>
+                                </div>
+                            @elseif(session('danger'))
+                                <div class="alert alert-danger alert-dismissible" style="position: fixed;  right: 210px; top: 60px; left: 60%;">
+                                    <strong>Thất bại!</strong> {{ session('danger') }}
+                                    <button type="button" class="close" data-dismiss="alert">&times;</button>
+                                </div>
+                            @endif
+                            <h3 class="display-5">Thành viên đăng nhập</h3>
                             <p class="text-muted mb-4">Điền đầy đủ thông tin đăng nhập hệ thống</p>
                             <form method="POST" action="">
                                 @csrf                                
@@ -48,8 +59,9 @@
                                 </div>
                                 <div class="custom-control custom-checkbox mb-3">
                                     <input id="customCheck1" type="checkbox" checked class="custom-control-input">
-                                    <label for="customCheck1" class="custom-control-label">Nhớ mật khẩu</label>
+                                    <label for="customCheck1" class="custom-control-label">Nhớ mật khẩu</label>                                    
                                 </div>
+                                <p class="lost_password" style="right: 0px;"><i><a href="{{ route('get.password-retrieval') }}" target="_blank">Quên mật khẩu?</a></i></p>
                                 <button type="submit" class="btn btn-primary btn-block text-uppercase mb-2 rounded-pill shadow-sm">Đăng nhập</button>
                                 <div class="text-center d-flex justify-content-between mt-4"><p>Bạn chưa có tài khoản vui lòng đăng ký
                                         <a href="{{ route('get.register')}}" class="font-italic text-muted">

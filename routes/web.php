@@ -32,6 +32,13 @@ Route::group(['namespace' => 'Frontend'], function () {
 
         //Đăng xuất
         Route::get('logout', 'LoginController@getLogOut')->name('get.logout');
+
+        //Quên mật khẩu
+        Route::get('password-retrieval', 'ForgotPasswordController@getFormResetPassword')->name('get.password-retrieval');
+        Route::post('password-retrieval', 'ForgotPasswordController@sendCodeResetPassword');
+
+        Route::get('password/reset', 'ForgotPasswordController@resetPassword')->name('get.link.reset.password');
+        Route::post('password/reset', 'ForgotPasswordController@saveResetPassword');
     });
 
     //Trang chủ

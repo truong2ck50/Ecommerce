@@ -93,6 +93,9 @@
                     <ul class="list-unstyled small d-inline-block">
                         <!-- <li class="px-3 py-2 mb-1 bg-white"><strong class="text-uppercase">SKU:</strong><span class="ml-2 text-muted">039</span></li> -->
                         <li class="px-3 py-2 mb-1 bg-white text-muted">
+                            <strong class="text-uppercase text-dark">Số lượng sản phẩm: {{$product->pro_number}}</strong>
+                        </li>
+                        <li class="px-3 py-2 mb-1 bg-white text-muted">
                             <strong class="text-uppercase text-dark">Danh mục:</strong>
                             <a class="reset-anchor ml-2" href="{{ route('get.category', ['slug' => $product->category->c_slug ?? '']) }}">{{ $product->category->c_name ?? [N\A] }}</a>
                         </li>

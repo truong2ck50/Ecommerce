@@ -35,7 +35,7 @@
                     <div>
                         <form action="">
                             <input type="text" name="k" value="{{ Request::get('k') }}" class="form-control" placeholder="Tìm kiếm...">
-                            <button type="submit" class="btn btn-success btn-sm d-block mt-2 mb-4 w-100">Tìm kiếm</button>
+                            <button type="submit" class="btn btn-dark btn-sm d-block mt-2 mb-4 w-100">Tìm kiếm</button>
                         </form>
                     </div>
                     <h6 class="text-uppercase mb-4">Khoảng giá</h6>
