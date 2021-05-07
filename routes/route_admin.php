@@ -143,11 +143,6 @@ Route::group(['namespace' => 'Backend', 'prefix' => 'admin', 'middleware' => 'ch
         Route::get('delete/{id}', 'BackendTransactionController@delete')->name('get_backend.transaction.delete');
     });
 
-    //Chi tiết đơn hàng
-    // Route::prefix('order')->group(function() {
-    //     Route::get('delete/{id}', 'BackendOrderController@delete')->name('get_backend.order.delete');
-    // });
-
     //Setting
     Route::get('setting', 'BackendSettingController@index')->name('get_backend.setting');
     Route::post('setting', 'BackendSettingController@createOrUpdate')->name('get_backend.setting.store');

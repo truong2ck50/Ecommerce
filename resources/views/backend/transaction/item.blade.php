@@ -56,9 +56,6 @@
                     @endif
                 </td>
                 <td>{{ $item->created_at }}</td>
-                <!-- <td>
-                    <a href="{{ route('get_backend.order.delete', $item->id) }}" class="btn btn-sm btn-danger">Delete</a>
-                </td> -->
             </tr>
         @endforeach
         </tbody>

@@ -71,7 +71,7 @@ class ShoppingCartController extends Controller
             }
 
             Cart::destroy();
-            return redirect()->route('get_user.transaction.index');
+            return redirect()->route('get_user.transaction.index')->with('success', 'Đặt hàng thành công.');
         }
         return redirect()->route('get_user.transaction.index');
     }

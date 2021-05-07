@@ -2,6 +2,17 @@
 @section('title', 'Đơn hàng của bạn')
 @section('content')
     <h4 style="margin-bottom: 10px">ĐƠN HÀNG CỦA BẠN</h4>
+    @if (session('success'))
+        <div class="alert alert-success alert-dismissible" style="position: fixed; right: 15px; top: 60px; left: 60%; margin-top:35px;">
+            <strong>Thành công!</strong> {{ session('success') }}
+            <button type="button" class="close" data-dismiss="alert">&times;</button>
+        </div>
+    @elseif(session('danger'))
+        <div class="alert alert-danger alert-dismissible" style="position: fixed; right: 15px; top: 60px; left: 60%; margin-top: 45px;">
+            <strong>Thất bại!</strong> {{ session('danger') }}
+            <button type="button" class="close" data-dismiss="alert">&times;</button>
+        </div>
+    @endif
     <table class="table table-hover" id="jsDataTable">
         <thead>
         <tr>
