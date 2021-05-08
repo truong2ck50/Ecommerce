@@ -5,10 +5,6 @@
                 'top' => 
                     [
                         [ 
-                            'name'  => 'Từ khoá',
-                            'route' => 'get_backend.keyword.index'
-                        ],
-                        [ 
                             'name'  => 'Danh mục',
                             'route' => 'get_backend.category.index'
                         ],
@@ -19,6 +15,18 @@
                         [ 
                             'name'  => 'Sản phẩm',
                             'route' => 'get_backend.product.index'
+                        ],
+                        [ 
+                            'name'  => 'Từ khoá',
+                            'route' => 'get_backend.keyword.index'
+                        ],
+                        [ 
+                            'name'  => 'Đánh giá',
+                            'route' => 'get_backend.vote.index'
+                        ],
+                        [ 
+                            'name'  => 'Đơn hàng',
+                            'route' => 'get_backend.transaction.index'
                         ],
                         [ 
                             'name'  => 'Tag',
@@ -36,10 +44,6 @@
                             'name'  => 'Thành viên',
                             'route' => 'get_backend.user.index'
                         ],
-                        [ 
-                            'name'  => 'Đơn hàng',
-                            'route' => 'get_backend.transaction.index'
-                        ],  
                         [ 
                             'name'  => 'Slide',
                             'route' => 'get_backend.slide.index'

@@ -3,7 +3,7 @@
     <tr>
         <th>ID</th>
         <th>Tên Tag</th>
-        <th>Slug</th>
+        <th>Slug</th>   
         <th>Thời gian</th>
         <th>Thao tác</th>
     </tr>

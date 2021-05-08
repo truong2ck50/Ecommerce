@@ -28,6 +28,13 @@ Route::group(['namespace' => 'Backend', 'prefix' => 'admin', 'middleware' => 'ch
         Route::get('delete/{id}', 'BackendUserController@delete')->name('get_backend.user.delete');
     });
 
+    //Đánh giá
+    Route::prefix('vote')->group(function() {
+        Route::get('', 'BackendVoteController@index')->name('get_backend.vote.index');
+
+        Route::get('delete/{id}', 'BackendVoteController@delete')->name('get_backend.vote.delete');
+    });
+
     //Category
     Route::prefix('category')->group(function() {
         Route::get('', 'BackendCategoryController@index')->name('get_backend.category.index');

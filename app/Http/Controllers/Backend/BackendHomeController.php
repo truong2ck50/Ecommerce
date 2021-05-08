@@ -7,12 +7,14 @@ use App\Models\User;
 use App\Models\Product;
 use App\Models\Article;
 use App\Models\Transaction;
+use App\Models\Vote;
 use Illuminate\Http\Request;
 
 class BackendHomeController extends Controller
 {
     public function index() 
     {
+        $votes            = Vote::orderByDesc('id')->with('user:id,name', 'product:id,pro_name')->limit(10)->get();
         $countUser        = User::select('id')->count();
         $countProduct     = Product::select('id')->count();
         $countArticle     = Article::select('id')->count();
@@ -61,6 +63,7 @@ class BackendHomeController extends Controller
         ];
 
         $viewData   = [
+            'votes'            => $votes,
             'countUser'        => $countUser,
             'countProduct'     => $countProduct,
             'countArticle'     => $countArticle,

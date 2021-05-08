@@ -90,23 +90,25 @@
             <div id="container" style="min-width: 310px; height: 400px; margin: 0 auto;"></div>
         </div>
         <div class="col-sm-6">
-            <h2>Thành viên mới đăng ký</h2>
+            <h2>Danh sách đánh giá mới</h2>
             <table class="table table-hover">
                 <thead>
                 <tr>
                     <th>ID</th>
                     <th>Tên KH</th>
-                    <th>Email</th>
-                    <th>SĐT</th>
+                    <th>Sản phẩm</th>
+                    <th>Nội dung</th>
+                    <th>Đánh giá</th>
                 </tr>
                 </thead>
                 <tbody>
-                @foreach($users as $item)    
+                @foreach($votes as $item)    
                     <tr>
                         <td>{{ $item->id }}</td>
-                        <td>{{ $item->name }}</td>
-                        <td>{{ $item->email }}</td>
-                        <td>{{ $item->phone }}</td>
+                        <td>{{ $item->user->name }}</td>
+                        <td>{{ $item->product->pro_name }}</td>
+                        <td>{{ $item->v_content }}</td>
+                        <td>{{ $item->v_number }}</td>
                     </tr>
                 @endforeach
                 </tbody>
@@ -209,12 +211,12 @@
 
             tooltip: {
                 headerFormat: '<span style="font-size:11px">{series.name}</span><br>',
-                pointFormat: '<span style="color:{point.color}">{point.name}</span>: <b>{point.y:.2f}%</b> of total<br/>'
+                pointFormat: '<span style="color:{point.color}">{point.name}</span>: <b>{point.y:.0f} VNĐ</b> of total<br/>'
             },
 
             series: [
                 {
-                    name: "Browsers",
+                    name: "DOANH THU",
                     colorByPoint: true,
                     data: dataChart
                 }
