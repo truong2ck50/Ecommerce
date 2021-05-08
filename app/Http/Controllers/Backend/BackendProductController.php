@@ -30,8 +30,8 @@ class BackendProductController extends Controller
 
     public function create()
     {
-        // $categories = Category::where('c_parent_id','<>', 0)->get();  
-        $categories    = Category::all(); 
+        $categories = Category::where('c_parent_id','<>', 0)->get();  
+        // $categories    = Category::all(); 
         $keywords      = Keyword::all();
         $manufacturers = Manufacturer::orderByDesc('id')->get();
         $viewData   = [
@@ -66,8 +66,8 @@ class BackendProductController extends Controller
 
     public function edit($id)
     {
-        // $categories = Category::where('c_parent_id','<>', 0)->get();
-        $categories = Category::all();
+        $categories = Category::where('c_parent_id','<>', 0)->get();
+        // $categories = Category::all();
         $keywords   = Keyword::all();
         $product    = Product::find($id);
         $manufacturers = Manufacturer::orderByDesc('id')->get();

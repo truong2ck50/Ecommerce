@@ -1,6 +1,14 @@
 @extends('layouts.app_frontend')
 @section('title', $title)
 @section('content')
+
+    <style>
+        .sidebar-content .active
+        {
+            color: #b68b23;
+        }
+    </style>
+
     <div class="container">
     <!-- HERO SECTION-->
     <section class="py-5 bg-light" style="padding-top: 120px !important;">
@@ -38,32 +46,16 @@
                             <button type="submit" class="btn btn-dark btn-sm d-block mt-2 mb-4 w-100">Tìm kiếm</button>
                         </form>
                     </div>
-                    <h6 class="text-uppercase mb-4">Khoảng giá</h6>
-                    <div class="price-range pt-4 mb-5">
-                        <div id="range" class="noUi-target noUi-ltr noUi-horizontal noUi-txt-dir-ltr">
-                            <div class="noUi-base">
-                                <div class="noUi-connects">
-                                    <div class="noUi-connect noUi-draggable" style="transform: translate(5%, 0px) scale(0.45, 1);"></div>
-                                </div>
-                                <div class="noUi-origin" style="transform: translate(-950%, 0px); z-index: 5;">
-                                    <div class="noUi-handle noUi-handle-lower" data-handle="0" tabindex="0" role="slider" aria-orientation="horizontal" aria-valuemin="0.0" aria-valuemax="700.0" aria-valuenow="100.0" aria-valuetext="$100">
-                                        <div class="noUi-touch-area"></div>
-                                        <div class="noUi-tooltip">$100</div>
-                                    </div>
-                                </div>
-                                <div class="noUi-origin" style="transform: translate(-500%, 0px); z-index: 6;">
-                                    <div class="noUi-handle noUi-handle-upper" data-handle="1" tabindex="0" role="slider" aria-orientation="horizontal" aria-valuemin="400.0" aria-valuemax="2000.0" aria-valuenow="1000.0" aria-valuetext="$1000">
-                                        <div class="noUi-touch-area"></div>
-                                        <div class="noUi-tooltip">$1000</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row pt-2">
-                            <div class="col-6"><strong class="small font-weight-bold text-uppercase">From</strong></div>
-                            <div class="col-6 text-right"><strong class="small font-weight-bold text-uppercase">To</strong></div>
-                        </div>
-                    </div>
+                    <aside class="sidebar-content">
+                        <h6 class="text-uppercase mb-4">Khoảng giá</h6>
+                        <ul class="list-unstyled small text-muted pl-lg-4 font-weight-normal">
+                            <li><a class="reset-anchor {{ Request::get('price') == 1 ? 'active' : '' }}" href="{{ request()->fullUrlWithQuery(['price' => 1]) }}">-- Nhỏ hơn &nbsp; 1.000.000 đ</a></li>
+                            <li><a class="reset-anchor {{ Request::get('price') == 2 ? 'active' : '' }}" href="{{ request()->fullUrlWithQuery(['price' => 2]) }}">-- 1.000.000 - 5.000.000 đ</a></li>
+                            <li><a class="reset-anchor {{ Request::get('price') == 3 ? 'active' : '' }}" href="{{ request()->fullUrlWithQuery(['price' => 3]) }}">-- 5.000.000 - 10.000.000 đ</a></li>
+                            <li><a class="reset-anchor {{ Request::get('price') == 4 ? 'active' : '' }}" href="{{ request()->fullUrlWithQuery(['price' => 4]) }}">-- 10.000.000 - 15.000.000 đ</a></li>
+                            <li><a class="reset-anchor {{ Request::get('price') == 5 ? 'active' : '' }}" href="{{ request()->fullUrlWithQuery(['price' => 5]) }}">-- Lớn hơn &nbsp; 15.000.000 đ</a></li>
+                        </ul>
+                    </aside>
                     <h6 class="text-uppercase mb-4">Danh mục</h6>
                     @foreach($categoriesSort as $items)
                     <div class="py-2 px-4 bg-dark text-white mb-3"><strong class="small text-uppercase font-weight-bold">{{ $items->c_name }}</strong></div>
@@ -92,31 +84,16 @@
                         </div>
                         <div class="col-lg-6">
                             <ul class="list-inline d-flex align-items-center justify-content-lg-end mb-0">
-                                <!-- <li class="list-inline-item text-muted mr-3"><a class="reset-anchor p-0" href="#"><i class="fas fa-th-large"></i></a></li>
-                                <li class="list-inline-item text-muted mr-3"><a class="reset-anchor p-0" href="#"><i class="fas fa-th"></i></a></li> -->
                                 <label>Sắp xếp: &nbsp;</label>
                                 <li class="list-inline-item">
-                                    <form class="tree-most" action="" method="get">
+                                    <form class="tree-most" id="form_order" method="get">
                                         <div class="dropdown bootstrap-select ml-auto" style="width: 200px;">
                                             <select class="selectpicker ml-auto" name="sorting" data-width="200" data-style="bs-select-form-control" data-title="Mặc định" tabindex="-98">
-                                                <option class="bs-title-option" value=""></option>
-                                                <option value="default">Mặc định</option>
-                                                <option value="popularity">Mới nhất</option>
-                                                <option value="low-high">Giá tăng dần</option>
-                                                <option value="high-low">Giá giảm dần</option>
+                                                <option {{ Request::get('sorting') == "default" ? "selected = 'selected'" : "" }} value="default">Mặc định</option>
+                                                <option {{ Request::get('sorting') == "desc" ? "selected = 'selected'" : "" }} value="desc">Mới nhất</option>
+                                                <option {{ Request::get('sorting') == "low-high" ? "selected = 'selected'" : "" }} value="low-high">Giá tăng dần</option>
+                                                <option {{ Request::get('sorting') == "high-low" ? "selected = 'selected'" : "" }} value="high-low">Giá giảm dần</option>
                                             </select>
-                                            <!-- <button type="button" class="btn dropdown-toggle bs-select-form-control bs-placeholder" data-toggle="dropdown" role="combobox" aria-owns="bs-select-1" aria-haspopup="listbox" aria-expanded="false" title="Default sorting">
-                                                <div class="filter-option">
-                                                    <div class="filter-option-inner">
-                                                        <div class="filter-option-inner-inner">Mặc định</div>
-                                                    </div>
-                                                </div>
-                                            </button>
-                                            <div class="dropdown-menu ">
-                                                <div class="inner show" role="listbox" id="bs-select-1" tabindex="-1">
-                                                    <ul class="dropdown-menu inner show" role="presentation"></ul>
-                                                </div>
-                                            </div> -->
                                         </div>
                                     </form>
                                 </li>
@@ -129,7 +106,11 @@
                         <div class="col-lg-4 col-sm-6">
                             <div class="product text-center">
                                 <div class="mb-3 position-relative">
-                                    <div class="badge text-white badge-"></div>
+                                    <div class="badge text-white badge-" style="right: 68px;">
+                                        @if($item->pro_sale)
+                                            <span style="position: absolute; background-image: linear-gradient(-90deg, #ec1f1f 0%, #ff9c00 100%); border-radius: 10px; padding: 1px 7px; font-size: 13px;">Giảm {{ $item->pro_sale }}%</span>
+                                        @endif
+                                    </div>   
                                     <a class="d-block" href="{{ route('get.product_detail', ['slug' => $item->pro_slug]) }}">
                                         <img class="img-fluid w-100" src="{{ pare_url_file($item->pro_avatar) }}" alt="{{ $item->pro_name }}">
                                         </a>
@@ -167,4 +148,5 @@
         </div>
     </section>
 </div>
+
 @stop

@@ -171,6 +171,13 @@
             </script>
             <script>
                 $(function(){
+                    $('.selectpicker').change(function(){
+                        $("#form_order").submit();
+                    })
+                })
+            </script>
+            <script>
+                $(function(){
                     $(".js-product-preview").click(function(event){
                         event.preventDefault()
                         let $this = $(this)

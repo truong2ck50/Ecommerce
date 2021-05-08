@@ -45,6 +45,6 @@ class BackendUserController extends Controller
     public function delete($id) 
     {
         DB::table('users')->where('id', $id)->delete();
-        return redirect()->route('get_backend.user.index')->with('success','Xoá thành viên thành công');;
+        return redirect()->route('get_backend.user.index')->with('success','Xoá thành viên thành công');
     }
 }

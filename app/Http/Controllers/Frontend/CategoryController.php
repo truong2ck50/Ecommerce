@@ -26,7 +26,58 @@ class CategoryController extends ProductBaseController
             $products->where('pro_manufacturer_id', $request->m);
         }
 
-        $products = $products->select('id', 'pro_name', 'pro_slug', 'pro_price', 'pro_avatar')
+        if($request->price)
+        {
+            $price = $request->price;
+            switch($price)
+            {
+                case '1':
+                    $products->where('pro_price', '<', 1000000);
+                    break;
+                
+                case '2':
+                    $products->whereBetween('pro_price', [1000000, 5000000]);
+                    break;
+
+                case '3':
+                    $products->whereBetween('pro_price', [5000000, 10000000]);
+                    break;
+
+                case '4':
+                    $products->whereBetween('pro_price', [10000000, 15000000]);
+                    break;
+                
+                case '5':
+                    $products->where('pro_price', '>', 15000000);
+                    break;
+            }
+        }
+
+        if($request->sorting)
+        {
+            $sorting = $request->sorting;
+
+            switch($sorting)
+            {
+                case 'desc':
+                    $products->orderByDesc('id');
+                    break;
+                
+                case 'low-high':
+                    $products->orderBy('pro_price', 'ASC');
+                    break;
+                
+                case 'high-low':
+                    $products->orderBy('pro_price', 'DESC');
+                    break;
+
+                default:
+                    $products->orderByDesc('id');
+                    break;
+            }
+        }
+
+        $products = $products->select('id', 'pro_name', 'pro_slug', 'pro_price', 'pro_avatar', 'pro_sale')
         ->paginate(12);
         
 
