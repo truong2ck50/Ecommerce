@@ -1,7 +1,7 @@
 @extends('layouts.app_user')
 @section('title', 'Cập nhật thông tin')
 @section('content')
-    <h1>Cập nhật thông tin</h1>
+    <h1>CẬP NHẬT THÔNG TIN</h1>
     @if (session('success'))
         <div class="alert alert-success alert-dismissible" style="position: fixed; right: 15px; top: 60px; left: 60%; margin-top:45px;">
             <strong>Thành công!</strong> {{ session('success') }}
@@ -32,6 +32,6 @@
             <input type="text" class="form-control" name="phone" value="{{ $user->phone }}" placeholder="Số điện thoại">
         </div>    
     
-        <button type="submit" class="btn btn-primary"><i class="fa fa-save"></i> Cập nhật</button>
+        <button type="submit" class="btn btn-outline-info"><i class="fa fa-save"></i> Cập nhật</button>
     </form>
 @stop

@@ -3,6 +3,17 @@
 @section('content')
     <section class="py-5">
     <div class="container">
+        @if (session('success'))
+            <div class="alert alert-success alert-dismissible" style="position: fixed; z-index: 9999; right: 50px; top: 60px; left: 60%; margin-top:15px;">
+                <strong>Thành công!</strong> {{ session('success') }}
+                <button type="button" class="close" data-dismiss="alert">&times;</button>
+            </div>
+        @elseif(session('danger'))
+            <div class="alert alert-danger alert-dismissible" style="position: fixed; z-index: 9999; right: 50px; top: 60px; left: 60%; margin-top:15px;">
+                <strong>Thất bại!</strong> {{ session('danger') }}
+                <button type="button" class="close" data-dismiss="alert">&times;</button>
+            </div>
+        @endif
         <div class="row mb-5">
             <div class="col-lg-6">
                 <!-- PRODUCT SLIDER-->
@@ -24,7 +35,7 @@
                             <div class="owl-stage-outer">
                                 <div class="owl-stage" style="transform: translate3d(0px, 0px, 0px); transition: all 0s ease 0s; width: 1680px;">
                                     <div class="owl-item active" style="width: 420px;"><a class="d-block" href="{{ pare_url_file($product->pro_avatar) }}" data-lightbox="product" title="Product item 1">
-                                        <img class="img-fluid" style="width:420px; height: 450px;" src="{{ pare_url_file($product->pro_avatar) }}" alt="..."></a>
+                                        <img class="img-fluid" style="width:420px; height: 480px;" src="{{ pare_url_file($product->pro_avatar) }}" alt="..."></a>
                                     </div>
                                     <!-- <div class="owl-item" style="width: 420px;"><a class="d-block" href="{{asset('img/product-detail-2.jpg')}}" data-lightbox="product" title="Product item 2"><img class="img-fluid" src="{{asset('img/product-detail-2.jpg')}}" alt="..."></a></div>
                                     <div class="owl-item" style="width: 420px;"><a class="d-block" href="{{asset('img/product-detail-3.jpg')}}" data-lightbox="product" title="Product item 3"><img class="img-fluid" src="{{asset('img/product-detail-3.jpg')}}" alt="..."></a></div>
@@ -89,27 +100,27 @@
                             <a class="js-add-cart btn btn-dark btn-sm btn-block h-100 d-flex align-items-center justify-content-center px-0" href="{{ route('get_ajax.shopping.add', $product->id) }}">Thêm giỏ hàng</a>
                         </div>
                     </div>
-                    <!-- <a class="btn btn-link text-dark p-0 mb-4" href="#"><i class="far fa-heart mr-2"></i>Add to wish list</a><br> -->
+                    <a class="btn btn-link text-dark p-0 mb-4" href="{{ route('get_user.wishlist.add', $product->id) }}"><i class="far fa-heart mr-2"></i>Thêm vào yêu thích</a><br>
                     <ul class="list-unstyled small d-inline-block">
-                        <!-- <li class="px-3 py-2 mb-1 bg-white"><strong class="text-uppercase">SKU:</strong><span class="ml-2 text-muted">039</span></li> -->
-                        <li class="px-3 py-2 mb-1 bg-white text-muted">
-                            <strong class="text-uppercase text-dark">Số lượng sản phẩm: 
+                        <li class="px-3 py-2 mb-1 bg-white">
+                            <strong class="text-uppercase">Số lượng sản phẩm:</strong>
+                            <span class="ml-2 text-muted">
                                 @if($product->pro_number == 0)
                                    Tạm hết hàng
                                 @else    
                                     {{$product->pro_number}}
                                 @endif
-                            </strong>
+                            </span>
                         </li>
                         <li class="px-3 py-2 mb-1 bg-white text-muted">
                             <strong class="text-uppercase text-dark">Danh mục:</strong>
-                            <a class="reset-anchor ml-2" href="{{ route('get.category', ['slug' => $product->category->c_slug ?? '']) }}">{{ $product->category->c_name ?? [N\A] }}</a>
+                            <a class="reset-anchor ml-2" style="display: inline-flex;" href="{{ route('get.category', ['slug' => $product->category->c_slug ?? '']) }}">{{ $product->category->c_name ?? [N\A] }}</a>
                         </li>
                         @if($product->keywords && !$product->keywords->isEmpty())
                         <li class="px-3 py-2 mb-1 bg-white text-muted">
                             <strong class="text-uppercase text-dark">Từ khoá:</strong>
                             @foreach($product->keywords as $keyword)
-                            <a class="reset-anchor ml-2" href="{{ route('get.keyword', ['slug' => $keyword->k_slug]) }}" title="{{ $keyword->k_name }}">{{ $keyword->k_name }}</a>
+                            <a class="reset-anchor ml-2" style="display: inline-flex;" href="{{ route('get.keyword', ['slug' => $keyword->k_slug]) }}" title="{{ $keyword->k_name }}">{{ $keyword->k_name }}</a>
                             @endforeach
                         </li>
                         @endif

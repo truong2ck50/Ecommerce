@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Frontend;
 use App\Http\Controllers\Controller;
 use Gloudemans\Shoppingcart\Facades\Cart;
 use App\Models\Transaction;
+use App\Models\WishList;
 use App\Models\User;
 use App\Models\Order;
 use Carbon\Carbon;
@@ -15,8 +16,11 @@ class ShoppingCartController extends Controller
     public function index()
     {
         $products = Cart::content();
+        $countProductFavorites = $countProductFavorites = WishList::where('pf_user_id', get_data_user('web'))->count();
+
         $viewData = [
-            'products' => $products
+            'products'              => $products,
+            'countProductFavorites' => $countProductFavorites
         ];
         return view('frontend.shopping.index', $viewData);
     }
@@ -25,20 +29,23 @@ class ShoppingCartController extends Controller
     {
         $products = Cart::content();
         $user = User::find(get_data_user('web'));
+        $countProductFavorites = WishList::where('pf_user_id', get_data_user('web'))->count();
         
         if(Cart::count() < 1)
         {
             $viewData = [
-                'user'     => $user,
-                'message'  => 'Giỏ hàng trống',
-                'products' => $products
+                'user'                  => $user,
+                'message'               => 'Giỏ hàng trống',
+                'products'              => $products,
+                'countProductFavorites' => $countProductFavorites
             ];
             return view('frontend.shopping.index', $viewData);
         } else {
             
             $viewData = [
-                'user'     => $user,
-                'products' => $products
+                'user'                  => $user,
+                'products'              => $products,
+                'countProductFavorites' => $countProductFavorites
             ];
         return view('frontend.shopping.checkout', $viewData);
         }

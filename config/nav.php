@@ -45,7 +45,7 @@
                             'route' => 'get_backend.user.index'
                         ],
                         [ 
-                            'name'  => 'Slide',
+                            'name'  => 'Banner',
                             'route' => 'get_backend.slide.index'
                         ]              
                     ]            
@@ -71,6 +71,11 @@
                     'name'  => 'Cập nhật mật khẩu',
                     'route' => 'get_user.update.password',
                     'icon'  => 'fa-lock'
+                ],
+                [
+                    'name'  => 'Sản phẩm yêu thích',
+                    'route' => 'get_user.wishlist',
+                    'icon'  => 'far fa-heart mr-1'
                 ],
                 [
                     'name'  => 'Đơn hàng',

@@ -10,6 +10,17 @@
     </style>
 
     <div class="container">
+    @if (session('success'))
+        <div class="alert alert-success alert-dismissible" style="position: fixed; z-index: 9999; right: 50px; top: 60px; left: 55%; margin-top:15px;">
+            <strong>Thành công!</strong> {{ session('success') }}
+            <button type="button" class="close" data-dismiss="alert">&times;</button>
+        </div>
+    @elseif(session('danger'))
+        <div class="alert alert-danger alert-dismissible" style="position: fixed; right: 50px; top: 60px; left: 60%; margin-top:15px;">
+            <strong>Thất bại!</strong> {{ session('danger') }}
+            <button type="button" class="close" data-dismiss="alert">&times;</button>
+        </div>
+    @endif
     <!-- HERO SECTION-->
     <section class="py-5 bg-light" style="padding-top: 120px !important;">
         <div class="container">
@@ -116,7 +127,7 @@
                                         </a>
                                     <div class="product-overlay">
                                         <ul class="mb-0 list-inline">
-                                            <li class="list-inline-item m-0 p-0"><a class="btn btn-sm btn-outline-dark" href="#"><i class="far fa-heart"></i></a></li>
+                                            <li class="list-inline-item m-0 p-0"><a class="btn btn-sm btn-outline-dark" href="{{ route('get_user.wishlist.add', $item->id) }}"><i class="far fa-heart"></i></a></li>
                                             <li class="list-inline-item m-0 p-0"><a class="btn btn-sm btn-dark js-add-cart" href="{{ route('get_ajax.shopping.add', $item->id) }}">Thêm giỏ hàng</a></li>
                                             <li class="list-inline-item mr-0">
                                                 <a class="btn btn-sm btn-outline-dark js-product-preview" href="{{ route('get_ajax.product_preview', $item->id) }}" data-toggle="modal"><i class="fas fa-expand"></i></a>

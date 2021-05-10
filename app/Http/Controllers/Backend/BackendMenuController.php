@@ -6,7 +6,7 @@ use App\Http\Requests\BackendMenuRequest;
 use App\Models\Menu;
 use Illuminate\Support\Str;
 use Carbon\Carbon;
-use Illuminate\Support\Facades\DB;;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 
 class BackendMenuController extends Controller

@@ -67,7 +67,7 @@
                                         <i class="fas fa-dolly-flatbed mr-1 text-gray"></i>Giỏ hàng<small class="text-gray" id="totalCart">({{ Cart::count() }})</small>
                                     </a>
                                  </li>
-                                <li class="nav-item"><a class="nav-link" href="#"> <i class="far fa-heart mr-1"></i><small class="text-gray"> (0)</small></a></li>
+                                <li class="nav-item"><a class="nav-link" href="{{ route('get_user.wishlist') }}"> <i class="far fa-heart mr-1"></i><small class="text-gray"> ({{ $countProductFavorites }})</small></a></li>
                                 @if(get_data_user('web'))
                                     <div class="dropdown">
                                         <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">

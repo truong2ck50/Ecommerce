@@ -17,12 +17,12 @@
         <thead>
         <tr>
             <th>ID</th>
-            <th>Name</th>
-            <th>Phone</th>
-            <th>Total</th>
-            <th>Status</th>
-            <th>Time</th>
-            <th>Action</th>
+            <th>Tên KH</th>
+            <th>SĐT</th>
+            <th>Tổng</th>
+            <th>Trạng thái</th>
+            <th>Thời gian</th>
+            <th>Thao tác</th>
         </tr>
         </thead>
         <tbody>
@@ -33,9 +33,9 @@
                 <td>{{ $item->t_phone }}</td>
                 <td><span class="text-danger">{{ number_format($item->t_total_money, 0, ',', '.') }} đ</span></td>
                 <td><span class="text-{{ $item->getStatus($item->t_status)['class'] }}">{{ $item->getStatus($item->t_status)['name'] }}</span></td>
-                <td>{{ $item->created_at }}</td>
+                <td>{{ $item->created_at->format('d-m-Y') }}</td>
                 <td>
-                    <a href="{{ route('get_user.transaction.view', $item->id) }}" class="btn btn-sm btn-primary">Xem đơn hàng</a>
+                    <a href="{{ route('get_user.transaction.view', $item->id) }}" class="btn btn-outline-info">Xem đơn hàng</a>
                     <!-- @if($item->t_status == \App\Models\Transaction::STATUS_CANCEL)
                     <a href="{{ route('get_user.transaction.delete', $item->id) }}" class="btn btn-sm btn-danger">Delete</a>
                     @endif   -->

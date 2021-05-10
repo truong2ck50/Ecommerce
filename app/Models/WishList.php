@@ -5,15 +5,14 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Order extends Model
+class WishList extends Model
 {
     use HasFactory;
-
     protected $guarded = [''];
-    protected $table = 'orders';
+    protected $table = 'products_favorite';
 
     public function product()
     {
-        return $this->belongsTo(Product::class, 'od_product_id');
+        return $this->belongsTo(Product::class, 'pf_product_id');
     }
 }

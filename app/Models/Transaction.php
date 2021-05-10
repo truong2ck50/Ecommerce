@@ -11,6 +11,7 @@ class Transaction extends Model
     use HasFactory;
 
     protected $guarded = [''];
+    protected $table = 'transactions';
 
     const STATUS_DEFAULT = 1;
     const STATUS_SUCCESS = 2;

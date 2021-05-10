@@ -80,7 +80,7 @@
         </div>
     </div>
     <div  class="col-xl-12">
-            <h5>Danh sách đơn hàng của bạn</h5>
+            <h5>DANH SÁCH ĐƠN HÀNG CỦA BẠN</h5>
             <table class="table table-hover">
                 <thead>
                 <tr>

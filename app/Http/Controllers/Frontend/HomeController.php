@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Product;
 use App\Models\Slide;
 use App\Models\Category;
+use App\Models\WishList;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -26,11 +27,15 @@ class HomeController extends Controller
         $slide = Slide::limit(1)->first();
         $categoriesHot = Category::where('c_hot', Category::HOT)->orderByDesc('id')->limit(4)->get();
 
+        $countProductFavorites = WishList::where('pf_user_id', get_data_user('web'))->count();
+        
+
         $viewData = [
-            'slide'         => $slide,
-            'categoriesHot' => $categoriesHot,
-            'productsHot'   => $productsHot,
-            'productsNews'  => $productsNews
+            'slide'                 => $slide,
+            'categoriesHot'         => $categoriesHot,
+            'productsHot'           => $productsHot,
+            'productsNews'          => $productsNews,
+            'countProductFavorites' => $countProductFavorites
         ];
 
         return view('frontend.home.index', $viewData);

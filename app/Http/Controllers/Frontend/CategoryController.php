@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Frontend;
 use App\Http\Controllers\Controller;
 use App\Models\Category;
 use App\Models\Product;
+use App\Models\WishList;
 use Illuminate\Http\Request;
 
 class CategoryController extends ProductBaseController
@@ -15,6 +16,8 @@ class CategoryController extends ProductBaseController
         if(!$category) return abort(404);
 
         $products = Product::where(['pro_category_id' => $category->id, 'pro_active' => Product::STATUS_PUBLIC]);
+
+        $countProductFavorites = WishList::where('pf_user_id', get_data_user('web'))->count();
 
         if($name = $request->k)
         {
@@ -82,11 +85,12 @@ class CategoryController extends ProductBaseController
         
 
         $viewData = [
-            'title'          => $category->c_name,
-            'category'       => $category,
-            'query'          => $request->query(),
-            'categoriesSort' => $this->getCategoriesSort(),
-            'products'       => $products
+            'title'                 => $category->c_name,
+            'category'              => $category,
+            'query'                 => $request->query(),
+            'categoriesSort'        => $this->getCategoriesSort(),
+            'products'              => $products,
+            'countProductFavorites' => $countProductFavorites
         ];
 
         return view('frontend.category.index', $viewData);

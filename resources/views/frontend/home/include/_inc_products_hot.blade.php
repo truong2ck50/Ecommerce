@@ -20,7 +20,7 @@
                     <div class="product-overlay">
                         <ul class="mb-0 list-inline">
                             <li class="list-inline-item m-0 p-0">
-                                <a class="btn btn-sm btn-outline-dark" href="#"><i class="far fa-heart"></i></a>
+                                <a class="btn btn-sm btn-outline-dark" href="{{ route('get_user.wishlist.add', $item->id) }}"><i class="far fa-heart"></i></a>
                             </li>
                             <li class="list-inline-item m-0 p-0">
                                 <a class="btn btn-sm btn-dark js-add-cart" href="{{ route('get_ajax.shopping.add', $item->id) }}">Thêm giỏ hàng</a>

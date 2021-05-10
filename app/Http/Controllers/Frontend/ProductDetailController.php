@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Product;
 use App\Models\Vote;
 use App\Models\Comment;
+use App\Models\WishList;
 use Illuminate\Http\Request;
 
 class ProductDetailController extends Controller
@@ -25,11 +26,14 @@ class ProductDetailController extends Controller
 
         $comments = Comment::with('user:id,name,avatar')->where('c_product_id', $product->id)->get();
 
+        $countProductFavorites = WishList::where('pf_user_id', get_data_user('web'))->count();
+
         $viewData = [
-            'product'         => $product,
-            'votes'           => $votes,  
-            'productsRelated' => $productsRelated,
-            'comments'        => $comments
+            'product'               => $product,
+            'votes'                 => $votes,  
+            'productsRelated'       => $productsRelated,
+            'comments'              => $comments,
+            'countProductFavorites' => $countProductFavorites
         ];
         return view('frontend.product_detail.index', $viewData);
     }

@@ -1,7 +1,7 @@
 @extends('layouts.app_user')
 @section('title', 'Cập nhật mật khẩu')
 @section('content')
-    <h1>Cập nhật mật khẩu</h1>
+    <h1>CẬP NHẬT MẬT KHẨU</h1>
     @if (session('success'))
         <div class="alert alert-success alert-dismissible" style="position: fixed; right: 15px; top: 60px; left: 60%; margin-top:45px;">
             <strong>Thành công!</strong> {{ session('success') }}
@@ -39,6 +39,6 @@
                 <small id="emailHelp" class="form-text text-danger">{{ $errors->first('password_confirm') }}</small>
             @endif                
         </div>    
-        <button type="submit" class="btn btn-primary"><i class="fa fa-save"></i> Cập nhật</button>
+        <button type="submit" class="btn btn-outline-info"><i class="fa fa-save"></i> Cập nhật</button>
     </form>
 @stop 

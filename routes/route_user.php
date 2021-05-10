@@ -36,5 +36,12 @@ Route::group(['namespace' => 'User', 'prefix' => 'user', 'middleware' => 'checkL
         
     });
 
+    //Sản phẩm yêu thích
+    Route::prefix('product-favorite')->group(function() {
+        Route::get('wishlist', 'UserWishListController@index')->name('get_user.wishlist');
+        Route::get('add/{id}', 'UserWishListController@addToWishList')->name('get_user.wishlist.add');
+        Route::get('delete/{id}', 'UserWishListController@delete')->name('get_user.wishlist.delete');
+    });
+
 });
 
