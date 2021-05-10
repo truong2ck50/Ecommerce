@@ -7,6 +7,11 @@
             <strong>Thành công!</strong> {{ session('success') }}
             <button type="button" class="close" data-dismiss="alert">&times;</button>
         </div>
+    @elseif(session('danger'))
+        <div class="alert alert-danger alert-dismissible" style="position: fixed; right: 15px; top: 60px; left: 60%;">
+            <strong>Thất bại!</strong> {{ session('danger') }}
+            <button type="button" class="close" data-dismiss="alert">&times;</button>
+        </div>
     @endif
     <table class="table table-hover" id="jsDataTable">
         <thead>
@@ -34,8 +39,8 @@
                 <td>{{ $item->t_note }}</td>
                 <td>{{ $item->created_at }}</td>
                 <td>
-                    <a href="{{ route('get_backend.transaction.view', $item->id) }}" class="btn btn-sm btn-primary">View</a>
-                    <a href="{{ route('get_backend.transaction.delete', $item->id) }}" class="btn btn-sm btn-danger">Delete</a>
+                    <a href="{{ route('get_backend.transaction.view', $item->id) }}" class="btn btn-xs btn-primary">View</a>
+                    <a href="{{ route('get_backend.transaction.delete', $item->id) }}" class="btn btn-xs btn-danger">Delete</a>
                 </td>
             </tr>
         @endforeach

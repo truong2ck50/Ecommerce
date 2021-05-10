@@ -13,10 +13,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
-
 //FRONTEND
 Route::group(['namespace' => 'Frontend'], function () {
 
@@ -70,8 +66,6 @@ Route::group(['namespace' => 'Frontend'], function () {
         Route::get('checkout.html', 'ShoppingCartController@checkout')->name('get.shopping.checkout');
         Route::post('checkout.html', 'ShoppingCartController@pay');
     });
-    // Route::get('checkout.html', 'ShoppingCartController@checkout')->name('get.shopping.checkout');
-    // Route::post('checkout.html', 'ShoppingCartController@pay');
 
     //Liên hệ
     Route::get('lien-he', 'ContactController@lienHe')->name('get.contact');

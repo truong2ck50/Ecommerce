@@ -146,6 +146,7 @@ Route::group(['namespace' => 'Backend', 'prefix' => 'admin', 'middleware' => 'ch
         Route::get('', 'BackendTransactionController@index')->name('get_backend.transaction.index');
         Route::get('view/{id}', 'BackendTransactionController@view')->name('get_backend.transaction.view');
         Route::get('success/{id}', 'BackendTransactionController@success')->name('get_backend.transaction.success');
+        Route::get('done/{id}', 'BackendTransactionController@done')->name('get_backend.transaction.done');
         Route::get('cancel/{id}', 'BackendTransactionController@cancel')->name('get_backend.transaction.cancel');
         Route::get('delete/{id}', 'BackendTransactionController@delete')->name('get_backend.transaction.delete');
     });

@@ -35,7 +35,7 @@
                             </div>
                             <div class="col-sm-5 pl-sm-0"><a class=" js-add-cart btn btn-dark btn-sm btn-block h-100 d-flex align-items-center justify-content-center px-0" href="{{ route('get_ajax.shopping.add', $product->id) }}">Thêm giỏ hàng</a></div>
                         </div>
-                        <!-- <a class="btn btn-link text-dark p-0" href="#"><i class="far fa-heart mr-2"></i>Add to wish list</a> -->
+                        <a class="btn btn-link text-dark p-0" href="{{ route('get_user.wishlist.add', $product->id) }}"><i class="far fa-heart mr-2"></i>Thêm vào yêu thích</a>
                     </div>
                 </div>
             </div>

@@ -1,19 +1,28 @@
 @extends('layouts.app_backend')
 @section('title', 'Chi tiết đơn hàng')
 @section('content')
-    <h1>Chi tiết đơn hàng #{{ $transaction->id }} - Tổng tiền <b class="text-danger">{{ number_format($transaction->t_total_money, 0, ',', '.') }} VNĐ</b></h1>
+    <h1>Chi tiết đơn hàng {{ $transaction->id }} - Tổng tiền <b class="text-danger">{{ number_format($transaction->t_total_money, 0, ',', '.') }} VNĐ</b></h1>
     @if (session('success'))
         <div class="alert alert-success alert-dismissible" style="position: fixed; right: 15px; top: 60px; left: 65%;">
             <strong>Thành công!</strong> {{ session('success') }}
             <button type="button" class="close" data-dismiss="alert">&times;</button>
         </div>
+    @elseif(session('danger'))
+        <div class="alert alert-danger alert-dismissible" style="position: fixed; right: 15px; top: 60px; left: 65%;">
+            <strong>Thất bại!</strong> {{ session('danger') }}
+            <button type="button" class="close" data-dismiss="alert">&times;</button>
+        </div>
     @endif  
     <p><b>Trạng thái: <span class="text-{{ $transaction->getStatus($transaction->t_status)['class'] }}">{{ $transaction->getStatus($transaction->t_status)['name'] }}</span></b></p>
     <div>
-        @if($transaction->t_status == \App\Models\Transaction::STATUS_CANCEL || $transaction->t_status == \App\Models\Transaction::STATUS_SUCCESS)
+        @if($transaction->t_status == \App\Models\Transaction::STATUS_CANCEL || $transaction->t_status == \App\Models\Transaction::STATUS_DONE)
             
+        @elseif($transaction->t_status == \App\Models\Transaction::STATUS_DEFAULT)
+            <a href="{{ route('get_backend.transaction.success', $transaction->id) }}" class="btn btn-sm btn-primary">Xử lý</a>
+            <a href="{{ route('get_backend.transaction.done', $transaction->id) }}" class="btn btn-sm btn-success">Hoàn thành</a>
+            <a href="{{ route('get_backend.transaction.cancel', $transaction->id) }}" class="btn btn-sm btn-danger">Huỷ bỏ</a>
         @else
-            <a href="{{ route('get_backend.transaction.success', $transaction->id) }}" class="btn btn-sm btn-success">Hoàn thành</a>
+            <a href="{{ route('get_backend.transaction.done', $transaction->id) }}" class="btn btn-sm btn-success">Hoàn thành</a>
             <a href="{{ route('get_backend.transaction.cancel', $transaction->id) }}" class="btn btn-sm btn-danger">Huỷ bỏ</a>
         @endif
     </div>

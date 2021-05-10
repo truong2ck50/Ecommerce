@@ -15,6 +15,7 @@ class Transaction extends Model
 
     const STATUS_DEFAULT = 1;
     const STATUS_SUCCESS = 2;
+    const STATUS_DONE    = 3;
     const STATUS_CANCEL  = -1;
 
     public $status = [
@@ -24,6 +25,10 @@ class Transaction extends Model
         ],
         self::STATUS_SUCCESS => [
             'name'  => 'Đã xử lý',
+            'class' => 'primary'
+        ],
+        self::STATUS_DONE => [
+            'name'  => 'Đã thanh toán',
             'class' => 'success'
         ],
         self::STATUS_CANCEL => [
@@ -32,7 +37,7 @@ class Transaction extends Model
         ]
     ];
 
-    public function getStatus() 
+    public function getStatus()
     {
         return Arr::get($this->status, $this->t_status, []);
     }
