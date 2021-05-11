@@ -5,7 +5,9 @@ namespace App\Http\Controllers\Frontend\Auth;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Session;
 use App\Models\User;
+use App\Models\WishList;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Http\Request;
 use App\Http\Requests\ResetPasswordRequest;
@@ -14,7 +16,13 @@ class ForgotPasswordController extends Controller
 {
     public function getFormResetPassword()
     {
-        return view('frontend.auth.passwords.email');
+        $countProductFavorites = WishList::where('pf_user_id', get_data_user('web'))->count();
+
+        $viewData = [
+            'countProductFavorites' => $countProductFavorites
+        ];
+
+        return view('frontend.auth.passwords.email', $viewData);
     }
 
     public function sendCodeResetPassword(Request $request)
@@ -59,10 +67,25 @@ class ForgotPasswordController extends Controller
 
         if(!$checkUser)
         {
-            return redirect('/')->with('danger', 'Đường dẫn lấy lại mật khẩu không đúng, bạn vui lòng thử lại sau.');
+            return redirect('/')->with('danger', 'Đường dẫn lấy lại mật khẩu không đúng, vui lòng thử lại sau.');
         }
 
-        return view('frontend.auth.passwords.reset');
+        //Check thời gian tạo code quá 3 phút chưa
+        $now = Carbon::now();
+        if($now->diffInMinutes($checkUser->time_code) > 3)
+        {
+            $code = bcrypt(md5($now.$email));
+            DB::table('users')->where('email', $email)->update(['code' => $code]);
+            return redirect('/')->with('danger', 'Quá thời gian, bạn vui lòng thử lại sau.');
+        }
+
+        $countProductFavorites = WishList::where('pf_user_id', get_data_user('web'))->count();
+
+        $viewData = [
+            'countProductFavorites' => $countProductFavorites
+        ];
+
+        return view('frontend.auth.passwords.reset', $viewData);
     }
 
     public function saveResetPassword(ResetPasswordRequest $request)
