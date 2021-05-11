@@ -11,6 +11,9 @@
         <h1>Thống kê <a href="?type=inventory" class="{{ Request::get('type') == 'inventory' || !Request::get('type') ? 'active' : '' }}">Hàng tồn</a> - <a href="?type=pay" class="{{ Request::get('type') == 'pay' ? 'active' : '' }}" >Bán chạy</a> - <a href="?type=outOfStock" class="{{ Request::get('type') == 'outOfStock' ? 'active' : '' }}" >Hết hàng</a></h1>
 
         <!-- <table class="table table-hover" id="jsDataTable"> -->
+        <div class="float-right">
+            {!! $products->appends($query ?? [])->links('vendor.pagination.bootstrap-4') !!}
+        </div>
         <table class="table table-hover">
             <thead>
             <tr>

@@ -25,7 +25,7 @@ class BackendWarehouseController extends Controller
             $products->where('pro_number', '>=', 20)->orderByDesc('pro_number');
         }
 
-        $products=$products->get();
+        $products = $products->paginate(10);
 
         $viewData = [
             'products' => $products
