@@ -161,3 +161,13 @@
 </div>
 
 @stop
+
+@section('script')
+    <script>
+        $(function(){
+            $('.selectpicker').change(function(){
+                $("#form_order").submit();
+            })
+        })
+    </script>
+@stop

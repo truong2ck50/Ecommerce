@@ -1,7 +1,7 @@
 @extends('layouts.app_backend')
 @section('title', 'Danh sách đơn hàng')
 @section('content')
-    <h1>Danh sách đơn hàng</h1>
+    <h1>Quản lý đơn hàng</h1>
     @if (session('success'))
         <div class="alert alert-success alert-dismissible" style="position: fixed; right: 15px; top: 60px; left: 60%;">
             <strong>Thành công!</strong> {{ session('success') }}

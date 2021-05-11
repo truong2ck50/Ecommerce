@@ -24,22 +24,24 @@ class BackendHomeController extends Controller
 
         //Doanh thu ngày
         $moneyDay = Transaction::whereDay('updated_at', date('d'))
-        ->where('t_status', Transaction::STATUS_SUCCESS)
+        ->where('t_status', Transaction::STATUS_DONE)
         ->sum('t_total_money');
 
         //Doanh thu tuần
-        // $moneyWeek = Transaction::whereWeek('updated_at', date('w'))
-        // ->where('t_status', Transaction::STATUS_SUCCESS)
-        // ->sum('t_total_money');
+        $date = \Carbon\Carbon::today()->subDays(7);
+    
+        $moneyWeek = Transaction::where('created_at','>=',$date)
+        ->where('t_status', Transaction::STATUS_DONE)
+        ->sum('t_total_money');
 
         //Doanh thu tháng
         $moneyMonth = Transaction::whereMonth('updated_at', date('m'))
-        ->where('t_status', Transaction::STATUS_SUCCESS)
+        ->where('t_status', Transaction::STATUS_DONE)
         ->sum('t_total_money');
 
         //Doanh thu năm
         $moneyYear = Transaction::whereYear('updated_at', date('Y'))
-        ->where('t_status', Transaction::STATUS_SUCCESS)
+        ->where('t_status', Transaction::STATUS_DONE)
         ->sum('t_total_money');
 
         $dataMoney = [
@@ -47,10 +49,10 @@ class BackendHomeController extends Controller
             'name' => 'Doanh thu ngày',
             'y'    => (int)$moneyDay
             ],
-            // [
-            // 'name' => 'Doanh thu tuần',
-            // 'y'    => (int)$moneyWeek
-            // ],
+            [
+            'name' => 'Doanh thu tuần',
+            'y'    => (int)$moneyWeek
+            ],
             [
             'name' => 'Doanh thu tháng',
             'y'    => (int)$moneyMonth
@@ -62,6 +64,38 @@ class BackendHomeController extends Controller
             
         ];
 
+        //Thống kê trạng thái đơn hàng
+        //Chờ xử lý
+        $transactionDefault = Transaction::where('t_status', 1)->select('id')->count();
+
+        //Đã xử lý
+        $transactionSuccess = Transaction::where('t_status', 2)->select('id')->count();
+
+        //Hoàn thành
+        $transactionDone = Transaction::where('t_status', 3)->select('id')->count();
+
+        //Huỷ bỏ
+        $transactionCancel = Transaction::where('t_status', -1)->select('id')->count();
+
+        $dataTransaction = [
+            [
+            'name' => 'Chờ xử lý',
+            'y'    => (int)$transactionDefault
+            ],
+            [
+            'name' => 'Đã xử lý',
+            'y'    => (int)$transactionSuccess
+            ],
+            [
+            'name' => 'Hoàn thành',
+            'y'    => (int)$transactionDone
+            ],
+            [
+            'name' => 'Huỷ bỏ',
+            'y'    => (int)$transactionCancel
+            ]            
+        ];
+
         $viewData   = [
             'votes'            => $votes,
             'countUser'        => $countUser,
@@ -70,7 +104,8 @@ class BackendHomeController extends Controller
             'countTransaction' => $countTransaction,
             'transactions'     => $transactions,
             'users'            => $users,
-            'dataMoney'        => json_encode($dataMoney)
+            'dataMoney'        => json_encode($dataMoney),
+            'dataTransaction'  => json_encode($dataTransaction)
         ];
         return view('backend.index', $viewData);
     }

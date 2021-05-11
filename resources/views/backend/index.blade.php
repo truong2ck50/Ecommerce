@@ -90,6 +90,40 @@
             <div id="container" style="min-width: 310px; height: 400px; margin: 0 auto;"></div>
         </div>
         <div class="col-sm-6">
+            <div id="container2"></div>
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div  class="col-xl-6">
+            <h2>Danh sách đơn hàng mới</h2>
+            <table class="table table-hover">
+                <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Tên KH</th>
+                    <th>SĐT</th>
+                    <th>Tổng</th>
+                    <th>Ghi chú</th>
+                    <th>Thời gian</th>
+                </tr>
+                </thead>
+                <tbody>
+                @foreach($transactions as $item)    
+                    <tr>
+                        <td>{{ $item->id }}</td>
+                        <td>{{ $item->t_name }}</td>
+                        <td>{{ $item->t_phone }}</td>
+                        <td><span class="text-danger">{{ number_format($item->t_total_money, 0, ',', '.') }} đ</span></td>
+                        <td>{{ $item->t_note }}</td>
+                        <td>{{ $item->created_at->format('d-m-Y') }}</td>
+                    </tr>
+                @endforeach
+                </tbody>
+            </table>
+        </div>
+        <div class="col-xl-1"></div>
+        <div class="col-xl-5">
             <h2>Danh sách đánh giá mới</h2>
             <table class="table table-hover">
                 <thead>
@@ -116,7 +150,7 @@
         </div>
     </div>
     <div class="row">
-        <div  class="col-xl-5">
+        <div  class="col-sm-6">
             <h2>Thành viên mới đăng ký</h2>
             <table class="table table-hover">
                 <thead>
@@ -134,34 +168,6 @@
                         <td>{{ $item->name }}</td>
                         <td>{{ $item->email }}</td>
                         <td>{{ $item->phone }}</td>
-                    </tr>
-                @endforeach
-                </tbody>
-            </table>
-        </div>
-        <div class="col-xl-1"></div>
-        <div  class="col-xl-6">
-            <h2>Danh sách đơn hàng mới</h2>
-            <table class="table table-hover">
-                <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>Tên KH</th>
-                    <th>SĐT</th>
-                    <th>Tổng</th>
-                    <th>Ghi chú</th>
-                    <th>Thời gian</th>
-                </tr>
-                </thead>
-                <tbody>
-                @foreach($transactions as $item)    
-                    <tr>
-                        <td>{{ $item->id }}</td>
-                        <td>{{ $item->t_name }}</td>
-                        <td>{{ $item->t_phone }}</td>
-                        <td><span class="text-danger">{{ number_format($item->t_total_money, 0, ',', '.') }} đ</span></td>
-                        <td>{{ $item->t_note }}</td>
-                        <td>{{ $item->created_at->format('d-m-Y') }}</td>
                     </tr>
                 @endforeach
                 </tbody>
@@ -211,7 +217,7 @@
 
             tooltip: {
                 headerFormat: '<span style="font-size:11px">{series.name}</span><br>',
-                pointFormat: '<span style="color:{point.color}">{point.name}</span>: <b>{point.y:.0f} VNĐ</b> of total<br/>'
+                pointFormat: '<span style="color:{point.color}">{point.name}</span>: <b>{point.y:.0f} VNĐ</b><br/>'
             },
 
             series: [
@@ -221,6 +227,55 @@
                     data: dataChart
                 }
             ]
+        });
+    </script>
+@stop
+
+@section('script')
+    <script>
+        let data2 = "{{ $dataTransaction }}";
+
+        dataChartTransaction = JSON.parse(data2.replace(/&quot;/g,'"'));
+        
+        Highcharts.chart('container2', {
+            chart: {
+                type: 'pie'
+            },
+            title: {
+                text: 'THỐNG KÊ TRẠNG THÁI ĐƠN HÀNG'
+            },
+
+            accessibility: {
+                announceNewData: {
+                    enabled: true
+                },
+                point: {
+                    valueSuffix: '%'
+                }
+            },
+
+            plotOptions: {
+                series: {
+                    dataLabels: {
+                        enabled: true,
+                        format: '{point.name}: {point.y:.0f} đơn'
+                    }
+                }
+            },
+
+            tooltip: {
+                headerFormat: '<span style="font-size:11px">{series.name}</span><br>',
+                pointFormat: '<span style="color:{point.color}">{point.name}</span>: <b>{point.y:.0f}</b><br/>'
+            },
+
+            series: [
+                {
+                    name: "TRẠNG THÁI ĐƠN HÀNG",
+                    colorByPoint: true,
+                    data: dataChartTransaction
+                    
+                }
+            ],
         });
     </script>
 @stop

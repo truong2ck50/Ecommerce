@@ -29,6 +29,10 @@
                             'route' => 'get_backend.transaction.index'
                         ],
                         [ 
+                            'name'  => 'Kho hàng',
+                            'route' => 'get_backend.warehouse.index'
+                        ],
+                        [ 
                             'name'  => 'Tag',
                             'route' => 'get_backend.tag.index'
                         ],

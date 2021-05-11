@@ -144,6 +144,7 @@
             <script src="{{ asset('vendor/owl.carousel2/owl.carousel.min.js')}}"></script>
             <script src="{{ asset('vendor/owl.carousel2.thumbs/owl.carousel2.thumbs.min.js')}}"></script>
             <script src="{{ asset('js/front.js')}}"></script>
+            @yield('script')
             <script>
                 // ------------------------------------------------------- //
                 //   Inject SVG Sprite - 
@@ -169,13 +170,7 @@
                 injectSvgSprite('https://bootstraptemple.com/files/icons/orion-svg-sprite.svg'); 
                 
             </script>
-            <script>
-                $(function(){
-                    $('.selectpicker').change(function(){
-                        $("#form_order").submit();
-                    })
-                })
-            </script>
+
             <script>
                 $(function(){
                     $(".js-product-preview").click(function(event){

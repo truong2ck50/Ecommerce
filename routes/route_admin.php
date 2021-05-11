@@ -28,6 +28,19 @@ Route::group(['namespace' => 'Backend', 'prefix' => 'admin', 'middleware' => 'ch
         Route::get('delete/{id}', 'BackendUserController@delete')->name('get_backend.user.delete');
     });
 
+    //Nhân viên
+    // Route::group(['middleware' => 'checkLoginAdminAll'], function (){
+        // Route::get('checkout.html', 'ShoppingCartController@checkout')->name('get.shopping.checkout');
+        // Route::post('checkout.html', 'ShoppingCartController@pay');
+    // });
+
+    //Kho hàng
+    Route::prefix('warehouse')->group(function() {
+        Route::get('', 'BackendWarehouseController@index')->name('get_backend.warehouse.index');
+
+        Route::get('delete/{id}', 'BackendWarehouseController@delete')->name('get_backend.vote.delete');
+    });
+
     //Đánh giá
     Route::prefix('vote')->group(function() {
         Route::get('', 'BackendVoteController@index')->name('get_backend.vote.index');
