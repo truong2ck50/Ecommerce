@@ -12,6 +12,9 @@
                                 @include('frontend.components._inc_article_item', ['item' => $article])
                             @endforeach
                         </div>
+                        <div class="float-right">
+                            {!! $articles->appends($query ?? [])->links('vendor.pagination.bootstrap-4') !!}
+                        </div>
                         <!-- Pagination -->
                         <!-- <nav aria-label="Page navigation example">
                             <ul class="pagination pagination-template d-flex justify-content-center">
