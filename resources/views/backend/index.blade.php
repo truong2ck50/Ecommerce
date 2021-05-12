@@ -8,6 +8,12 @@
     <script src="https://code.highcharts.com/modules/export-data.js"></script>
     <script src="https://code.highcharts.com/modules/accessibility.js"></script>
 
+    @if (session('danger'))
+        <div class="alert alert-danger alert-dismissible" style="position: fixed; z-index: 9999; right: 15px; top: 60px; left: 67%;">
+            <strong>Thất bại!</strong> {{ session('danger') }}
+            <button type="button" class="close" data-dismiss="alert">&times;</button>
+        </div>
+    @endif
     <div class="row">
         <!-- Earnings (Monthly) Card Example -->
         <div class="col-xl-3 col-md-6 mb-4">

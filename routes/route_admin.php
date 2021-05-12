@@ -28,11 +28,18 @@ Route::group(['namespace' => 'Backend', 'prefix' => 'admin', 'middleware' => 'ch
         Route::get('delete/{id}', 'BackendUserController@delete')->name('get_backend.user.delete');
     });
 
-    //Nhân viên
-    // Route::group(['middleware' => 'checkLoginAdminAll'], function (){
-        // Route::get('checkout.html', 'ShoppingCartController@checkout')->name('get.shopping.checkout');
-        // Route::post('checkout.html', 'ShoppingCartController@pay');
-    // });
+    // Nhân viên
+    Route::group(['prefix' => 'staff', 'middleware' => 'checkAdminTotalLogin'], function (){
+        Route::get('', 'BackendStaffController@index')->name('get_backend.staff.index');
+
+        Route::get('create', 'BackendStaffController@create')->name('get_backend.staff.create');
+        Route::post('create', 'BackendStaffController@store');
+
+        Route::get('update/{id}', 'BackendStaffController@edit')->name('get_backend.staff.update');
+        Route::post('update/{id}', 'BackendStaffController@update');
+
+        Route::get('delete/{id}', 'BackendStaffController@delete')->name('get_backend.staff.delete');
+    });
 
     //Kho hàng
     Route::prefix('warehouse')->group(function() {

@@ -51,7 +51,11 @@
                         [ 
                             'name'  => 'Banner',
                             'route' => 'get_backend.slide.index'
-                        ]              
+                        ],
+                        [ 
+                            'name'  => 'Nhân viên',
+                            'route' => 'get_backend.staff.index'
+                        ],              
                     ]            
             ],
             'user' => [
