@@ -13,6 +13,11 @@
             <button type="button" class="close" data-dismiss="alert">&times;</button>
         </div>
     @endif
+
+    <form class="form-inline mb-2">
+            <button type ="submit" name="export" value="true" class="btn btn-success">Export excel</button>
+    </form>
+
     <table class="table table-hover" id="jsDataTable">
         <thead>
         <tr>

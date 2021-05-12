@@ -8,12 +8,21 @@ use App\Models\Order;
 use App\Models\Product;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
+use App\Exports\TransactionsExport;
+use Maatwebsite\Excel\Facades\Excel;
 
 class BackendTransactionController extends Controller
 {
     public function index(Request $request)
     {
         $transactions = Transaction::orderByDesc('id')->get();
+
+        if($request->export)
+        {
+            //Gọi tới export excel
+            return Excel::download(new TransactionsExport, 'don-hang.xlsx');
+        }
+
         $viewData = [
             'transactions' => $transactions
         ];
