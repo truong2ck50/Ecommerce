@@ -35,6 +35,10 @@ Route::group(['namespace' => 'Frontend'], function () {
 
         Route::get('password/reset', 'ForgotPasswordController@resetPassword')->name('get.link.reset.password');
         Route::post('password/reset', 'ForgotPasswordController@saveResetPassword');
+
+        //Login google
+        Route::get('/{social}/redirect', 'SocialAuthController@redirect')->name('get.login.social');
+        Route::get('/{social}/callback', 'SocialAuthController@callback')->name('get.login.social_callback');
     });
 
     //Trang chủ

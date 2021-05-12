@@ -61,7 +61,10 @@
                                     <input id="customCheck1" type="checkbox" checked class="custom-control-input">
                                     <label for="customCheck1" class="custom-control-label">Nhớ mật khẩu</label>                                    
                                 </div>
-                                <p class="lost_password" style="right: 0px;"><i><a href="{{ route('get.password-retrieval') }}" target="_blank">Quên mật khẩu?</a></i></p>
+                                <p class="lost_password" style="right: 0px;">
+                                    <i><a href="{{ route('get.password-retrieval') }}" target="_blank">Quên mật khẩu?</a></i><br>
+                                    <i><a href="{{ route('get.login.social', ['social' => 'google']) }}">Đăng nhập bằng Google</a></i>
+                                </p>
                                 <button type="submit" class="btn btn-primary btn-block text-uppercase mb-2 rounded-pill shadow-sm">Đăng nhập</button>
                                 <div class="text-center d-flex justify-content-between mt-4"><p>Bạn chưa có tài khoản vui lòng đăng ký
                                         <a href="{{ route('get.register')}}" class="font-italic text-muted">
