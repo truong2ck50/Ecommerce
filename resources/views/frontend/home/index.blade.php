@@ -21,7 +21,7 @@
                 <button type="button" class="close" data-dismiss="alert">&times;</button>
             </div>
         @elseif(session('danger'))
-            <div class="alert alert-danger alert-dismissible" style="position: fixed; right: 50px; top: 60px; left: 60%; margin-top:15px;">
+            <div class="alert alert-danger alert-dismissible" style="position: fixed; right: 50px; top: 60px; left: 55%; margin-top:15px;">
                 <strong>Thất bại!</strong> {{ session('danger') }}
                 <button type="button" class="close" data-dismiss="alert">&times;</button>
             </div>
