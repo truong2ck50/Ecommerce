@@ -51,7 +51,12 @@
                                         </div>
                                     </th>
                                     <td class="align-middle border-0">
-                                        <p class="mb-0 small">{{ number_format($item->price) }} VNĐ</p>
+                                        @if($item->options->sale)
+                                            <p class="mb-0 small">{{ number_format($item->price) }} VNĐ</p>
+                                            <p class="mb-0 small"><del>{{ number_format($item->options->price_old) }}</del> VNĐ - {{$item->options->sale}}%</p>
+                                        @else
+                                            <p class="mb-0 small">{{ number_format($item->price) }} VNĐ</p>
+                                        @endif
                                     </td>
                                     <td class="align-middle border-0">
                                         <div class="border d-flex align-items-center justify-content-between px-3">

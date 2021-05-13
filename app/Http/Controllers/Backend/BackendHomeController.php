@@ -79,7 +79,7 @@ class BackendHomeController extends Controller
 
         $dataTransaction = [
             [
-            'name' => 'Chờ xử lý',
+            'name' => 'Tiếp nhận',
             'y'    => (int)$transactionDefault
             ],
             [

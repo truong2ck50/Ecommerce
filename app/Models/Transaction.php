@@ -20,7 +20,7 @@ class Transaction extends Model
 
     public $status = [
         self::STATUS_DEFAULT => [
-            'name'  => 'Chờ xử lý',
+            'name'  => 'Tiếp nhận',
             'class' => 'muted'
         ],
         self::STATUS_SUCCESS => [
@@ -28,7 +28,7 @@ class Transaction extends Model
             'class' => 'primary'
         ],
         self::STATUS_DONE => [
-            'name'  => 'Đã thanh toán',
+            'name'  => 'Hoàn thành',
             'class' => 'success'
         ],
         self::STATUS_CANCEL => [
