@@ -104,8 +104,8 @@
                                 <li> <a href="#">Điều khoản sử dụng</a></li>
                             </ul>
                             <ul class="list-unstyled">
-                                <li> <a href="#">Trang chủ</a></li>
-                                <li> <a href="#">Liên hệ</a></li>
+                                <li> <a href="{{ route('get.home') }}">Trang chủ</a></li>
+                                <li> <a href="{{ route('get.contact') }}">Liên hệ</a></li>
                             </ul>
                         </div>
                     </div>
