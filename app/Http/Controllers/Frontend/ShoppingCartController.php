@@ -176,7 +176,7 @@ class ShoppingCartController extends Controller
                 $dataTransaction['t_phone']       = $user->phone;
                 $dataTransaction['t_address']     = $user->address;
                 $dataTransaction['t_status']      = 2;
-                $dataTransaction['t_note']        = 'Thanh toán online tại VNPAY, GD số '.$request->vnp_TransactionNo;
+                $dataTransaction['t_note']        = 'Thanh toán online tại VNPAY';
                 $dataTransaction['created_at']    = Carbon::now();
                 $dataTransaction['t_user_id']     = get_data_user('web') ?? 0;
                 $dataTransaction['t_total_money'] = (int)str_replace(',', '', Cart::subtotal(0));

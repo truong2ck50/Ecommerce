@@ -41,4 +41,9 @@ class Transaction extends Model
     {
         return Arr::get($this->status, $this->t_status, []);
     }
+
+    public function payment()
+    {
+        return $this->belongsTo(Payment::class, 'id', 'p_transaction_id');
+    }
 }

@@ -16,7 +16,7 @@ class BackendTransactionController extends Controller
 {
     public function index(Request $request)
     {
-        $transactions = Transaction::orderByDesc('id')->get();
+        $transactions = Transaction::with('payment')->orderByDesc('id')->get();
 
         if($request->export)
         {
