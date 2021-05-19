@@ -13,7 +13,7 @@ class UserController extends Controller
 {
     public function index()
     {
-        $transactions = Transaction::where('t_user_id', get_data_user('web'))
+        $transactions = Transaction::where('t_user_id', get_data_user('web'))->orderByDesc('id')
         ->paginate(10);
 
         $totalTransaction = Transaction::where('t_user_id', get_data_user('web'))

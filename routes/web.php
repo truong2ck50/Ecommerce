@@ -66,10 +66,15 @@ Route::group(['namespace' => 'Frontend'], function () {
     Route::get('cart.html', 'ShoppingCartController@index')->name('get.shopping');
 
     //Thanh toán
-    Route::group(['middleware' => 'checkLoginUser'], function (){
-        Route::get('checkout.html', 'ShoppingCartController@checkout')->name('get.shopping.checkout');
-        Route::post('checkout.html', 'ShoppingCartController@pay');
+    Route::group(['prefix' => 'shopping', 'middleware' => 'checkLoginUser'], function (){
+        Route::get('checkout', 'ShoppingCartController@checkout')->name('get.shopping.checkout');
+        Route::post('checkout', 'ShoppingCartController@pay');
+        //VNPAY
+        Route::post('payment/online', 'ShoppingCartController@createPayment')->name('payment.online');
+        Route::get('vnpay/return', 'ShoppingCartController@vnpayReturn')->name('vnpay.return');
     });
+
+    
 
     //Liên hệ
     Route::get('lien-he', 'ContactController@lienHe')->name('get.contact');
@@ -81,6 +86,7 @@ Route::group(['namespace' => 'Frontend'], function () {
         Route::get('delete/cart/{id}', 'AjaxShoppingCartController@delete')->name('get_ajax.shopping.delete');
         Route::get('update/cart/{id}', 'AjaxShoppingCartController@update')->name('get_ajax.shopping.update');
     });
+
 });
 
 include 'route_admin.php';

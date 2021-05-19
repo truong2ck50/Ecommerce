@@ -73,7 +73,7 @@
                                     </td>
                                     <td class="align-middle border-0">
                                         <a class="reset-anchor js-update-cart" href="{{ route('get_ajax.shopping.update', $row) }}"><i class="fas fa-pen small text-muted"></i></a>
-                                        <a class="reset-anchor js-delete-cart" href="{{ route('get_ajax.shopping.delete', $row) }}"><i class="fas fa-trash-alt small text-muted"></i></a>
+                                        <a onclick="return confirm('Bạn có chắc chắn muốn xóa không?')" class="reset-anchor js-delete-cart" href="{{ route('get_ajax.shopping.delete', $row) }}"><i class="fas fa-trash-alt small text-muted"></i></a>
                                     </td>
                                 </tr>
                             @endforeach

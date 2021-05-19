@@ -3,7 +3,7 @@
 @section('content')
     <h4 style="margin-bottom: 10px">ĐƠN HÀNG CỦA BẠN</h4>
     @if (session('success'))
-        <div class="alert alert-success alert-dismissible" style="position: fixed; right: 15px; top: 60px; left: 60%; margin-top:35px;">
+        <div class="alert alert-success alert-dismissible" style="position: fixed; right: 15px; top: 60px; left: 60%;">
             <strong>Thành công!</strong> {{ session('success') }}
             <button type="button" class="close" data-dismiss="alert">&times;</button>
         </div>
@@ -21,6 +21,7 @@
             <th>SĐT</th>
             <th>Tổng</th>
             <th>Trạng thái</th>
+            <th>Ghi chú</th>
             <th>Thời gian</th>
             <th>Thao tác</th>
         </tr>
@@ -33,12 +34,10 @@
                 <td>{{ $item->t_phone }}</td>
                 <td><span class="text-danger">{{ number_format($item->t_total_money, 0, ',', '.') }} đ</span></td>
                 <td><span class="text-{{ $item->getStatus($item->t_status)['class'] }}">{{ $item->getStatus($item->t_status)['name'] }}</span></td>
+                <td>{{ $item->t_note }}</td>
                 <td>{{ $item->created_at->format('d-m-Y') }}</td>
                 <td>
                     <a href="{{ route('get_user.transaction.view', $item->id) }}" class="btn btn-outline-info">Xem đơn hàng</a>
-                    <!-- @if($item->t_status == \App\Models\Transaction::STATUS_CANCEL)
-                    <a href="{{ route('get_user.transaction.delete', $item->id) }}" class="btn btn-sm btn-danger">Delete</a>
-                    @endif   -->
                 </td>
             </tr>
         @endforeach

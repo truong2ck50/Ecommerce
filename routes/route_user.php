@@ -21,6 +21,7 @@ Route::group(['namespace' => 'User', 'prefix' => 'user', 'middleware' => 'checkL
         Route::get('view/{id}', 'UserTransactionController@view')->name('get_user.transaction.view');
         Route::get('success/{id}', 'UserTransactionController@success')->name('get_user.transaction.success');
         Route::get('cancel/{id}', 'UserTransactionController@cancel')->name('get_user.transaction.cancel');
+        Route::post('cancel/{id}', 'UserTransactionController@cancel');
         Route::get('delete/{id}', 'UserTransactionController@delete')->name('get_user.transaction.delete');
     });
 

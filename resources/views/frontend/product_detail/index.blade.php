@@ -35,7 +35,7 @@
                             <div class="owl-stage-outer">
                                 <div class="owl-stage" style="transform: translate3d(0px, 0px, 0px); transition: all 0s ease 0s; width: 1680px;">
                                     <div class="owl-item active" style="width: 420px;"><a class="d-block" href="{{ pare_url_file($product->pro_avatar) }}" data-lightbox="product" title="Product item 1">
-                                        <img class="img-fluid" style="width:420px; height: 480px;" src="{{ pare_url_file($product->pro_avatar) }}" alt="..."></a>
+                                        <img class="img-fluid" style="width:420px; height: 500px;" src="{{ pare_url_file($product->pro_avatar) }}" alt="..."></a>
                                     </div>
                                     <!-- <div class="owl-item" style="width: 420px;"><a class="d-block" href="{{asset('img/product-detail-2.jpg')}}" data-lightbox="product" title="Product item 2"><img class="img-fluid" src="{{asset('img/product-detail-2.jpg')}}" alt="..."></a></div>
                                     <div class="owl-item" style="width: 420px;"><a class="d-block" href="{{asset('img/product-detail-3.jpg')}}" data-lightbox="product" title="Product item 3"><img class="img-fluid" src="{{asset('img/product-detail-3.jpg')}}" alt="..."></a></div>
@@ -83,7 +83,12 @@
                         @endif
                     </ul>
                     <h1>{{ $product->pro_name }}</h1>
-                    <p class="text-muted lead">{{ number_format($product->pro_price, 0, ',', '.') }} VNĐ</p>
+                    @if($product->pro_sale)
+                        <p class="text-muted lead">{{ number_format((($product->pro_price * (100 - $product->pro_sale))/100), 0, ',', '.') }} VNĐ</p>
+                        <p class="text-muted lead"><del>{{ number_format($product->pro_price, 0, ',', '.') }} VNĐ</del></p>
+                    @else
+                        <p class="text-muted lead">{{ number_format($product->pro_price, 0, ',', '.') }} VNĐ</p>
+                    @endif
                     <p class="text-small mb-4">{{ $product->pro_description }}</p>
                     <div class="row align-items-stretch mb-4 box-qty">
                         <div class="col-sm-5 pr-sm-0">

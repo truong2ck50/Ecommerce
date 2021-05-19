@@ -20,10 +20,68 @@
         @elseif($transaction->t_status == \App\Models\Transaction::STATUS_DEFAULT)
             <a href="{{ route('get_backend.transaction.success', $transaction->id) }}" class="btn btn-sm btn-primary">Xử lý</a>
             <a href="{{ route('get_backend.transaction.done', $transaction->id) }}" class="btn btn-sm btn-success">Hoàn thành</a>
-            <a href="{{ route('get_backend.transaction.cancel', $transaction->id) }}" class="btn btn-sm btn-danger">Huỷ bỏ</a>
+            <button type="button" class="btn btn-sm btn-danger" data-toggle="modal" data-target="#huydon">
+            Huỷ bỏ
+            </button>
+
+            <!-- The Modal -->
+            <div class="modal" id="huydon">
+                <div class="modal-dialog">
+                    <form action="{{ route('get_backend.transaction.cancel', $transaction->id) }}" method="POST">
+                    @csrf
+                        <div class="modal-content">
+                        <!-- Modal Header -->
+                            <div class="modal-header">
+                                <h4 class="modal-title">Lý do huỷ đơn hàng</h4>
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            </div>
+
+                            <!-- Modal body -->
+                            <div class="modal-body">
+                                <textarea required name="lyDo" class="lydohuydon" cols="62" rows="5" placeholder="Nhập lý do huỷ đơn hàng..."></textarea>
+                            </div>
+
+                            <!-- Modal footer -->
+                            <div class="modal-footer">
+                                <button type="submit" class="btn btn-success">Gửi lý do huỷ</button>
+                                <button type="button" class="btn btn-danger" data-dismiss="modal">Đóng</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
         @else
             <a href="{{ route('get_backend.transaction.done', $transaction->id) }}" class="btn btn-sm btn-success">Hoàn thành</a>
-            <a href="{{ route('get_backend.transaction.cancel', $transaction->id) }}" class="btn btn-sm btn-danger">Huỷ bỏ</a>
+            <button type="button" class="btn btn-sm btn-danger" data-toggle="modal" data-target="#huydon">
+            Huỷ bỏ
+            </button>
+
+            <!-- The Modal -->
+            <div class="modal" id="huydon">
+                <div class="modal-dialog">
+                    <form action="{{ route('get_backend.transaction.cancel', $transaction->id) }}" method="POST">
+                    @csrf
+                        <div class="modal-content">
+                        <!-- Modal Header -->
+                            <div class="modal-header">
+                                <h4 class="modal-title">Lý do huỷ đơn hàng</h4>
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            </div>
+
+                            <!-- Modal body -->
+                            <div class="modal-body">
+                                <textarea required name="lyDo" class="lydohuydon" cols="62" rows="5" placeholder="Nhập lý do huỷ đơn hàng..."></textarea>
+                            </div>
+
+                            <!-- Modal footer -->
+                            <div class="modal-footer">
+                                <button type="submit" class="btn btn-success">Gửi lý do huỷ</button>
+                                <button type="button" class="btn btn-danger" data-dismiss="modal">Đóng</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
         @endif
     </div>
     <table class="table table-hover mt-3">
@@ -37,7 +95,6 @@
             <th>Số lượng</th>
             <th>Tổng</th>
             <th>Thời gian</th>
-            <!-- <th>Action</th> -->
         </tr>
         </thead>
         <tbody>

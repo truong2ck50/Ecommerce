@@ -45,7 +45,7 @@
                 <td>{{ $item->created_at }}</td>
                 <td>
                     <a href="{{ route('get_backend.transaction.view', $item->id) }}" class="btn btn-xs btn-primary">View</a>
-                    <a href="{{ route('get_backend.transaction.delete', $item->id) }}" class="btn btn-xs btn-danger">Delete</a>
+                    <a onclick="return confirm('Bạn có chắc chắn muốn xóa không?')" href="{{ route('get_backend.transaction.delete', $item->id) }}" class="btn btn-xs btn-danger">Delete</a>
                 </td>
             </tr>
         @endforeach

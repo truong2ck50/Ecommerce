@@ -19,7 +19,7 @@
             <td style="width: 200px;">{{ $item->address }}</td>
             <td>
                 <a href="{{ route('get_backend.staff.update', $item->id) }}" class="btn btn-sm btn-primary">Update</a>
-                <a href="{{ route('get_backend.staff.delete', $item->id) }}" class="btn btn-sm btn-danger">Delete</a>
+                <a onclick="return confirm('Bạn có chắc chắn muốn xóa không?')" href="{{ route('get_backend.staff.delete', $item->id) }}" class="btn btn-sm btn-danger">Delete</a>
             </td>
         </tr>
     @endforeach

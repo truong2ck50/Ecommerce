@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
 use App\Models\Transaction;
+use App\Models\Payment;
 use App\Models\Order;
 use App\Models\Product;
 use Illuminate\Support\Facades\DB;
@@ -93,8 +94,9 @@ class BackendTransactionController extends Controller
         return redirect()->back()->with('success', 'Xác nhận thanh toán thành công');
     }
 
-    public function cancel($id)
+    public function cancel(Request $request, $id)
     {
+        $transaction = $request->except('_token');
         $transaction = Transaction::find($id);
         
         $orders = Order::where('od_transaction_id', $id)->get();
@@ -119,6 +121,7 @@ class BackendTransactionController extends Controller
         }
 
         //Cập nhật trạng thái đơn hàng
+        $transaction->t_note   = $request->lyDo;
         $transaction->t_status = Transaction::STATUS_CANCEL;
         $transaction->save();
         return redirect()->back()->with('success', 'Huỷ đơn hàng thành công');
@@ -126,12 +129,18 @@ class BackendTransactionController extends Controller
 
     public function delete($id)
     {
-        $orders = Order::where('od_transaction_id', $id)->get();
+        $payment = Payment::where('p_transaction_id', $id)->get();
+        $orders  = Order::where('od_transaction_id', $id)->get();
         if($orders)
         {
             foreach ($orders as $item) {
                 DB::table('orders')->where('id', $item->id)->delete();
             }
+        }
+
+        if($payment)
+        {
+            DB::table('payments')->where('p_transaction_id', $id)->delete();
         }
 
         DB::table('transactions')->where('id', $id)->delete();

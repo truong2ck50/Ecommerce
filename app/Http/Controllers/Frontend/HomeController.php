@@ -15,11 +15,11 @@ class HomeController extends Controller
     {
         $productsHot = Product::where(['pro_hot' => Product::HOT, 'pro_active'=> Product::STATUS_PUBLIC])
             ->limit(6)
+            ->orderByDesc('id')
             ->select('id', 'pro_name', 'pro_slug', 'pro_price', 'pro_avatar', 'pro_sale')
             ->get();
 
-        $productsNews = Product::where('pro_hot', Product::HOT)
-            ->limit(6)
+        $productsNews = Product::limit(6)
             ->select('id', 'pro_name', 'pro_slug', 'pro_price', 'pro_avatar', 'pro_sale')
             ->orderByDesc('id')
             ->get();

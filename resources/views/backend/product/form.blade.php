@@ -26,6 +26,7 @@
                     <div class="form-group">
                         <label for="exampleInputEmail1"><b>Hãng sản phẩm:</b></label>
                         <select name="pro_manufacturer_id" class="form-control" id="">
+                            <option value="0">--Chọn hãng sản phẩm--</option>
                             @foreach($manufacturers as $item)
                                 <option value="{{ $item->id }}" {{ old('pro_manufacturer_id', $product->pro_manufacturer_id ?? 0) == $item->id ? "selected" : ""}}>{{ $item->m_name }}</option>
                             @endforeach
@@ -41,7 +42,7 @@
                     <div class="form-group">
                         <label for="exampleInputEmail1"><b>Từ khoá:</b></label>
                         <select name="keywords[]" class="form-control js-tags" id="" multiple>
-                            <option value="">--Chọn từ khoá--</option>
+                            <option value="0">--Chọn từ khoá--</option>
                             @foreach($keywords as $keyword)
                                 <option value="{{ $keyword->id }}" {{ in_array($keyword->id, $keywordOld) ? "selected" : ""}}>{{ $keyword->k_name }}</option>
                             @endforeach

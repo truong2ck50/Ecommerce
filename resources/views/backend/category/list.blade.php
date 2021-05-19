@@ -29,10 +29,10 @@
                         <label class="custom-control-label" for="customRadioInline1">Nổi bật</label>
                     </div>
             </td>
-            <td>{{ $item->created_at }}</td>
+            <td>{{ $item->created_at->format('d-m-Y') }}</td>
             <td>
                 <a href="{{ route('get_backend.category.update', $item->id) }}" class="btn btn-sm btn-primary">Update</a>
-                <a href="{{ route('get_backend.category.delete', $item->id) }}" class="btn btn-sm btn-danger">Delete</a>
+                <a onclick="return confirm('Bạn có chắc chắn muốn xóa không?')" href="{{ route('get_backend.category.delete', $item->id) }}" class="btn btn-sm btn-danger">Delete</a>
             </td>
         </tr>
     @endforeach

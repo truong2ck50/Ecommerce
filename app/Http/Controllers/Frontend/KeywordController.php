@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Frontend;
 use App\Http\Controllers\Controller;
 use App\Models\Keyword;
 use App\Models\Product;
+use App\Models\WishList;
 use Illuminate\Http\Request;
 
 class KeywordController extends ProductBaseController
@@ -20,11 +21,14 @@ class KeywordController extends ProductBaseController
             ->select('id', 'pro_name', 'pro_slug', 'pro_price', 'pro_avatar')
             ->paginate(12);
 
+        $countProductFavorites = WishList::where('pf_user_id', get_data_user('web'))->count();
+
         $viewData = [
-            'title'    => $keyword->k_name,
-            'categoriesSort' => $this->getCategoriesSort(),
-            'products' => $products,
-            'keyword'  => $keyword,
+            'title'                 => $keyword->k_name,
+            'categoriesSort'        => $this->getCategoriesSort(),
+            'products'              => $products,
+            'keyword'               => $keyword,
+            'countProductFavorites' => $countProductFavorites
 
         ];
         return view('frontend.category.index', $viewData);

@@ -74,8 +74,8 @@ class ForgotPasswordController extends Controller
         $now = Carbon::now();
         if($now->diffInMinutes($checkUser->time_code) > 3)
         {
-            $code = bcrypt(md5($now.$email));
-            DB::table('users')->where('email', $email)->update(['code' => $code]);
+            // $code = bcrypt(md5($now.$email));
+            DB::table('users')->where('email', $email)->update(['code' => NULL]);
             return redirect('/')->with('danger', 'Quá thời gian, bạn vui lòng thử lại sau.');
         }
 

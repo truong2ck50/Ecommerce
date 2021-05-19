@@ -32,7 +32,7 @@
                                 <td style="width: 250px">{{ $item->v_content }}</td>
                                 <td>{{ $item->v_number }}</td>
                                 <td>
-                                    <a href="{{ route('get_backend.vote.delete', $item->id) }}" class="btn btn-sm btn-danger">Delete</a>
+                                    <a onclick="return confirm('Bạn có chắc chắn muốn xóa không?')" href="{{ route('get_backend.vote.delete', $item->id) }}" class="btn btn-sm btn-danger">Delete</a>
                                 </td>
                             </tr>
                         @endforeach

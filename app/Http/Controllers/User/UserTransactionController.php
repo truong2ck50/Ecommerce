@@ -41,16 +41,19 @@ class UserTransactionController extends Controller
         return redirect()->back();
     }
 
-    public function cancel($id)
+    public function cancel(Request $request, $id)
     {
+        $transaction = $request->except('_token');
         $transaction = Transaction::find($id);
+        
         if($transaction->t_status == Transaction::STATUS_DEFAULT)
-        {
+        {   
+            $transaction->t_note   = $request->lyDo;
             $transaction->t_status = Transaction::STATUS_CANCEL;
             $transaction->save();
         }
         
-        return redirect()->back();
+        return redirect()->back()->with('success', 'Huỷ đơn hàng thành công');
     }
 
     public function delete($id)

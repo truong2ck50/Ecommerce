@@ -128,35 +128,8 @@
                 </tbody>
             </table>
         </div>
-        <div class="col-xl-1"></div>
-        <div class="col-xl-5">
-            <h2>Danh sách đánh giá mới</h2>
-            <table class="table table-hover">
-                <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>Tên KH</th>
-                    <th>Sản phẩm</th>
-                    <th>Nội dung</th>
-                    <th>Đánh giá</th>
-                </tr>
-                </thead>
-                <tbody>
-                @foreach($votes as $item)    
-                    <tr>
-                        <td>{{ $item->id }}</td>
-                        <td>{{ $item->user->name }}</td>
-                        <td>{{ $item->product->pro_name }}</td>
-                        <td>{{ $item->v_content }}</td>
-                        <td>{{ $item->v_number }}</td>
-                    </tr>
-                @endforeach
-                </tbody>
-            </table>
-        </div>
-    </div>
-    <div class="row">
-        <div  class="col-sm-6">
+
+        <div class="col-xl-6">
             <h2>Thành viên mới đăng ký</h2>
             <table class="table table-hover">
                 <thead>
@@ -174,6 +147,33 @@
                         <td>{{ $item->name }}</td>
                         <td>{{ $item->email }}</td>
                         <td>{{ $item->phone }}</td>
+                    </tr>
+                @endforeach
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="row">
+        <div  class="col-sm-6">
+            <h2>Danh sách đánh giá mới</h2>
+            <table class="table table-hover">
+                <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Tên KH</th>
+                    <th>Sản phẩm</th>
+                    <th>Nội dung</th>
+                    <th>Đánh giá</th>
+                </tr>
+                </thead>
+                <tbody>
+                @foreach($votes as $item)    
+                    <tr>
+                        <td>{{ $item->id }}</td>
+                        <td>{{ $item->user->name }}</td>
+                        <td style="width: 230px;">{{ $item->product->pro_name }}</td>
+                        <td>{{ $item->v_content }}</td>
+                        <td>{{ $item->v_number }}</td>
                     </tr>
                 @endforeach
                 </tbody>
