@@ -257,7 +257,7 @@
                     })
                 })
             </script>
-            <!-- Messenger Plugin chat Code
+            <!-- Messenger Plugin chat Code -->
             <div id="fb-root"></div>
             <script>
                 window.fbAsyncInit = function() {
@@ -276,11 +276,11 @@
                 }(document, 'script', 'facebook-jssdk'));
             </script>
 
-            Your Plugin chat code
+            <!-- Your Plugin chat code -->
             <div class="fb-customerchat"
                 attribution="biz_inbox"
                 page_id="102864671997737">
-            </div> -->
+            </div>
             <!-- FontAwesome CSS - loading as last, so it doesn't block rendering-->
             <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
         </div>
