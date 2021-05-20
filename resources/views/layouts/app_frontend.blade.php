@@ -7,6 +7,7 @@
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="robots" content="all,follow">
+        <!-- <meta http-equiv="Content-Security-Policy" content="default-src https://www.facebook.com/; child-src 'none'; object-src 'none'"> -->
         <!-- Bootstrap CSS-->
         <link rel="stylesheet" href="{{ asset('vendor/bootstrap/css/bootstrap.min.css')}}">
         <!-- Lightbox-->
@@ -256,6 +257,30 @@
                     })
                 })
             </script>
+            <!-- Messenger Plugin chat Code
+            <div id="fb-root"></div>
+            <script>
+                window.fbAsyncInit = function() {
+                FB.init({
+                    xfbml            : true,
+                    version          : 'v10.0'
+                });
+                };
+
+                (function(d, s, id) {
+                var js, fjs = d.getElementsByTagName(s)[0];
+                if (d.getElementById(id)) return;
+                js = d.createElement(s); js.id = id;
+                js.src = 'https://connect.facebook.net/vi_VN/sdk/xfbml.customerchat.js';
+                fjs.parentNode.insertBefore(js, fjs);
+                }(document, 'script', 'facebook-jssdk'));
+            </script>
+
+            Your Plugin chat code
+            <div class="fb-customerchat"
+                attribution="biz_inbox"
+                page_id="102864671997737">
+            </div> -->
             <!-- FontAwesome CSS - loading as last, so it doesn't block rendering-->
             <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
         </div>

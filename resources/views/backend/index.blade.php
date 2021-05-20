@@ -121,7 +121,7 @@
                         <td>{{ $item->t_name }}</td>
                         <td>{{ $item->t_phone }}</td>
                         <td><span class="text-danger">{{ number_format($item->t_total_money, 0, ',', '.') }} đ</span></td>
-                        <td>{{ $item->t_note }}</td>
+                        <td style="width: 200px">{{ $item->t_note }}</td>
                         <td>{{ $item->created_at->format('d-m-Y') }}</td>
                     </tr>
                 @endforeach

@@ -18,6 +18,7 @@ class CreatePaymentsTable extends Migration
             $table->integer('p_transaction_id')->nullable();
             $table->integer('p_user_id')->nullable();
             $table->integer('p_money')->nullable()->comment('Số tiền thanh toán');
+            $table->string('p_transaction_code')->nullable();
             $table->string('p_note')->nullable()->comment('Nội dung thanh toán');
             $table->string('p_vnp_response_code', 255)->nullable()->comment('Mã phản hồi');
             $table->string('p_code_vnpay', 255)->nullable()->comment('Mã giao dịch vnpay');

@@ -51,7 +51,7 @@
                         <ul>
                             <li>Ngân hàng: {{ $item->payment->p_code_bank }}</li>
                             <li>Mã GD: {{ $item->payment->p_code_vnpay }}</li>
-                            <li>Tổng tiền: {{ number_format($item->payment->p_money/100, 0, ',','.') }} VNĐ</li>
+                            <li>Tổng tiền: {{ number_format($item->payment->p_money, 0, ',','.') }} VNĐ</li>
                             <li>Nội dung: {{ $item->payment->p_note }}</li>
                             <li>Thời gian: {{ date('Y-m-d H:i:s', strtotime($item->payment->vnp_PayDate)) }}</li>
                         </ul>
