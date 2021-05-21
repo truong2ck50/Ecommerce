@@ -20,8 +20,13 @@ class UserController extends Controller
         ->select('id')
         ->count();
 
-        $totalTransactionDone = Transaction::where('t_user_id', get_data_user('web'))
+        $totalTransactionSuccess = Transaction::where('t_user_id', get_data_user('web'))
         ->where('t_status', Transaction::STATUS_SUCCESS)
+        ->select('id')
+        ->count();
+
+        $totalTransactionDone = Transaction::where('t_user_id', get_data_user('web'))
+        ->where('t_status', Transaction::STATUS_DONE)
         ->select('id')
         ->count();
 
@@ -31,10 +36,11 @@ class UserController extends Controller
         ->count();
 
         $viewData = [
-            'totalTransaction'       => $totalTransaction,
-            'totalTransactionDone'   => $totalTransactionDone,
-            'totalTransactionCancel' => $totalTransactionCancel,
-            'transactions'           => $transactions
+            'totalTransaction'        => $totalTransaction,
+            'totalTransactionDone'    => $totalTransactionDone,
+            'totalTransactionCancel'  => $totalTransactionCancel,
+            'transactions'            => $transactions,
+            'totalTransactionSuccess' => $totalTransactionSuccess
         ];
         return view('user.index', $viewData);
     }

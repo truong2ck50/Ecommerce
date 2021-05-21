@@ -9,9 +9,9 @@
                     <div class="row no-gutters align-items-center">
                         <div class="col mr-2">
                             <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                                Tổng số đơn hàng
+                                Tiếp nhận
                             </div>
-                            <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $totalTransaction }}</div>
+                            <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $totalTransaction - $totalTransactionCancel - $totalTransactionDone - $totalTransactionSuccess }}</div>
                         </div>
                         <div class="col-auto">
                             <!-- <i class="fas fa-calendar fa-2x text-gray-300"></i> -->
@@ -29,7 +29,7 @@
                             <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
                                 Đã xử lý
                             </div>
-                            <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $totalTransactionDone }}</div>
+                            <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $totalTransactionSuccess }}</div>
                         </div>
                         <div class="col-auto">
                             <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
@@ -45,11 +45,11 @@
                     <div class="row no-gutters align-items-center">
                         <div class="col mr-2">
                             <div class="text-xs font-weight-bold text-info text-uppercase mb-1">
-                                Chưa xử lý
+                                Hoàn thành
                             </div>
                             <div class="row no-gutters align-items-center">
                                 <div class="col-auto">
-                                    <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">{{ $totalTransaction - $totalTransactionDone - $totalTransactionCancel}}</div>
+                                    <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">{{ $totalTransactionDone }}</div>
                                 </div>
                             </div>
                         </div>
