@@ -76,7 +76,7 @@
                     <div class="col-xl-6 col-lg-4 col-sm-6">
                         <div class="product text-center">
                             <a href="">
-                                <img src="https://cdn.tgdd.vn/Products/Images/522/228144/Feature/samsung-galaxy-tab-a7-2020-ft.jpg" alt="">
+                                <img src="images/samsung-galaxy-tab-a7-2020-ft.jpg" alt="">
                             </a>
                         </div>
                     </div>
