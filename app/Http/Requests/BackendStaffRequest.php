@@ -24,7 +24,7 @@ class BackendStaffRequest extends FormRequest
     public function rules()
     {
         return [
-            'email'    => 'required|unique:admins,name,'.$this->id,
+            'email'    => 'required|unique:admins,email,'.$this->id,
             'name'     => 'required',
             'password' => 'required',
             'phone'    => 'required',

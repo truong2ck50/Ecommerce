@@ -16,7 +16,7 @@
     </div>
     <div class="form-group">
         <label for="exampleInputEmail1"><b>Mật khẩu:</b></label>
-        <input type="password" class="form-control" name="password" value="">
+        <input type="password" class="form-control" name="password" value="{{ old('password', $staff->password ?? '') }}">
         @if ($errors->first('password'))
             <small id="emailHelp" class="form-text text-danger">{{ $errors->first('password') }}</small>
         @endif
