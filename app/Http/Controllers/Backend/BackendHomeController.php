@@ -49,10 +49,10 @@ class BackendHomeController extends Controller
             'name' => 'Doanh thu ngày',
             'y'    => (int)$moneyDay
             ],
-            [
-            'name' => 'Doanh thu tuần',
-            'y'    => (int)$moneyWeek
-            ],
+            // [
+            // 'name' => 'Doanh thu tuần',
+            // 'y'    => (int)$moneyWeek
+            // ],
             [
             'name' => 'Doanh thu tháng',
             'y'    => (int)$moneyMonth

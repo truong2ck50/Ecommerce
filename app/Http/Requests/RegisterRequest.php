@@ -27,6 +27,7 @@ class RegisterRequest extends FormRequest
             'email'    => 'required|unique:users,email,'.$this->id,
             'name'     => 'required',
             'password' => 'required',
+            'address'  => 'required',
             'phone'    => 'required|unique:users,phone,'.$this->id
         ];
     }
@@ -34,12 +35,13 @@ class RegisterRequest extends FormRequest
     public function messages() 
     {
         return [
-            'email.required'  => 'Dữ liệu không được để trống',
-            'email.unique'    => 'Dữ liệu đã tồn tại',
-            'name.unique'     => 'Dữ liệu không được để trống',
-            'password.unique' => 'Dữ liệu không được để trống',
-            'phone.unique'    => 'Dữ liệu không được để trống',
-            'phone.unique'    => 'Dữ liệu đã tồn tại'
+            'email.required'    => 'Dữ liệu không được để trống',
+            'email.unique'      => 'Dữ liệu đã tồn tại',
+            'name.required'     => 'Dữ liệu không được để trống',
+            'password.required' => 'Dữ liệu không được để trống',
+            'address.required'  => 'Dữ liệu không được để trống',
+            'phone.required'    => 'Dữ liệu không được để trống',
+            'phone.unique'      => 'Dữ liệu đã tồn tại'
 
         ];
     }

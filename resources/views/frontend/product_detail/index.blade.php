@@ -93,7 +93,7 @@
                     <div class="row align-items-stretch mb-4 box-qty">
                         <div class="col-sm-5 pr-sm-0">
                             <div class="border d-flex align-items-center justify-content-between py-1 px-3 bg-white border-white">
-                                <span class="small text-uppercase text-gray mr-4 no-select">Qty</span>
+                                <span class="small text-uppercase text-gray mr-4 no-select">Số lượng</span>
                                 <div class="quantity">
                                     <button class="dec-btn p-0"><i class="fas fa-caret-left"></i></button>
                                     <input class="form-control border-0 shadow-0 p-0 val-qty" type="text" value="1">
@@ -233,7 +233,7 @@
                             </a>
                             <div class="product-overlay">
                                 <ul class="mb-0 list-inline">
-                                    <li class="list-inline-item m-0 p-0"><a class="btn btn-sm btn-outline-dark" href="#"><i class="far fa-heart"></i></a></li>
+                                    <li class="list-inline-item m-0 p-0"><a class="btn btn-sm btn-outline-dark" href="{{ route('get_user.wishlist.add', $product->id) }}"><i class="far fa-heart"></i></a></li>
                                     <li class="list-inline-item m-0 p-0"><a class="btn btn-sm btn-dark js-add-cart" href="{{ route('get_ajax.shopping.add', $product->id) }}   ">Thêm giỏ hàng</a></li>
                                     <li class="list-inline-item mr-0">
                                         <a class="btn btn-sm btn-outline-dark js-product-preview" href="{{ route('get_ajax.product_preview', $item->id) }}" data-toggle="modal"><i class="fas fa-expand"></i></a>

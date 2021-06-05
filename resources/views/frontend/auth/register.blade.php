@@ -64,6 +64,12 @@
                                         <small id="emailHelp" class="form-text text-danger">{{ $errors->first('phone') }}</small>
                                     @endif
                                 </div>
+                                <div class="form-group mb-3">
+                                    <input type="text" placeholder="Address" name="address" value="{{ old('address') }}" required="" class="form-control rounded-pill border-0 shadow-sm px-4 text-primary">
+                                    @if ($errors->first('address'))
+                                        <small id="emailHelp" class="form-text text-danger">{{ $errors->first('address') }}</small>
+                                    @endif
+                                </div>
                                 <button type="submit" class="btn btn-primary btn-block text-uppercase mb-2 rounded-pill shadow-sm">Đăng ký</button>
                                 <div class="text-center d-flex justify-content-between mt-4"><p>Bạn đã có tài khoản vui lòng đăng nhập
                                         <a href="{{ route('get.login')}}" class="font-italic text-muted">
