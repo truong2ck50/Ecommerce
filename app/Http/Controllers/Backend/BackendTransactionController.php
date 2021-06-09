@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use App\Exports\TransactionsExport;
 use Maatwebsite\Excel\Facades\Excel;
+use PDF;
 
 class BackendTransactionController extends Controller
 {
@@ -29,6 +30,40 @@ class BackendTransactionController extends Controller
         ];
 
         return view('backend.transaction.index', $viewData);
+    }
+
+    public function invoice($id)
+    {
+        // $pdf = \App::make('dompdf.wrapper');
+        $transaction = Transaction::find($id);
+        $orders      = Order::with('product')->where('od_transaction_id', $id)->get();
+        $viewData    = [
+            'transaction' => $transaction,
+            'orders'      => $orders
+        ];
+
+        // $pdf->loadView('backend.invoice', $viewData);
+
+        // return $pdf->stream();
+
+        // $pdf = PDF::loadView('backend.invoice',  $viewData);
+
+        // return $pdf->download('invoice.pdf');
+        return view('backend.invoice', $viewData);
+    }
+
+    public function invoicePdf($id)
+    {
+        // $transaction = Transaction::find($id);
+        // $orders      = Order::with('product')->where('od_transaction_id', $id)->get();
+        // $viewData    = [
+        //     'transaction' => $transaction,
+        //     'orders'      => $orders
+        // ];
+
+        // $pdf = PDF::loadView('backend.invoice',  $viewData);
+
+        // return $pdf->download('invoice.pdf');
     }
 
     public function view($id)

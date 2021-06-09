@@ -165,6 +165,8 @@ Route::group(['namespace' => 'Backend', 'prefix' => 'admin', 'middleware' => 'ch
     Route::prefix('transaction')->group(function() {
         Route::get('', 'BackendTransactionController@index')->name('get_backend.transaction.index');
         Route::get('view/{id}', 'BackendTransactionController@view')->name('get_backend.transaction.view');
+        Route::get('invoice/{id}', 'BackendTransactionController@invoice')->name('get_backend.transaction.invoice');
+        Route::get('invoice-pdf/{id}', 'BackendTransactionController@invoicePdf')->name('get_backend.transaction.invoicePdf');
         Route::get('success/{id}', 'BackendTransactionController@success')->name('get_backend.transaction.success');
         Route::get('done/{id}', 'BackendTransactionController@done')->name('get_backend.transaction.done');
         Route::get('cancel/{id}', 'BackendTransactionController@cancel')->name('get_backend.transaction.cancel');

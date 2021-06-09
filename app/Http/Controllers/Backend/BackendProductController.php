@@ -15,6 +15,9 @@ use Illuminate\Http\Request;
 
 class BackendProductController extends Controller
 {
+    public function __construct() {
+        
+    }
     protected $folder = 'backend.product.';
 
     public function index()
