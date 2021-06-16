@@ -30,6 +30,14 @@ class AjaxShoppingCartController extends Controller
             {
                 return response()->json([
                     'status'  => 200,
+                    'message' => 'Sản phẩm tạm hết hàng'
+                ]);
+            }
+
+            if($product->pro_number < $qty)
+            {
+                return response()->json([
+                    'status'  => 200,
                     'message' => 'Số lượng sản phẩm không đủ'
                 ]);
             }
