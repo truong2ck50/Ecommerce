@@ -39,7 +39,7 @@
                 </td>
                 <td><span>{{ number_format($item->product->pro_price, 0, ',', '.') }} đ</span></td>
                 <td>
-                    <a href="{{ route('get_user.wishlist.delete', $item->id) }}" class="btn btn-outline-danger">Delete</a>
+                    <a onclick="return confirm('Bạn có chắc chắn muốn xóa không?')" href="{{ route('get_user.wishlist.delete', $item->id) }}" class="btn btn-outline-danger">Delete</a>
                 </td>
             </tr>
         @endforeach

@@ -30,12 +30,11 @@
                 <h4>Thông tin liên hệ</h4>
                 <p>Địa chỉ: Số 78, đường Quốc lộ 3, thôn Phù Mã, xã Phù Linh, huyện Sóc Sơn, TP. Hà Nội</p>
                 <p>Số điện thoại: 0971459902</p>
-                <p>Fanpage: <a target="blank" href="https://www.facebook.com/maytinhtccservis/">Máy tính Trường Chinh 78 Phố Mã, Sóc Sơn</a>
+                <p>Fanpage: <a target="blank" href="https://www.facebook.com/PhongbanhangTCC/">Máy tính Trường Chinh 78 Phố Mã, Sóc Sơn</a>
                     <div id="fb-root"></div>
-                    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v10.0" nonce="1wQyBXcj"></script>
-                    <div class="fb-page" data-href="https://www.facebook.com/maytinhtccservis/" data-tabs="timeline" data-width="500" data-height="" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true">
-                        <blockquote cite="https://www.facebook.com/maytinhtccservis/" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/maytinhtccservis/">Máy tính Trường Chinh 78 Phố Mã, Sóc Sơn</a></blockquote>
-                    </div>
+                    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v11.0" nonce="LvkdrsgP"></script>
+                    <div class="fb-page" data-href="https://www.facebook.com/PhongbanhangTCC/" data-tabs="timeline" data-width="500" data-height="" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"><blockquote cite="https://www.facebook.com/PhongbanhangTCC/" class="fb-xfbml-parse-ignore">
+                    <a href="https://www.facebook.com/PhongbanhangTCC/">Máy tính Trường Chinh 78 Phố Mã, Sóc Sơn</a></blockquote></div>
                 </p>
             </div>
             <div class="col-md-12 mb-5">
