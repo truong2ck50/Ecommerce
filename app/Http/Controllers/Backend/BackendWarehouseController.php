@@ -14,7 +14,7 @@ class BackendWarehouseController extends Controller
 
         if($request->type == 'pay')
         {
-            $products->where('pro_pay', '>', 0)->orderByDesc('pro_pay');
+            $products->where('pro_pay', '>', 5)->orderByDesc('pro_pay');
         }
         elseif($request->type == 'outOfStock')
         {
